@@ -1,0 +1,91 @@
+@font-face {
+	font-family: 'Bricolage Grotesque';
+	font-weight: 200 800;
+	font-display: swap;
+	src: url('$lib/assets/bricolage-grotesque.woff2') format('woff2');
+}
+
+/* signed up proper, so these can glide between sizes 'stead of jumpin' */
+@property --title-size {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
+@property --title-gap {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
+@property --avatar-size {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
+:root {
+	color-scheme: dark;
+	--primary: #febc20;
+	--primary-text: #151b23;
+	--bg: #151b23;
+	--text: #dbe0e9;
+	--white: #fff;
+
+	--font: 'Bricolage Grotesque', system-ui, sans-serif;
+	--font-size: 1.125rem;
+	--line-height: 1.5;
+
+	--gutter: clamp(1rem, 5vw, 4rem);
+	--outline: 0.15rem solid currentColor;
+	--outline-offset: 0.25rem;
+
+	--hero-height: 50svh;
+	--title-size: clamp(3rem, 18vw, 18rem);
+	--title-gap: var(--gutter);
+	--title-weight: 800;
+	--title-leading: 0.8;
+	--title-tracking: -0.05em;
+
+	--avatar-size: clamp(4.5rem, 26.5vw, 15.5rem);
+	--peek-duration: 0.8s;
+	--bounce: cubic-bezier(0.3, 1.4, 0.5, 1);
+	--gaze-reach: 6px;
+	--pupil-big: 19px;
+	--pupil-small: 15.5px;
+	--swap-duration: 0.3s;
+	--swap-back-duration: 0.5s;
+
+	--nav-height: 4rem;
+	--nav-gutter: clamp(1rem, 1vw, 4rem);
+	--nav-title-size: 2rem;
+	--nav-title-gap: 1rem;
+	--nav-avatar-size: 3.5rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-padding-top: var(--nav-height);
+}
+
+body {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	min-height: 100svh;
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: var(--font-size) / var(--line-height) var(--font);
+}
+
+a {
+	color: inherit;
+}
+
+:focus-visible {
+	outline: var(--outline);
+	outline-offset: var(--outline-offset);
+}
