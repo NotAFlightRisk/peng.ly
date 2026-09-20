@@ -39,18 +39,19 @@
 	{@html schema}
 </svelte:head>
 
-<main>{@render children()}</main>
+{@render children()}
 
 <footer>
 	<ul>
 		{#each links as link (link.url)}
-			<li><a href={link.url}>{link.name}</a></li>
+			<li><a href={link.url} target="_blank">{link.name}</a></li>
 		{/each}
 	</ul>
 </footer>
 
 <style>
 	footer {
+		margin-top: auto;
 		padding: var(--gutter);
 	}
 
@@ -58,9 +59,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--gutter);
-		margin: 0;
-		padding: 0;
-		list-style: none;
 	}
 
 	a:hover {

@@ -1,12 +1,28 @@
 <script lang="ts">
-	import { site } from '$lib/config';
+	import { site, panels } from '$lib/config';
+	import { contributions, reports } from '$lib/content';
 	import Penguin from '$lib/Penguin.svelte';
+	import Panel from '$lib/Panel.svelte';
+	import Contributions from '$lib/Contributions.svelte';
+	import Reports from '$lib/Reports.svelte';
+	import Projects from '$lib/Projects.svelte';
+	import Posts from '$lib/Posts.svelte';
+
+	// the front page only gets reports with a CVE number on 'em
+	const featured = reports.filter(({ cve }) => cve);
 </script>
 
 <header>
 	<h1>{site.name}</h1>
 	<Penguin />
 </header>
+
+<main>
+	<Panel {...panels.openSource}><Contributions {contributions} /></Panel>
+	<Panel {...panels.security}><Reports reports={featured} /></Panel>
+	<Panel {...panels.projects}><Projects /></Panel>
+	<Panel {...panels.writing}><Posts /></Panel>
+</main>
 
 <style>
 	header {
@@ -20,6 +36,7 @@
 		overflow: hidden;
 		background: var(--primary);
 		color: var(--primary-text);
+		box-shadow: var(--hero-shadow);
 	}
 
 	h1 {
@@ -30,9 +47,15 @@
 		letter-spacing: var(--title-tracking);
 	}
 
+	main {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, max(var(--panel-width), 40%)), 1fr));
+		gap: var(--gutter);
+		padding: var(--gutter);
+	}
+
 	@supports (animation-timeline: scroll()) {
 		@media (prefers-reduced-motion: no-preference) {
-			/* scrolls off till there's just a nav's worth left, then stays put */
 			header {
 				position: sticky;
 				top: calc(var(--nav-height) - var(--hero-height));

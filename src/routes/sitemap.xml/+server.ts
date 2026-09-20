@@ -2,8 +2,14 @@ import { site } from '$lib/config';
 
 export const prerender = true;
 
+// route groups (like pages) ain't part of the URL, so bin 'em
 const paths = Object.keys(import.meta.glob('/src/routes/**/+page.svelte')).map((file) =>
-	file.replace('/src/routes', '').replace('/+page.svelte', '')
+	file
+		.replace('/src/routes', '')
+		.replace('/+page.svelte', '')
+		.split('/')
+		.filter((part) => !part.startsWith('('))
+		.join('/')
 );
 
 export const GET = () =>

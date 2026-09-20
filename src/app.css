@@ -5,7 +5,6 @@
 	src: url('$lib/assets/bricolage-grotesque.woff2') format('woff2');
 }
 
-/* signed up proper, so these can glide between sizes 'stead of jumpin' */
 @property --title-size {
 	syntax: '<length>';
 	inherits: true;
@@ -29,18 +28,26 @@
 	--primary: #febc20;
 	--primary-text: #151b23;
 	--bg: #151b23;
+	--card: #1f2731;
 	--text: #dbe0e9;
+	--muted: #9aa4b2;
 	--white: #fff;
 
 	--font: 'Bricolage Grotesque', system-ui, sans-serif;
 	--font-size: 1.125rem;
 	--line-height: 1.5;
+	--small-size: 0.875rem;
 
-	--gutter: clamp(1rem, 5vw, 4rem);
+	--gutter: clamp(1rem, 4vw, 4rem);
+	--gap: 0.5rem;
+	--list-gap: 1rem;
+	--radius: 3px;
+	--target-size: 1.5rem;
 	--outline: 0.15rem solid currentColor;
 	--outline-offset: 0.25rem;
 
 	--hero-height: 50svh;
+	--hero-shadow: 0 4px 2px #000000c7;
 	--title-size: clamp(3rem, 18vw, 18rem);
 	--title-gap: var(--gutter);
 	--title-weight: 800;
@@ -61,6 +68,24 @@
 	--nav-title-size: 2rem;
 	--nav-title-gap: 1rem;
 	--nav-avatar-size: 3.5rem;
+
+	--panel-width: 24rem;
+	--panel-padding: 1.25rem;
+	--panel-title-padding: 0.75rem;
+	--panel-shadow: 1px 2px #000000a3;
+
+	--button-bg: #0000001f;
+	--button-padding: 0.25rem 0.5rem;
+	--button-weight: 500;
+	--button-shadow: inset 0 -3px 0 #00000033;
+	--button-shadow-pressed: inset 0 -6px 0 #00000033;
+	--panel-title-size: 1.75rem;
+	--pr-gap: 0.1rem;
+	--icon-size: 1.5rem;
+
+	--page-width: 56rem;
+	--page-title-size: clamp(2.5rem, 10vw, 5rem);
+	--page-title-leading: 1;
 }
 
 * {
@@ -71,14 +96,21 @@ html {
 	scroll-padding-top: var(--nav-height);
 }
 
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 body {
-	display: grid;
-	grid-template-rows: 1fr auto;
+	display: flex;
+	flex-direction: column;
 	min-height: 100svh;
 	margin: 0;
 	background: var(--bg);
 	color: var(--text);
 	font: var(--font-size) / var(--line-height) var(--font);
+	overflow-wrap: break-word;
 }
 
 a {
