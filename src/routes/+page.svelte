@@ -26,17 +26,22 @@
 
 <style>
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 1;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: end;
 		align-content: end;
 		justify-content: end;
-		min-height: var(--hero-height);
+		min-height: var(--nav-height);
 		padding: 0 var(--gutter);
 		overflow: hidden;
 		background: var(--primary);
 		color: var(--primary-text);
 		box-shadow: var(--hero-shadow);
+		/* no scroll animation to be had? then it sits at the nav end of the shrink */
+		animation: shrink 0s linear both;
 	}
 
 	h1 {
@@ -50,6 +55,9 @@
 	main {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, max(var(--panel-width), 40%)), 1fr));
+		width: 100%;
+		max-width: var(--panels-width);
+		margin-inline: auto;
 		gap: var(--gutter);
 		padding: var(--gutter);
 	}
@@ -57,10 +65,9 @@
 	@supports (animation-timeline: scroll()) {
 		@media (prefers-reduced-motion: no-preference) {
 			header {
-				position: sticky;
 				top: calc(var(--nav-height) - var(--hero-height));
-				z-index: 1;
-				animation: shrink linear both;
+				min-height: var(--hero-height);
+				animation-duration: auto;
 				animation-timeline: scroll();
 				animation-range: 0 calc(var(--hero-height) - var(--nav-height));
 			}

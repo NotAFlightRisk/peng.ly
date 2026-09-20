@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Projects from '$lib/Projects.svelte';
+	import ProjectCards from '$lib/ProjectCards.svelte';
 </script>
 
-<Projects />
+<ProjectCards />

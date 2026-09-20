@@ -29,6 +29,7 @@
 	--primary-text: #151b23;
 	--bg: #151b23;
 	--card: #1f2731;
+	--card-hover: #28323e;
 	--text: #dbe0e9;
 	--muted: #9aa4b2;
 	--white: #fff;
@@ -79,11 +80,21 @@
 	--button-weight: 500;
 	--button-shadow: inset 0 -3px 0 #00000033;
 	--button-shadow-pressed: inset 0 -6px 0 #00000033;
-	--panel-title-size: 1.75rem;
+	--panel-title-size: clamp(1.25rem, 7vw, 1.75rem);
 	--pr-gap: 0.1rem;
 	--icon-size: 1.5rem;
 
+	--card-width: 18rem;
+	--card-title-size: 1.25rem;
+	--card-icon-size: 2.5rem;
+	--card-hover-shadow: 3px 5px #000000a3;
+	--hover-transition: 0.15s cubic-bezier(0.2, 0, 0, 1);
+
+	--footer-padding: 0.5rem 1rem;
+
 	--page-width: 56rem;
+	--grid-width: 72rem;
+	--panels-width: 90rem;
 	--page-title-size: clamp(2.5rem, 10vw, 5rem);
 	--page-title-leading: 1;
 }

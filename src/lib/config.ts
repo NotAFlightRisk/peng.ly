@@ -10,22 +10,22 @@ export const panels = {
 	openSource: {
 		title: 'Open Source',
 		href: '/contributions',
-		description: 'Sometimes I fix bugs, harden security and update docs'
+		description: 'Sometimes I fix bugs, work on feature requests, harden security and update docs'
 	},
 	security: {
 		title: 'Security Research',
 		href: '/security-reports',
-		description: 'Security vulnerabilities Iain has found and reported, with their CVE IDs and advisories.'
+		description: 'Sometimes I report security issues, to help keep open source safe'
 	},
 	projects: {
 		title: 'Projects',
 		href: '/projects',
-		description: 'Open source projects built by Iain.'
+		description: 'Apps I\'ve built and maintain'
 	},
 	writing: {
 		title: 'Writing',
 		href: '/blog',
-		description: 'Blog posts written by Iain.'
+		description: 'Thoughts'
 	}
 };
 

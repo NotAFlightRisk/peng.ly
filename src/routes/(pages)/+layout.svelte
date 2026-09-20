@@ -11,7 +11,7 @@
 	<Penguin />
 </header>
 
-<main>
+<main class:wide={page.data.wide}>
 	<h1>{page.data.title}</h1>
 	<p>{page.data.description}</p>
 	{@render children()}
@@ -44,8 +44,14 @@
 	}
 
 	main {
+		width: 100%;
 		max-width: var(--page-width);
+		margin-inline: auto;
 		padding: var(--gutter);
+	}
+
+	.wide {
+		max-width: var(--grid-width);
 	}
 
 	h1 {

@@ -13,7 +13,7 @@
 	a {
 		display: flex;
 		width: fit-content;
-		align-items: center;
+		align-items: start;
 		gap: var(--gap);
 		overflow-wrap: anywhere;
 	}

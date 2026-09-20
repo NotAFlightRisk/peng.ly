@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { page } from '$app/state';
 	import { site, links } from '$lib/config';
+	import Footer from '$lib/Footer.svelte';
 	import favicon from '$lib/assets/favicon.svg';
 	import avatar from '$lib/assets/avatar.jpg';
 
@@ -41,27 +42,4 @@
 
 {@render children()}
 
-<footer>
-	<ul>
-		{#each links as link (link.url)}
-			<li><a href={link.url} target="_blank">{link.name}</a></li>
-		{/each}
-	</ul>
-</footer>
-
-<style>
-	footer {
-		margin-top: auto;
-		padding: var(--gutter);
-	}
-
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--gutter);
-	}
-
-	a:hover {
-		color: var(--primary);
-	}
-</style>
+<Footer />
