@@ -1,36 +1,16 @@
 export type Contribution = { repo: string; prs: { number: number; title: string }[] };
 
-export const contributions: Contribution[] = [
-	{
-		repo: 'GuillaumeGomez/sysinfo',
-		prs: [
-			{ number: 1731, title: 'Fix thermal zone temperatures freezing after the first `Components::refresh`' },
-			{ number: 1726, title: 'Fix thermal zone components being dropped by `Components::refresh`' },
-			{ number: 1717, title: "linux: keep a component's max temperature across refreshes" }
-		]
-	},
-	{
-		repo: 'connectrpc/connect-go',
-		prs: [
-			{ number: 959, title: 'Fix panic in stream Spec and Peer when client construction failed' },
-			{ number: 957, title: 'Only send a 304 when the request was a GET' },
-			{ number: 956, title: 'Fix connect.WithGRPC typo in the missing client option error' }
-		]
-	},
-	{
-		repo: 'wazero/wazero',
-		prs: [
-			{ number: 2540, title: 'poll_oneoff: do not sleep when there is no clock subscription' },
-			{ number: 2537, title: 'cmd/wazero: exit non-zero on an invalid -listen or -mount' }
-		]
-	},
-	{
-		repo: 'sidorares/node-mysql2',
-		prs: [
-			{ number: 4513, title: 'fix(typings): PoolCluster node events emit a string nodeId' },
-			{ number: 4491, title: 'fix: zero dates come back as "undefined 00:00:00" with dateStrings' }
-		]
-	}
+// the ones worth showing on the front page, as owner/repo#pr. GitHub gives us the titles
+export const contributions = [
+	'gotify/server#1046',
+	'wazero/wazero#2540',
+	'wazero/wazero#2537',
+	'emersion/go-smtp#309',
+	'emersion/go-smtp#308',
+	'emersion/go-smtp#306',
+	'redis/rueidis#1026',
+	'redis/rueidis#1025',
+	'anacrolix/torrent#1099'
 ];
 
 export type Report = { ghsa: string; cve?: string; title: string; repo: string };

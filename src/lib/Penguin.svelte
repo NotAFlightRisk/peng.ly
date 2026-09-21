@@ -5,6 +5,7 @@
 	let eyes: SVGGElement;
 	let pointer: PointerEvent | undefined;
 	let pressed = $state(false);
+	let nooting = $state(false);
 	// nice 'n' lazy, and the damping's matched so 'is eyes don't go all wobbly
 	const look = new Spring({ x: 0, y: 0 }, { stiffness: 0.04, damping: 0.36 });
 
@@ -34,6 +35,8 @@
 	role="img"
 	aria-label="{site.author}'s avatar, a cartoon penguin"
 	class:pressed
+	class:nooting
+	onpointerdown={() => (nooting = true)}
 	style:--look-x={look.current.x}
 	style:--look-y={look.current.y}
 >
@@ -43,6 +46,7 @@
 	<path class="white" d="M-171 465 V405 A171 171 0 0 1 171 405 V465 Z" />
 	<path
 		class="beak"
+		onanimationend={() => (nooting = false)}
 		stroke-width="32"
 		paint-order="stroke"
 		d="M0 176 C55 176 98 184 98 197 C98 221 20 276 0 276 C-20 276 -98 221 -98 197 C-98 184 -55 176 0 176 Z"
@@ -60,6 +64,8 @@
 		display: block;
 		width: var(--avatar-size);
 		height: auto;
+		/* sat a touch low so his flat bottom never lifts off the header */
+		translate: 0 var(--peek-sink);
 		fill: var(--primary-text);
 	}
 
@@ -68,6 +74,9 @@
 	}
 
 	.beak {
+		transform-box: fill-box;
+		/* hinged where it meets 'is face, so only the tip drops */
+		transform-origin: top;
 		fill: var(--primary);
 		stroke: var(--primary-text);
 	}
@@ -88,7 +97,11 @@
 
 	@media (prefers-reduced-motion: no-preference) {
 		svg {
-			animation: peek var(--peek-duration) var(--bounce) both;
+			animation: peek var(--peek-duration) var(--peek-ease) both;
+		}
+
+		.nooting .beak {
+			animation: noot var(--noot-duration) var(--bounce);
 		}
 
 		.pupil {
@@ -103,6 +116,12 @@
 	@keyframes peek {
 		from {
 			translate: 0 100%;
+		}
+	}
+
+	@keyframes noot {
+		50% {
+			scale: 1 var(--noot-open);
 		}
 	}
 </style>

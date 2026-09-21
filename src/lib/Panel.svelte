@@ -7,7 +7,7 @@
 <section>
 	<header>
 		<h2>{title}</h2>
-		<a {href} aria-label="View all {title}">View all</a>
+		<a class="button" {href} aria-label="View all {title}">View all</a>
 	</header>
 	<div>{@render children()}</div>
 </section>
@@ -37,23 +37,6 @@
 		font-weight: var(--title-weight);
 		line-height: var(--title-leading);
 		letter-spacing: var(--title-tracking);
-	}
-
-	a {
-		padding: var(--button-padding);
-		border-radius: var(--radius);
-		background: var(--button-bg);
-		font-size: var(--small-size);
-		font-weight: var(--button-weight);
-		text-decoration: none;
-	}
-
-	a:hover {
-		box-shadow: var(--button-shadow);
-	}
-
-	a:active {
-		box-shadow: var(--button-shadow-pressed);
 	}
 
 	div {

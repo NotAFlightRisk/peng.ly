@@ -29,4 +29,17 @@ export const panels = {
 	}
 };
 
+export const pages = {
+	about: {
+		title: 'About',
+		href: '/about',
+		description: 'A bit about me, and what I get up to'
+	},
+	contact: {
+		title: 'Contact',
+		href: '/contact',
+		description: 'How to get hold of me'
+	}
+};
+
 export const links = [{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' }];

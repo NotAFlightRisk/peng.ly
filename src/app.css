@@ -23,6 +23,12 @@
 	initial-value: 0px;
 }
 
+@property --gaze-reach {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
 :root {
 	color-scheme: dark;
 	--primary: #febc20;
@@ -35,11 +41,12 @@
 	--white: #fff;
 
 	--font: 'Bricolage Grotesque', system-ui, sans-serif;
+	--mono: ui-monospace, monospace;
 	--font-size: 1.125rem;
 	--line-height: 1.5;
 	--small-size: 0.875rem;
 
-	--gutter: clamp(1rem, 4vw, 4rem);
+	--gutter: clamp(1rem, 3vw, 4rem);
 	--gap: 0.5rem;
 	--list-gap: 1rem;
 	--radius: 3px;
@@ -57,18 +64,25 @@
 
 	--avatar-size: clamp(4.5rem, 26.5vw, 15.5rem);
 	--peek-duration: 0.8s;
+	/* just enough spring to feel alive, without flashin' the header underneath 'im */
+	--peek-ease: cubic-bezier(0.25, 1.2, 0.5, 1);
+	--peek-sink: 4%;
 	--bounce: cubic-bezier(0.3, 1.4, 0.5, 1);
 	--gaze-reach: 6px;
 	--pupil-big: 19px;
 	--pupil-small: 15.5px;
 	--swap-duration: 0.3s;
 	--swap-back-duration: 0.5s;
+	--noot-duration: 0.3s;
+	--noot-open: 1.2;
 
 	--nav-height: 4rem;
 	--nav-gutter: clamp(1rem, 1vw, 4rem);
 	--nav-title-size: 2rem;
 	--nav-title-gap: 1rem;
 	--nav-avatar-size: 3.5rem;
+	/* he's tiny up there, so the pupils need more travel to read at all */
+	--nav-gaze-reach: 12px;
 
 	--panel-width: 24rem;
 	--panel-padding: 1.25rem;
@@ -91,6 +105,7 @@
 	--hover-transition: 0.15s cubic-bezier(0.2, 0, 0, 1);
 
 	--footer-padding: 0.5rem 1rem;
+	--separator: 1px solid #ffffff1f;
 
 	--page-width: 56rem;
 	--grid-width: 72rem;
@@ -126,6 +141,23 @@ body {
 
 a {
 	color: inherit;
+}
+
+.button {
+	padding: var(--button-padding);
+	border-radius: var(--radius);
+	background: var(--button-bg);
+	font-size: var(--small-size);
+	font-weight: var(--button-weight);
+	text-decoration: none;
+}
+
+.button:hover {
+	box-shadow: var(--button-shadow);
+}
+
+.button:active {
+	box-shadow: var(--button-shadow-pressed);
 }
 
 :focus-visible {
