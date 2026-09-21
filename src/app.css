@@ -39,6 +39,8 @@
 	--text: #dbe0e9;
 	--muted: #9aa4b2;
 	--white: #fff;
+	--selection: var(--primary);
+	--selection-text: var(--bg);
 
 	--font: 'Bricolage Grotesque', system-ui, sans-serif;
 	--mono: ui-monospace, monospace;
@@ -158,6 +160,17 @@ a {
 
 .button:active {
 	box-shadow: var(--button-shadow-pressed);
+}
+
+::selection {
+	background: var(--selection);
+	color: var(--selection-text);
+}
+
+/* the headers are already yellow, so up there he swaps 'em round */
+header ::selection {
+	background: var(--selection-text);
+	color: var(--selection);
 }
 
 :focus-visible {
