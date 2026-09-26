@@ -26,6 +26,12 @@
 		color: var(--primary);
 	}
 
+	a + :global(a) {
+		flex-direction: row-reverse;
+		color: var(--muted);
+		font-size: var(--small-size);
+	}
+
 	li {
 		display: flex;
 		flex-wrap: wrap;
