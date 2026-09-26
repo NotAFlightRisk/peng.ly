@@ -99,6 +99,7 @@
 	--panel-title-size: clamp(1.25rem, 7vw, 1.75rem);
 	--pr-gap: 0.1rem;
 	--icon-size: 1.5rem;
+	--small-icon-size: 1rem;
 
 	--card-width: 18rem;
 	--card-title-size: 1.25rem;
@@ -143,6 +144,11 @@ body {
 
 a {
 	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .button {
@@ -151,11 +157,11 @@ a {
 	background: var(--button-bg);
 	font-size: var(--small-size);
 	font-weight: var(--button-weight);
-	text-decoration: none;
 }
 
 .button:hover {
 	box-shadow: var(--button-shadow);
+	text-decoration: none;
 }
 
 .button:active {

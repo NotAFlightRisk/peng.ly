@@ -42,11 +42,6 @@
 		gap: var(--gap);
 		color: var(--muted);
 		font-size: var(--small-size);
-		text-decoration: none;
-	}
-
-	a:hover {
-		text-decoration: underline;
 	}
 
 	span {

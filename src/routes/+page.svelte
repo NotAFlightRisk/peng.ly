@@ -30,7 +30,7 @@
 
 <main>
 	<Panel {...panels.openSource}><Contributions contributions={data.contributions} /></Panel>
-	<Panel {...panels.security}><Reports reports={featured} /></Panel>
+	<Panel {...panels.security}><Reports reports={featured} idFirst /></Panel>
 	<Panel {...panels.projects}><Projects /></Panel>
 	<Panel {...panels.writing}><Posts /></Panel>
 </main>
