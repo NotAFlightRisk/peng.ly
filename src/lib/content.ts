@@ -17,6 +17,51 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-m5g6-wmf6-85qq',
+		title: "merge-key (<<) YAML bombs bypass yq's entity-expansion guard and exhaust memory",
+		repo: 'kislyuk/yq'
+	},
+	{
+		ghsa: 'GHSA-73xg-gp6q-pw5j',
+		title: 'icalendar parser recurses once per BEGIN line with no depth limit (stack-overflow DoS)',
+		repo: 'icalendar/icalendar'
+	},
+	{
+		ghsa: 'GHSA-pmpw-wwcm-r8rc',
+		title: 'Quadratic .mailmap parsing in Snapshot::from_bytes allows a CPU denial of service',
+		repo: 'GitoxideLabs/gitoxide'
+	},
+	{
+		ghsa: 'GHSA-h7w2-xgxh-p66q',
+		title: 'Quadratic parse time in helperFindEmphChar on a run of unmatched [',
+		repo: 'gomarkdown/markdown'
+	},
+	{
+		ghsa: 'GHSA-r4xh-jqrq-34v2',
+		title: 'Quadratic-time parse() from parseKey rescanning to end of document on each key line',
+		repo: 'squirrelchat/smol-toml'
+	},
+	{
+		ghsa: 'GHSA-c2xw-vp6w-gpph',
+		title: 'Compressed ID3v2 frames are decompressed without a size limit (decompression bomb)',
+		repo: 'JamesHeinrich/getID3'
+	},
+	{
+		ghsa: 'GHSA-3wh2-8x78-jfw4',
+		title: 'Connection hijacking via forgeable provider-cache key',
+		repo: 'libredb/libredb-studio'
+	},
+	{
+		ghsa: 'GHSA-6w8c-5m3c-g2m8',
+		title: 'Nested namespace declarations cause quadratic memory use and an uncatchable out-of-memory crash',
+		repo: 'nikku/saxen'
+	},
+	{
+		ghsa: 'GHSA-84w7-hpvm-rxx2',
+		title: 'expand_shorthand! regex (RE_FUNCTIONS) backtracks exponentially on an unclosed CSS function value',
+		repo: 'premailer/css_parser'
+	},
+	{
 		ghsa: 'GHSA-jp82-f5mq-hwhp',
 		title: 'Memory exhaustion via unchecked TypedArray length in JSON deserialization',
 		repo: 'lxsmnsyc/seroval'
