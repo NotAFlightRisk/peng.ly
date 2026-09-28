@@ -17,6 +17,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-g4wm-2vf7-vfgr',
+		title: "RCE in simple-git 3.36.0 via customArgs include.path",
+		repo: 'steveukx/git-js'
+	},
+	{
 		ghsa: 'GHSA-m5g6-wmf6-85qq',
 		title: "merge-key (<<) YAML bombs bypass yq's entity-expansion guard and exhaust memory",
 		repo: 'kislyuk/yq'
