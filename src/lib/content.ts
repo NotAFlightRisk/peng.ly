@@ -19,7 +19,8 @@ export const reports: Report[] = [
 	{
 		ghsa: 'GHSA-g4wm-2vf7-vfgr',
 		title: "RCE in simple-git 3.36.0 via customArgs include.path",
-		repo: 'steveukx/git-js'
+		repo: 'steveukx/git-js',
+		cve: 'CVE-2026-102826'
 	},
 	{
 		ghsa: 'GHSA-m5g6-wmf6-85qq',
