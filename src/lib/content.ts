@@ -147,6 +147,7 @@ export const reports: Report[] = [
 	},
 	{
 		ghsa: 'GHSA-c475-qrg2-pj4r',
+		cve: 'CVE-2026-102990',
 		title: 'Quadratic-time CPU denial of service in the Client.list() Unix directory-listing parser',
 		repo: 'patrickjuchli/basic-ftp'
 	},
