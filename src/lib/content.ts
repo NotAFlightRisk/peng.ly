@@ -17,6 +17,21 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-4wxf-43cv-cfxx',
+		title: 'A CSS length in a style attribute drives an unbounded string allocation',
+		repo: 'weblyzard/inscriptis'
+	},
+	{
+		ghsa: 'GHSA-94fv-h7hv-365q',
+		title: 'url()/@import external-resource filter bypassed by a CSS backslash-newline line continuation',
+		repo: 'rhukster/dom-sanitizer'
+	},
+	{
+		ghsa: 'GHSA-rxr4-84rf-f47h',
+		title: 'Unsanitised gem name on upload allows file writes outside the gems directory',
+		repo: 'geminabox/geminabox'
+	},
+	{
 		ghsa: 'GHSA-g4wm-2vf7-vfgr',
 		title: "RCE in simple-git 3.36.0 via customArgs include.path",
 		repo: 'steveukx/git-js',
