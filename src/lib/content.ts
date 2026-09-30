@@ -17,6 +17,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-7m55-42q7-888r',
+		title: 'Allocation of unvalidated thumbnail size causing DoS',
+		repo: 'psd-tools/psd-tools'
+	},
+	{
 		ghsa: 'GHSA-4wxf-43cv-cfxx',
 		title: 'A CSS length in a style attribute drives an unbounded string allocation',
 		repo: 'weblyzard/inscriptis'
