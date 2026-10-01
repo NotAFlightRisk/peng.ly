@@ -17,6 +17,21 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-cqgh-8p3p-mx4m',
+		title: 'JSONReader in the default JSON-RPC mapper never terminates on truncated input, causing DoS',
+		repo: 'rabbitmq/rabbitmq-java-client'
+	},
+	{
+		ghsa: 'GHSA-m8rp-22v5-pp4x',
+		title: 'SQL injection via the relation join-filter query parameter',
+		repo: 'daptin/daptin'
+	},
+	{
+		ghsa: 'GHSA-4356-5g33-3qrp',
+		title: 'Juju secret contents recorded in exported tracing spans',
+		repo: 'canonical/operator'
+	},
+	{
 		ghsa: 'GHSA-7m55-42q7-888r',
 		title: 'Allocation of unvalidated thumbnail size causing DoS',
 		repo: 'psd-tools/psd-tools'
