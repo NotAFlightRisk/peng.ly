@@ -56,6 +56,18 @@ export const pages = {
 // the lot that gets a link in the header an' footer, so add one an' their breakpoints want shiftin'
 export const sections = [...Object.values(panels), ...Object.values(pages)];
 
+// what the error page says, lost is a 404 an' broken is anyfin' else
+export const errors = {
+	lost: {
+		title: 'Noot found',
+		description: 'That\'s penguin for page not found. The link might be old, or the address might have a typo.'
+	},
+	broken: {
+		title: 'Noot working',
+		description: 'Something broke on my end. Give it another go in a minute.'
+	}
+};
+
 // nuffin' links to these yet, the sitemap's the only way in
 export const unlisted = {
 	answers: {

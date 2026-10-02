@@ -119,6 +119,14 @@
 	--panels-width: 90rem;
 	--page-title-size: clamp(2.5rem, 10vw, 5rem);
 	--page-title-leading: 1;
+
+	--error-size: clamp(6rem, min(46vw, 50svh), 36rem);
+	--error-slide: 0.5em;
+	/* sized by eye to sit like a proper nought next to the font's own numbers */
+	--zero-width: 0.6em;
+	--zero-ratio: 0.875;
+	--zero-stroke: 0.16em;
+	--zero-gap: 0.03em;
 }
 
 * {

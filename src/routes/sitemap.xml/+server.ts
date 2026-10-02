@@ -2,8 +2,10 @@ import { site } from '$lib/config';
 
 export const prerender = true;
 
-// route groups (like pages) ain't part of the URL, so bin 'em
-const paths = Object.keys(import.meta.glob('/src/routes/**/+page.svelte')).map((file) =>
+// route groups (like pages) ain't part of the URL, so bin 'em, an' nobody wants the 404 listed
+const pages = import.meta.glob(['/src/routes/**/+page.svelte', '!/src/routes/404/**']);
+
+const paths = Object.keys(pages).map((file) =>
 	file
 		.replace('/src/routes', '')
 		.replace('/+page.svelte', '')
