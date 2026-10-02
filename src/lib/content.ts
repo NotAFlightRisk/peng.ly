@@ -194,25 +194,28 @@ export const projects = [
 	{
 		name: 'android-rom-compat',
 		description: 'Which Android ROMs run on your phone, feature availability and bootloader unlock status',
-		url: 'https://github.com/NotAFlightRisk/android-rom-compat',
+		repo: 'NotAFlightRisk/android-rom-compat',
+		site: 'https://android-rom-compat.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg'
 	},
 	{
 		name: 'ai-usage-dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
-		url: 'https://github.com/NotAFlightRisk/ai-usage-dashboard',
+		repo: 'NotAFlightRisk/ai-usage-dashboard',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg'
 	},
 	{
 		name: 'track-the-gap',
 		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
-		url: 'https://github.com/NotAFlightRisk/track-the-gap',
+		repo: 'NotAFlightRisk/track-the-gap',
+		site: 'https://track-the-gap.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg'
 	},
 	{
 		name: 'parallax',
 		description: 'Merge logs from several machines and line up their clocks',
-		url: 'https://github.com/NotAFlightRisk/parallax',
+		repo: 'NotAFlightRisk/parallax',
+		site: 'https://parallax.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg'
 	}
 ];

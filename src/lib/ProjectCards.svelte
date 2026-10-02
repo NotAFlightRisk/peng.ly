@@ -1,15 +1,21 @@
 <script lang="ts">
 	import { projects } from '$lib/content';
+	import Github from '~icons/tabler/brand-github';
+	import World from '~icons/tabler/world';
 </script>
 
 <ul>
-	{#each projects as { name, description, url, logo } (url)}
+	{#each projects as { name, description, repo, site, logo } (repo)}
 		<li>
-			<h2><a href={url} target="_blank">{name}</a></h2>
+			<h2>{name}</h2>
 			<div>
 				<img src={logo} alt="" loading="lazy" />
 				<p>{description}</p>
 			</div>
+			<footer>
+				{#if site}<a href={site} target="_blank"><World aria-hidden="true" />Website</a>{/if}
+				<a href="https://github.com/{repo}" target="_blank"><Github aria-hidden="true" />Source</a>
+			</footer>
 		</li>
 	{/each}
 </ul>
@@ -22,64 +28,28 @@
 	}
 
 	li {
-		position: relative;
-		padding: var(--panel-padding);
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
 		border-radius: var(--radius);
 		background: var(--card);
 		box-shadow: var(--panel-shadow);
-		transition:
-			background var(--hover-transition),
-			box-shadow var(--hover-transition);
-	}
-
-	li:hover,
-	li:focus-within {
-		background: var(--card-hover);
-		box-shadow: var(--card-hover-shadow);
-	}
-
-	li:active {
-		background: var(--card-hover);
-		box-shadow: var(--panel-shadow);
-	}
-
-	/* ring goes round the whole card, since that's the bit you're clickin' */
-	li:has(a:focus-visible) {
-		outline: var(--outline);
-		outline-offset: var(--outline-offset);
-	}
-
-	a:focus-visible {
-		outline: none;
 	}
 
 	h2 {
-		margin: 0 0 var(--gap);
+		margin: 0;
+		padding: var(--panel-padding) var(--panel-padding) var(--gap);
 		font-size: var(--card-title-size);
 		font-weight: var(--title-weight);
 	}
 
-	a {
-		text-decoration: none;
-		transition: color var(--hover-transition);
-	}
-
-	/* stretches the link over the whole card, so anywhere you click works */
-	a::after {
-		position: absolute;
-		inset: 0;
-		content: '';
-	}
-
-	li:hover a,
-	li:focus-within a {
-		color: var(--primary);
-	}
-
+	/* soaks up the spare room, so the buttons line up along the bottom of a row */
 	div {
 		display: flex;
+		flex: 1;
 		align-items: start;
 		gap: var(--gap);
+		padding: 0 var(--panel-padding) var(--panel-padding);
 	}
 
 	img {
@@ -93,5 +63,44 @@
 		margin: 0;
 		color: var(--muted);
 		font-size: var(--small-size);
+	}
+
+	footer {
+		display: flex;
+		border-top: var(--separator);
+		background: var(--button-bg);
+		font-size: var(--small-size);
+		font-weight: var(--button-weight);
+	}
+
+	a {
+		display: flex;
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		gap: var(--gap);
+		min-height: var(--action-height);
+		transition:
+			background var(--hover-transition),
+			color var(--hover-transition);
+	}
+
+	a + a {
+		border-left: var(--separator);
+	}
+
+	a:hover {
+		background: var(--card-hover);
+		color: var(--primary);
+		text-decoration: none;
+	}
+
+	a:active {
+		box-shadow: var(--button-shadow);
+	}
+
+	/* ring goes on the inside, or the card's edge would lop it off */
+	a:focus-visible {
+		outline-offset: calc(var(--outline-offset) * -1);
 	}
 </style>

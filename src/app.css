@@ -104,7 +104,7 @@
 	--card-width: 18rem;
 	--card-title-size: 1.25rem;
 	--card-icon-size: 2.5rem;
-	--card-hover-shadow: 3px 5px #000000a3;
+	--action-height: 2.75rem;
 	--hover-transition: 0.15s cubic-bezier(0.2, 0, 0, 1);
 
 	--footer-padding: 0.5rem 1rem;
