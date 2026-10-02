@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { links, pages, panels, site } from '$lib/config';
+	import { links, sections, site } from '$lib/config';
 
 	// prerendered, so this is whenever the site was last built
 	const year = new Date().getFullYear();
-	const sections = [...Object.values(panels), ...Object.values(pages)];
 </script>
 
 <footer>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { site } from '$lib/config';
+	import Menu from '$lib/Menu.svelte';
 	import Penguin from '$lib/Penguin.svelte';
 
 	let { children } = $props();
@@ -8,6 +9,7 @@
 
 <header>
 	<a href="/">{site.name}</a>
+	<Menu />
 	<Penguin />
 </header>
 
@@ -25,7 +27,7 @@
 		z-index: 1;
 		display: flex;
 		align-items: end;
-		justify-content: space-between;
+		gap: var(--list-gap);
 		height: var(--nav-height);
 		padding: 0 var(--nav-gutter);
 		overflow: hidden;
@@ -34,8 +36,9 @@
 		box-shadow: var(--hero-shadow);
 	}
 
+	/* the auto margin shoves the links an' the penguin over to the right */
 	a {
-		margin-bottom: var(--nav-title-gap);
+		margin: 0 auto var(--nav-title-gap) 0;
 		font-size: var(--nav-title-size);
 		font-weight: var(--title-weight);
 		line-height: var(--title-leading);

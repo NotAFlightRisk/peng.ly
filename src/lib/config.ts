@@ -50,6 +50,9 @@ export const pages = {
 	}
 };
 
+// the lot that gets a link in the header an' the footer
+export const sections = [...Object.values(panels), ...Object.values(pages)];
+
 // nuffin' links to these yet, the sitemap's the only way in
 export const unlisted = {
 	answers: {
