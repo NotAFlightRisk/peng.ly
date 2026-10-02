@@ -50,4 +50,13 @@ export const pages = {
 	}
 };
 
-export const links = [{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' }];
+// nuffin' links to these yet, the sitemap's the only way in
+export const unlisted = {
+	answers: {
+		title: 'Answers',
+		description: 'Occasionally I answer questions on the codebases I\'m familiar with...',
+		meta: 'Questions I\'ve answered in GitHub Discussions, where my reply was marked as the accepted answer.'
+	}
+};
+
+export const links =[{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' }];

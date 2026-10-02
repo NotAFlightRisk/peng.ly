@@ -32,5 +32,8 @@ export const load = async ({ fetch }) => {
 	);
 
 	// repos we've piled more than a few PRs into would 'og the whole page
-	return { ...panels.openSource, contributions: repos.filter(({ prs }) => prs.length <= busiest) };
+	return {
+		...panels.openSource,
+		contributions: repos.filter(({ threads }) => threads.length <= busiest)
+	};
 };

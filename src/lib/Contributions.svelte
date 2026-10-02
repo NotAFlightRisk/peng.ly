@@ -2,17 +2,18 @@
 	import Repo from '$lib/Repo.svelte';
 	import type { Contribution } from '$lib/content';
 
-	let { contributions }: { contributions: Contribution[] } = $props();
+	// path is the bit of the GitHub URL between the repo an' the number
+	let { contributions, path = 'pull' }: { contributions: Contribution[]; path?: string } = $props();
 </script>
 
 <ul>
-	{#each contributions as { repo, prs } (repo)}
+	{#each contributions as { repo, threads } (repo)}
 		<li>
 			<Repo {repo} />
 			<ul>
-				{#each prs as { number, title } (number)}
+				{#each threads as { number, title } (number)}
 					<li>
-						<a href="https://github.com/{repo}/pull/{number}" target="_blank">
+						<a href="https://github.com/{repo}/{path}/{number}" target="_blank">
 							<span {title}>{title}</span>
 							#{number}
 						</a>

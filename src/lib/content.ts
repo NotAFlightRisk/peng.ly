@@ -1,4 +1,4 @@
-export type Contribution = { repo: string; prs: { number: number; title: string }[] };
+export type Contribution = { repo: string; threads: { number: number; title: string }[] };
 
 // the ones worth showing on the front page, as owner/repo#pr. GitHub gives us the titles
 export const contributions = [
