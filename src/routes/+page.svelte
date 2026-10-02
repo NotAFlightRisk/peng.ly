@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { site, panels, pages } from '$lib/config';
-	import { reports } from '$lib/content';
+	import { posts, projects, reports } from '$lib/content';
 	import Penguin from '$lib/Penguin.svelte';
 	import Panel from '$lib/Panel.svelte';
 	import Contributions from '$lib/Contributions.svelte';
@@ -29,10 +29,12 @@
 </header>
 
 <main>
-	<Panel {...panels.openSource}><Contributions contributions={data.contributions} /></Panel>
-	<Panel {...panels.security}><Reports reports={featured} idFirst /></Panel>
-	<Panel {...panels.projects}><Projects /></Panel>
-	<Panel {...panels.writing}><Posts /></Panel>
+	<Panel {...panels.openSource} count={data.total}>
+		<Contributions contributions={data.contributions} />
+	</Panel>
+	<Panel {...panels.security} count={reports.length}><Reports reports={featured} idFirst /></Panel>
+	<Panel {...panels.projects} count={projects.length}><Projects /></Panel>
+	<Panel {...panels.writing} count={posts.length}><Posts /></Panel>
 </main>
 <img class="pingu" width="48" src="https://pixelflare.cc/iain/gif/penguin-dance.gif" alt="noot" />
 
