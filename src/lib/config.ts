@@ -9,8 +9,8 @@ export const site = {
 
 // description is the bit you read on the page, meta is the bit Google reads
 export const panels = {
-	openSource: {
-		title: 'Open Source',
+	contributions: {
+		title: 'Contributions',
 		href: '/contributions',
 		description: 'Sometimes I fix bugs, work on feature requests, harden security and update docs',
 		meta: 'Pull requests I\'ve had merged into other people\'s projects. Bug fixes, new features, security hardening and documentation.'

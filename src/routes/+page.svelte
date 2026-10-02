@@ -29,7 +29,7 @@
 </header>
 
 <main>
-	<Panel {...panels.openSource} count={data.total}>
+	<Panel {...panels.contributions} count={data.total}>
 		<Contributions contributions={data.contributions} />
 	</Panel>
 	<Panel {...panels.security} count={reports.length}><Reports reports={featured} idFirst /></Panel>
