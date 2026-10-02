@@ -18,12 +18,11 @@ export const contributions = [
 export type Report = { ghsa: string; cve?: string; title: string; repo: string };
 
 export const reports: Report[] = [
-	// Awaiting publish
-	// {
-	// 	ghsa: 'GHSA-34wm-2c8c-7wmm',
-	// 	title: 'Unsafe deserialization of descriptor JSON via unrestricted Type.GetType',
-	// 	repo: 'BpsLogicBuilder/LogicBuilder.Structures'
-	// },
+	{
+		ghsa: 'GHSA-34wm-2c8c-7wmm',
+		title: 'Unsafe deserialization of descriptor JSON via unrestricted Type.GetType',
+		repo: 'BpsLogicBuilder/LogicBuilder.Structures'
+	},
 	{
 		ghsa: 'GHSA-cqgh-8p3p-mx4m',
 		title: 'JSONReader in the default JSON-RPC mapper never terminates on truncated input, causing DoS',
@@ -112,6 +111,7 @@ export const reports: Report[] = [
 	},
 	{
 		ghsa: 'GHSA-jp82-f5mq-hwhp',
+		cve: 'CVE-2026-104845',
 		title: 'Memory exhaustion via unchecked TypedArray length in JSON deserialization',
 		repo: 'lxsmnsyc/seroval'
 	},
