@@ -1,3 +1,5 @@
+import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
+
 export type Contribution = { repo: string; threads: { number: number; title: string }[] };
 
 // the ones worth showing on the front page, as owner/repo#pr. GitHub gives us the titles
@@ -217,6 +219,21 @@ export const projects = [
 		repo: 'NotAFlightRisk/parallax',
 		site: 'https://parallax.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg'
+	},
+	{
+		name: 'color-code-convertor',
+		description: 'Paste a color in any format, get all seventeen others',
+		repo: 'NotAFlightRisk/color-code-convertor',
+		site: 'https://color-code-convertor.peng.ly',
+		// its favicon's drawn in code over there, so we keep our own copy
+		logo: colorCodeConvertor
+	},
+	{
+		name: 'statusquo',
+		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
+		repo: 'NotAFlightRisk/statusquo',
+		site: 'https://statusquo.peng.ly',
+		logo: 'https://statusquo.peng.ly/favicon.svg'
 	}
 ];
 
