@@ -7,7 +7,6 @@
 	<button class="button" popovertarget="menu" aria-label="Menu">
 		<svg
 			viewBox="0 0 24 24"
-			fill="none"
 			stroke="currentColor"
 			stroke-width="2"
 			stroke-linecap="round"
@@ -29,16 +28,11 @@
 </nav>
 
 <style>
-	nav {
-		align-self: center;
-	}
-
 	button {
 		display: grid;
 		place-items: center;
 		width: var(--action-height);
 		height: var(--action-height);
-		padding: 0;
 		border: 0;
 		color: inherit;
 		cursor: pointer;
@@ -72,14 +66,11 @@
 		color: inherit;
 	}
 
-	[aria-current] {
-		background: var(--button-bg-current);
-	}
-
 	@media (width < 55rem) {
 		/* burger goes far left, but the title still comes first for tabbin' an' screen readers */
 		nav {
 			order: -1;
+			align-self: center;
 		}
 
 		/* hidden by 'and too, so a browser too old for popovers don't leave it stuck open */
@@ -119,10 +110,10 @@
 			display: none;
 		}
 
-		/* the inset only bites if it's left open while the screen gets wider, an' parks it in the same spot */
+		/* inset's only for when it's left open an' the screen gets wider */
 		ul {
 			position: static;
-			inset: 0 calc(var(--nav-gutter) + var(--nav-avatar-size) + var(--list-gap)) auto auto;
+			inset: 0 var(--menu-right) auto auto;
 			display: flex;
 			align-items: center;
 			height: var(--nav-height);

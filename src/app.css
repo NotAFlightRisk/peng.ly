@@ -70,6 +70,7 @@
 	--peek-ease: cubic-bezier(0.25, 1.2, 0.5, 1);
 	--peek-sink: 4%;
 	--bounce: cubic-bezier(0.3, 1.4, 0.5, 1);
+	--ease: cubic-bezier(0.2, 0, 0, 1);
 	--gaze-reach: 6px;
 	--pupil-big: 19px;
 	--pupil-small: 15.5px;
@@ -85,7 +86,7 @@
 	--nav-avatar-size: 3.5rem;
 	/* he's tiny up there, so the pupils need more travel to read at all */
 	--nav-gaze-reach: 12px;
-	--menu-transition: 0.3s cubic-bezier(0.2, 0, 0, 1);
+	--menu-transition: 0.3s var(--ease);
 	--menu-drop: 0 -1rem;
 
 	--panel-width: 24rem;
@@ -108,7 +109,7 @@
 	--card-title-size: 1.25rem;
 	--card-icon-size: 2.5rem;
 	--action-height: 2.75rem;
-	--hover-transition: 0.15s cubic-bezier(0.2, 0, 0, 1);
+	--hover-transition: 0.15s var(--ease);
 
 	--footer-padding: 0.5rem 1rem;
 	--separator: 1px solid #ffffff1f;
@@ -169,6 +170,10 @@ a:hover {
 
 .button:active {
 	box-shadow: var(--button-shadow-pressed);
+}
+
+.button[aria-current] {
+	background: var(--button-bg-current);
 }
 
 ::selection {

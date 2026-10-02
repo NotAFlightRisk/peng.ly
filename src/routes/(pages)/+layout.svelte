@@ -22,6 +22,8 @@
 <style>
 	header {
 		--avatar-size: var(--nav-avatar-size);
+		/* where the links' right edge sits, so an open menu can park itself there */
+		--menu-right: calc(var(--nav-gutter) + var(--nav-avatar-size) + var(--list-gap));
 		position: sticky;
 		top: 0;
 		z-index: 1;
@@ -36,7 +38,6 @@
 		box-shadow: var(--hero-shadow);
 	}
 
-	/* the auto margin shoves the links an' the penguin over to the right */
 	a {
 		margin: 0 auto var(--nav-title-gap) 0;
 		font-size: var(--nav-title-size);

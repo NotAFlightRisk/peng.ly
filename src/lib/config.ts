@@ -50,7 +50,7 @@ export const pages = {
 	}
 };
 
-// the lot that gets a link in the header an' the footer
+// the lot that gets a link in the header an' footer, so add one an' their breakpoints want shiftin'
 export const sections = [...Object.values(panels), ...Object.values(pages)];
 
 // nuffin' links to these yet, the sitemap's the only way in
