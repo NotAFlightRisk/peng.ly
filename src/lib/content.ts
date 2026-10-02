@@ -109,6 +109,7 @@ export const reports: Report[] = [
 	},
 	{
 		ghsa: 'GHSA-jp82-f5mq-hwhp',
+		cve: 'CVE-2026-104845',
 		title: 'Memory exhaustion via unchecked TypedArray length in JSON deserialization',
 		repo: 'lxsmnsyc/seroval'
 	},
