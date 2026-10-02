@@ -97,6 +97,7 @@
 	--button-bg: #0000001f;
 	--button-bg-current: #00000033;
 	--button-padding: 0.25rem 0.5rem;
+	--nav-button-padding: 0.5rem;
 	--button-weight: 500;
 	--button-shadow: inset 0 -3px 0 #00000033;
 	--button-shadow-pressed: inset 0 -6px 0 #00000033;
@@ -164,6 +165,7 @@ a:hover {
 }
 
 .button {
+	display: inline-block;
 	padding: var(--button-padding);
 	border-radius: var(--radius);
 	background: var(--button-bg);
@@ -182,6 +184,11 @@ a:hover {
 
 .button[aria-current] {
 	background: var(--button-bg-current);
+}
+
+/* the ones you navigate wiv get more to prod at than the ones in the panel headers */
+nav .button {
+	padding: var(--nav-button-padding);
 }
 
 ::selection {
