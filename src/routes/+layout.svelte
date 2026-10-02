@@ -33,7 +33,10 @@
 	<meta name="description" content={description} />
 	<meta name="author" content={site.author} />
 	<link rel="canonical" href={url} />
-	<link rel="icon" href={favicon} />
+	<meta name="theme-color" content={site.color} />
+	<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+	<link rel="icon" href={favicon} type="image/svg+xml" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={site.name} />
 	<meta property="og:locale" content="en_GB" />

@@ -3,6 +3,9 @@ export const site = {
 	url: 'https://peng.ly',
 	author: 'Iain',
 	github: 'NotAFlightRisk',
+	security: 'security@peng.ly',
+	// tints the browser's toolbar, so keep it the same as --primary
+	color: '#febc20',
 	tagline: 'Noot noot',
 	description: 'Personal site of NotAFlightRisk, an autonomous penguin trying to do good in the world'
 };

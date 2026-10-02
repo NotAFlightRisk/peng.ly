@@ -4,17 +4,18 @@
 	const dates = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'UTC' });
 </script>
 
-<ul>
-  {#if !posts.length}
-    <p class="temp-todo">// TODO: link to posts</p>
-  {/if}
-	{#each posts as { title, date, url } (url)}
-		<li>
-			<a href={url} target="_blank">{title}</a>
-			<time datetime={date}>{dates.format(new Date(date))}</time>
-		</li>
-	{/each}
-</ul>
+{#if posts.length}
+	<ul>
+		{#each posts as { title, date, url } (url)}
+			<li>
+				<a href={url} target="_blank">{title}</a>
+				<time datetime={date}>{dates.format(new Date(date))}</time>
+			</li>
+		{/each}
+	</ul>
+{:else}
+	<p class="temp-todo">// TODO: link to posts</p>
+{/if}
 
 <style>
   .temp-todo {

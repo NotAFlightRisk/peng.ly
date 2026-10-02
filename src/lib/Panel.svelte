@@ -11,7 +11,7 @@
 <section>
 	<header>
 		<h2>{title}</h2>
-		<a class="button" {href} aria-label="View all {title}{tally}">View all{tally}</a>
+		<a class="button" {href} aria-label="View all{tally} {title}">View all{tally}</a>
 	</header>
 	<div>{@render children()}</div>
 </section>
