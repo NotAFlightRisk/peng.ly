@@ -19,6 +19,16 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-26rx-6fvr-qjqg',
+		title: 'mcp-memory-server HTTP transport starts without authentication',
+		repo: 'doobidoo/mcp-memory-service'
+	},
+	{
+		ghsa: 'GHSA-75h3-q43q-9338',
+		title: 'URL scheme imports tokens without confirmation, bypassing App Lock',
+		repo: 'Nerdykidtech/Autheris'
+	},
+	{
 		ghsa: 'GHSA-34wm-2c8c-7wmm',
 		title: 'Unsafe deserialization of descriptor JSON via unrestricted Type.GetType',
 		repo: 'BpsLogicBuilder/LogicBuilder.Structures'
