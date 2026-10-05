@@ -25,6 +25,8 @@ npm run check    # type and a11y checks
 
 Follow the developing instructions, then run `npm run build` and upload the `build/` folder to any static host.
 
+There's no analytics unless you build with `PUBLIC_PLAUSIBLE_SCRIPT` set to a [Plausible](https://plausible.io/) script URL. Only the live site has it set.
+
 ---
 
 ## Licence
