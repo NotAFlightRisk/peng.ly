@@ -19,6 +19,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-mm34-2v69-6vg6',
+		title: 'Stack overflow decoding deeply nested dynamic protobuf messages',
+		repo: 'jhump/protoreflect'
+	},
+	{
 		ghsa: 'GHSA-26rx-6fvr-qjqg',
 		title: 'mcp-memory-server HTTP transport starts without authentication',
 		repo: 'doobidoo/mcp-memory-service'
