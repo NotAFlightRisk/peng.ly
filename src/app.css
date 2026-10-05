@@ -121,6 +121,24 @@
 	--page-title-size: clamp(2.5rem, 10vw, 5rem);
 	--page-title-leading: 1;
 
+	--stat-gap: 0.25rem;
+	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
+	--hero-title-size: clamp(2.5rem, 14cqi, 5rem);
+	--hero-logo-size: clamp(3.5rem, 16cqi, 6rem);
+	/* nuffin' on a short screen, a bit more breathin' room the taller it gets */
+	--hero-padding: clamp(0rem, 8svh - 2.5rem, 3rem);
+	--screenshot-ratio: 16 / 10;
+	--readme-indent: 1.5em;
+	--readme-heading-gap: 2rem;
+	--quote-border: 0.25rem solid var(--muted);
+	--code-padding: 0.1em 0.35em;
+	--code-size: 0.85em;
+	--code-keyword: var(--primary);
+	--code-comment: var(--muted);
+	--code-string: #a5d6a7;
+	--code-constant: #90caf9;
+	--code-entity: #ce93d8;
+
 	--error-size: clamp(6rem, min(46vw, 50svh), 36rem);
 	--error-slide: 0.5em;
 	/* sized by eye to sit like a proper nought next to the font's own numbers */

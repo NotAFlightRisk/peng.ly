@@ -1,18 +1,23 @@
 import { site } from '$lib/config';
+import { projects } from '$lib/content';
 
 export const prerender = true;
 
 // route groups (like pages) ain't part of the URL, so bin 'em, an' nobody wants the 404 listed
 const pages = import.meta.glob(['/src/routes/**/+page.svelte', '!/src/routes/404/**']);
 
-const paths = Object.keys(pages).map((file) =>
-	file
-		.replace('/src/routes', '')
-		.replace('/+page.svelte', '')
-		.split('/')
-		.filter((part) => !part.startsWith('('))
-		.join('/')
-);
+const paths = Object.keys(pages)
+	.map((file) =>
+		file
+			.replace('/src/routes', '')
+			.replace('/+page.svelte', '')
+			.split('/')
+			.filter((part) => !part.startsWith('('))
+			.join('/')
+	)
+	// a [name] page is one file doin' lots of pages, so they get listed one by one below
+	.filter((path) => !path.includes('['))
+	.concat(projects.map(({ name }) => `/projects/${name}`));
 
 export const GET = () =>
 	new Response(
