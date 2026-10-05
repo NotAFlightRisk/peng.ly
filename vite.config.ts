@@ -25,7 +25,10 @@ const vercel: Adapter = {
 	}
 };
 
+const plausible = process.env.PUBLIC_PLAUSIBLE_SCRIPT ?? '';
+
 export default defineConfig({
+	define: { 'import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT': JSON.stringify(plausible) },
 	plugins: [
 		sveltekit({
 			adapter: vercel,

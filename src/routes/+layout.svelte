@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import '../app.css';
 	import { page } from '$app/state';
 	import { site, links } from '$lib/config';
 	import Footer from '$lib/Footer.svelte';
+	import { loadPlausible } from '$lib/plausible';
 	import favicon from '$lib/assets/favicon.svg';
 	import avatar from '$lib/assets/avatar.jpg';
 	import og from '$lib/assets/og.png';
@@ -26,6 +28,8 @@
 	});
 	// that backslash stops Svelte finkin' our script's done a runner
 	const schema = `<script type="application/ld+json">${person}<\/script>`;
+
+	onMount(() => loadPlausible());
 </script>
 
 <svelte:head>
