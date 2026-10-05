@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import '../app.css';
 	import { page } from '$app/state';
 	import { site, links } from '$lib/config';
 	import Footer from '$lib/Footer.svelte';
-	import { loadPlausible } from '$lib/plausible';
 	import favicon from '$lib/assets/favicon.svg';
 	import avatar from '$lib/assets/avatar.jpg';
 	import og from '$lib/assets/og.png';
@@ -28,8 +26,14 @@
 	});
 	// that backslash stops Svelte finkin' our script's done a runner
 	const schema = `<script type="application/ld+json">${person}<\/script>`;
-
-	onMount(() => loadPlausible());
+	// Most pages ship no JS at all, so the tracker has to load from the HTML itself
+	const plausible = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT;
+	const tracker = plausible && `<script>{
+		const src = ${JSON.stringify(plausible)};
+		const script = Object.assign(document.createElement('script'), { src, async: true });
+		script.onload = () => plausible.init({ endpoint: new URL('/api/event', src).href });
+		document.head.append(script);
+	}<\/script>`;
 </script>
 
 <svelte:head>
@@ -53,6 +57,7 @@
 	<meta property="og:image:alt" content="The {site.name} logo, next to a cartoon penguin" />
 	<meta name="twitter:card" content="summary_large_image" />
 	{@html schema}
+	{@html tracker}
 </svelte:head>
 
 {@render children()}
