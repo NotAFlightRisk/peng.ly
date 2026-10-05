@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from 'node:fs';
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 import adapter from '@sveltejs/adapter-static';
 import type { Adapter } from '@sveltejs/kit';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -26,9 +27,15 @@ const vercel: Adapter = {
 };
 
 const plausible = process.env.PUBLIC_PLAUSIBLE_SCRIPT ?? '';
+const sentry = process.env.PUBLIC_SENTRY_DSN ?? '';
+const uploadMaps = Boolean(process.env.SENTRY_AUTH_TOKEN);
 
 export default defineConfig({
-	define: { 'import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT': JSON.stringify(plausible) },
+	define: {
+		'import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT': JSON.stringify(plausible),
+		'import.meta.env.PUBLIC_SENTRY_DSN': JSON.stringify(sentry)
+	},
+	build: { sourcemap: uploadMaps && 'hidden' },
 	plugins: [
 		sveltekit({
 			adapter: vercel,
@@ -37,6 +44,16 @@ export default defineConfig({
 			paths: { relative: false }
 		}),
 		// only bakes in the icons we actually use, as plain ol' SVG
-		icons({ compiler: 'svelte' })
+		icons({ compiler: 'svelte' }),
+		uploadMaps &&
+			sentryVitePlugin({
+				telemetry: false,
+				release: { create: false, finalize: false },
+				bundleSizeOptimizations: { excludeDebugStatements: true, excludeTracing: true },
+				sourcemaps: {
+					assets: '.svelte-kit/output/client/**',
+					filesToDeleteAfterUpload: '.svelte-kit/output/**/*.map'
+				}
+			})
 	]
 });
