@@ -9,6 +9,9 @@ function field(form: FormData, key: keyof typeof contact.limits) {
 	return value.length <= contact.limits[key] ? value : '';
 }
 
+// name an' email end up in the headers, where a sneaky line break could forge new ones
+const oneLine = (value: string) => !value.includes('\n') && !value.includes('\r');
+
 async function deliver(request: Request, env: Env): Promise<Outcome> {
 	const form = await request.formData();
 	// a bot's filled in the box nobody can see, so it's told it worked an' gets binned
@@ -17,7 +20,7 @@ async function deliver(request: Request, env: Env): Promise<Outcome> {
 	if (request.headers.get('origin') !== new URL(request.url).origin) return 'failed';
 
 	const [name, email, message] = (['name', 'email', 'message'] as const).map((key) => field(form, key));
-	if (!name || !email || !message) return 'failed';
+	if (!name || !email || !message || !oneLine(name + email)) return 'failed';
 
 	await env.EMAIL.send({
 		to: env.TO,
