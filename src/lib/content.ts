@@ -210,19 +210,24 @@ export const reports: Report[] = [
 export const projects = [
 	{
 		name: 'android-rom-compat',
+		title: 'Android ROM Compat',
 		description: 'Which Android ROMs run on your phone, feature availability and bootloader unlock status',
 		repo: 'NotAFlightRisk/android-rom-compat',
 		site: 'https://android-rom-compat.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg'
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg',
+		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/.github/screenshot.png'
 	},
 	{
 		name: 'ai-usage-dashboard',
+		title: 'AI Usage Dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
 		repo: 'NotAFlightRisk/ai-usage-dashboard',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg'
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
+		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/.github/screenshot.png'
 	},
 	{
 		name: 'track-the-gap',
+		title: 'Track the Gap',
 		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
 		repo: 'NotAFlightRisk/track-the-gap',
 		site: 'https://track-the-gap.peng.ly',
@@ -230,21 +235,26 @@ export const projects = [
 	},
 	{
 		name: 'parallax',
+		title: 'Parallax',
 		description: 'Merge logs from several machines and line up their clocks',
 		repo: 'NotAFlightRisk/parallax',
 		site: 'https://parallax.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg'
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax'
 	},
 	{
 		name: 'color-code-convertor',
+		title: 'Color Code Convertor',
 		description: 'Paste a color in any format, get all seventeen others',
 		repo: 'NotAFlightRisk/color-code-convertor',
 		site: 'https://color-code-convertor.peng.ly',
 		// its favicon's drawn in code over there, so we keep our own copy
-		logo: colorCodeConvertor
+		logo: colorCodeConvertor,
+		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor'
 	},
 	{
 		name: 'statusquo',
+		title: 'statusquo',
 		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
 		repo: 'NotAFlightRisk/statusquo',
 		site: 'https://statusquo.peng.ly',

@@ -7,7 +7,7 @@
 <ul>
 	{#each projects as { name, description, repo, site, logo } (repo)}
 		<li>
-			<h2>{name}</h2>
+			<h2><a href="/projects/{name}">{name}</a></h2>
 			<div>
 				<img src={logo} alt="" loading="lazy" />
 				<p>{description}</p>
@@ -73,7 +73,11 @@
 		font-weight: var(--button-weight);
 	}
 
-	a {
+	h2 a:hover {
+		color: var(--primary);
+	}
+
+	footer a {
 		display: flex;
 		flex: 1;
 		align-items: center;
@@ -85,22 +89,22 @@
 			color var(--hover-transition);
 	}
 
-	a + a {
+	footer a + a {
 		border-left: var(--separator);
 	}
 
-	a:hover {
+	footer a:hover {
 		background: var(--card-hover);
 		color: var(--primary);
 		text-decoration: none;
 	}
 
-	a:active {
+	footer a:active {
 		box-shadow: var(--button-shadow);
 	}
 
 	/* ring goes on the inside, or the card's edge would lop it off */
-	a:focus-visible {
+	footer a:focus-visible {
 		outline-offset: calc(var(--outline-offset) * -1);
 	}
 </style>

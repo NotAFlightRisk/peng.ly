@@ -13,9 +13,11 @@
 	<Penguin />
 </header>
 
-<main class:wide={page.data.wide}>
-	<h1>{page.data.title}</h1>
-	<p>{page.data.description}</p>
+<main class:wide={page.data.wide} class:bare={page.data.bare}>
+	{#if !page.data.bare}
+		<h1>{page.data.title}</h1>
+		<p>{page.data.description}</p>
+	{/if}
 	{@render children()}
 </main>
 
@@ -56,6 +58,10 @@
 
 	.wide {
 		max-width: var(--grid-width);
+	}
+
+	.bare {
+		max-width: none;
 	}
 
 	h1 {

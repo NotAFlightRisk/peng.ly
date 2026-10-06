@@ -1,16 +1,21 @@
 import { env } from '$env/dynamic/private';
 import type { Contribution } from '$lib/content';
 
-// bung it a body an' it'll POST, which is 'ow GraphQL likes it
-export const gh = async (fetch: typeof globalThis.fetch, path: string, body?: object) => {
-	const response = await fetch(`https://api.github.com/${path}`, {
-		method: body ? 'POST' : 'GET',
-		headers: env.GITHUB_TOKEN ? { authorization: `Bearer ${env.GITHUB_TOKEN}` } : {},
-		body: body && JSON.stringify(body)
-	});
+const ask = async (fetch: typeof globalThis.fetch, path: string, init: RequestInit) => {
+	const headers = new Headers(init.headers);
+	if (env.GITHUB_TOKEN) headers.set('authorization', `Bearer ${env.GITHUB_TOKEN}`);
+	const response = await fetch(`https://api.github.com/${path}`, { ...init, headers });
 	if (!response.ok) throw new Error(`GitHub gave us a ${response.status} for ${path}`);
-	return response.json();
+	return response;
 };
+
+// bung it a body an' it'll POST, which is 'ow GraphQL likes it
+export const gh = async (fetch: typeof globalThis.fetch, path: string, body?: object) =>
+	(await ask(fetch, path, body ? { method: 'POST', body: JSON.stringify(body) } : {})).json();
+
+// same again, but any markdown comes back as the HTML GitHub would show
+export const ghHtml = async (fetch: typeof globalThis.fetch, path: string) =>
+	(await ask(fetch, path, { headers: { accept: 'application/vnd.github.html+json' } })).text();
 
 type Thread = { repo: string; number: number; title: string };
 

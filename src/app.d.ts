@@ -6,6 +6,7 @@ declare global {
 			title?: string;
 			description?: string;
 			meta?: string;
+			image?: { src: string; alt: string; width?: string; height?: string };
 		}
 	}
 }

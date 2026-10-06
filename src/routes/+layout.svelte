@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import { site, links } from '$lib/config';
 	import Footer from '$lib/Footer.svelte';
+	import { schema } from '$lib/schema';
 	import favicon from '$lib/assets/favicon.svg';
 	import avatar from '$lib/assets/avatar.jpg';
 	import og from '$lib/assets/og.png';
@@ -15,17 +16,21 @@
 	const description = $derived(page.data.meta ?? page.data.description ?? site.description);
 	const url = $derived(new URL(page.url.pathname, site.url).href);
 	const photo = new URL(avatar, site.url).href;
-	const card = new URL(og, site.url).href;
-	const person = JSON.stringify({
-		'@context': 'https://schema.org',
+	// a page can bring its own picture for sharin', uvverwise it's the logo card
+	const card = {
+		src: new URL(og, site.url).href,
+		alt: `The ${site.name} logo, next to a cartoon penguin`,
+		width: '1200',
+		height: '630'
+	};
+	const image = $derived(page.data.image ?? card);
+	const person = schema({
 		'@type': 'Person',
 		name: site.author,
 		url: site.url,
 		image: photo,
 		sameAs: links.map((link) => link.url)
 	});
-	// that backslash stops Svelte finkin' our script's done a runner
-	const schema = `<script type="application/ld+json">${person}<\/script>`;
 	// Most pages ship no JS at all, so the tracker has to load from the HTML itself
 	const plausible = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT;
 	const tracker = plausible && `<script>{
@@ -51,12 +56,14 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={url} />
-	<meta property="og:image" content={card} />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="The {site.name} logo, next to a cartoon penguin" />
+	<meta property="og:image" content={image.src} />
+	{#if image.width}
+		<meta property="og:image:width" content={image.width} />
+		<meta property="og:image:height" content={image.height} />
+	{/if}
+	<meta property="og:image:alt" content={image.alt} />
 	<meta name="twitter:card" content="summary_large_image" />
-	{@html schema}
+	{@html person}
 	{@html tracker}
 </svelte:head>
 
