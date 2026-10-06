@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	type Props = { title: string; href: string; count?: number; children: Snippet };
+	type Props = { title: string; href?: string; count?: number; children: Snippet };
 	let { title, href, count, children }: Props = $props();
 
 	// nought, or no number at all, an' the button just says View all
@@ -11,7 +11,7 @@
 <section>
 	<header>
 		<h2>{title}</h2>
-		<a class="button" {href} aria-label="View all{tally} {title}">View all{tally}</a>
+		{#if href}<a class="button" {href} aria-label="View all{tally} {title}">View all{tally}</a>{/if}
 	</header>
 	<div>{@render children()}</div>
 </section>

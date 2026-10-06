@@ -1,0 +1,8 @@
+# the contact form's postie, sat in front of the site on the one path it answers
+name = "peng-ly-contact"
+main = "index.ts"
+compatibility_date = "2026-10-01"
+routes = [{ pattern = "peng.ly/api/contact", zone_name = "peng.ly" }]
+send_email = [{ name = "EMAIL" }]
+observability = { enabled = true }
+# the inbox it all lands in is a secret, so it ain't in 'ere: npx wrangler secret put TO

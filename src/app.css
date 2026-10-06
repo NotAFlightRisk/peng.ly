@@ -112,6 +112,15 @@
 	--action-height: 2.75rem;
 	--hover-transition: 0.15s var(--ease);
 
+	--form-gap: 1.25rem;
+	--field-width: 16rem;
+	--field-padding: 0.75rem;
+	--field-bg: var(--bg);
+	--field-line: 2px solid var(--muted);
+	--message-height: 12rem;
+	--danger: #ef9a9a;
+	--send-nudge: 0.15rem -0.15rem;
+
 	--footer-padding: 0.5rem 1rem;
 	--separator: 1px solid #ffffff1f;
 
