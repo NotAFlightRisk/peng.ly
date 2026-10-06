@@ -1,0 +1,46 @@
+name: 📮 Contact worker
+
+on:
+  push:
+    branches: [main]
+    paths: [worker/**, src/lib/config.ts, .github/workflows/worker.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: 📮 Deploy to Cloudflare
+    if: github.repository_owner == 'NotAFlightRisk'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+
+      - name: Deploy, then check it's answering on peng.ly
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::No CLOUDFLARE_API_TOKEN secret yet, so nothing to deploy with"
+            exit 0
+          fi
+          npx --yes wrangler@4.147.0 deploy --config worker/wrangler.toml
+          for _ in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -m 10 -w '%{http_code}' https://peng.ly/api/contact)
+            [ "$code" = 405 ] && break
+            sleep 6
+          done
+          echo "GET https://peng.ly/api/contact answered $code (want 405)" >> "$GITHUB_STEP_SUMMARY"
+          test "$code" = 405

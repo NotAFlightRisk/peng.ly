@@ -1,3 +1,5 @@
 import { pages } from '$lib/config';
 
-export const load = () => pages.contact;
+export const csr = true;
+
+export const load = () => ({ ...pages.contact, wide: true });

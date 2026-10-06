@@ -48,8 +48,51 @@ export const pages = {
 	contact: {
 		title: 'Contact',
 		href: '/contact',
-		description: 'How to get hold of me',
+		description: 'Got a question, an idea, or just fancy saying noot? Whatever you send here lands straight in my inbox.',
 		meta: 'How to get hold of me, whether it\'s about code, a security issue, or something else entirely.'
+	}
+};
+
+// the form posts to the worker in /worker, which reads this file an' all, so no Svelte bits in 'ere
+export const contact = {
+	title: 'Send a message',
+	action: '/api/contact',
+	from: 'contact@peng.ly',
+	limits: { name: 100, email: 254, message: 5000 },
+	// a box only bots can see, so anyfin' in it gets binned
+	trap: 'website',
+	// for the stuff that's better off somewhere other than the form
+	elsewhere: {
+		title: 'Elsewhere',
+		links: {
+			security: {
+				title: 'Found a security issue?',
+				description: 'Email it to me, so you can attach a proof of concept.',
+				label: site.security,
+				href: `mailto:${site.security}`
+			},
+			github: {
+				title: 'Bug or feature idea?',
+				description: 'Open an issue on the project\'s repo, so others can follow along.',
+				label: `@${site.github}`,
+				href: `https://github.com/${site.github}`
+			}
+		}
+	},
+	// the worker's answers, shown by the form or as /contact/<outcome> wivout JS
+	outcomes: {
+		sent: {
+			title: 'Noot noot!',
+			description: 'That\'s penguin for thanks, your message is on its way. I\'ll reply to the email you gave as soon as I can.'
+		},
+		failed: {
+			title: 'Noot delivered',
+			description: 'That\'s penguin for message not delivered. Something broke on my end, so give it another go. What you wrote should still be there.'
+		},
+		limited: {
+			title: 'Noot so fast',
+			description: 'That\'s a lot of messages in one go. Have a breather, then try again in a minute.'
+		}
 	}
 };
 
