@@ -79,7 +79,7 @@ export const contact = {
 			}
 		}
 	},
-	// where the worker sends folk after, built as /contact/sent an' /contact/failed
+	// the worker's answers, shown by the form or as /contact/<outcome> wivout JS
 	outcomes: {
 		sent: {
 			title: 'Noot noot!',
@@ -87,7 +87,11 @@ export const contact = {
 		},
 		failed: {
 			title: 'Noot delivered',
-			description: 'That\'s penguin for message not delivered. Something broke on my end, so go back and give it another go. What you wrote should still be there.'
+			description: 'That\'s penguin for message not delivered. Something broke on my end, so give it another go. What you wrote should still be there.'
+		},
+		limited: {
+			title: 'Noot so fast',
+			description: 'That\'s a lot of messages in one go. Have a breather, then try again in a minute.'
 		}
 	}
 };

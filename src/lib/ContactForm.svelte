@@ -2,10 +2,39 @@
 	import { contact } from '$lib/config';
 	import Send from '~icons/tabler/send';
 
-	const { action, limits, trap } = contact;
+	const { action, limits, trap, outcomes } = contact;
+	type Outcome = keyof typeof outcomes;
+
+	let sending = $state(false);
+	let outcome = $state<Outcome>();
+
+	// anyfin' that isn't a straight answer from the worker counts as failed
+	async function post(form: HTMLFormElement): Promise<Outcome> {
+		const response = await fetch(action, {
+			method: 'POST',
+			body: new FormData(form),
+			headers: { accept: 'application/json' },
+			signal: AbortSignal.timeout(15_000)
+		});
+		const { outcome } = await response.json();
+		return outcome in outcomes ? outcome : 'failed';
+	}
+
+	// wiv JS about, the answer turns up by the button rather than on a page of its own
+	async function send(event: SubmitEvent & { currentTarget: HTMLFormElement }) {
+		event.preventDefault();
+		if (sending) return;
+
+		const form = event.currentTarget;
+		sending = true;
+		outcome = undefined;
+		outcome = await post(form).catch(() => 'failed' as const);
+		sending = false;
+		if (outcome === 'sent') form.reset();
+	}
 </script>
 
-<form method="post" {action}>
+<form method="post" {action} onsubmit={send}>
 	<label>
 		Name
 		<input name="name" autocomplete="name" maxlength={limits.name} required />
@@ -23,7 +52,14 @@
 
 	<input name={trap} autocomplete="off" hidden />
 
-	<button class="button"><Send aria-hidden="true" />Send message</button>
+	<div class="send">
+		<button class="button" aria-disabled={sending}>
+			<Send aria-hidden="true" />{sending ? 'Sending...' : 'Send message'}
+		</button>
+		<p role="status" class:oops={outcome !== 'sent'}>
+			{#if outcome}<strong>{outcomes[outcome].title}</strong> {outcomes[outcome].description}{/if}
+		</p>
+	</div>
 </form>
 
 <style>
@@ -35,8 +71,15 @@
 	}
 
 	.message,
-	button {
+	.send {
 		grid-column: 1 / -1;
+	}
+
+	.send {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--gap) var(--list-gap);
 	}
 
 	label {
@@ -87,7 +130,6 @@
 	button {
 		display: flex;
 		align-items: center;
-		justify-self: start;
 		gap: var(--gap);
 		min-height: var(--action-height);
 		padding-inline: var(--list-gap);
@@ -103,6 +145,30 @@
 		outline-color: var(--primary);
 	}
 
+	button[aria-disabled='true'] {
+		cursor: progress;
+	}
+
+	p {
+		flex: 1 1 var(--field-width);
+		margin: 0;
+		color: var(--muted);
+		font-size: var(--small-size);
+	}
+
+	/* nowt to say yet, so it tucks in beside the button wivout leavin' a gap */
+	p:empty {
+		flex-basis: 0;
+	}
+
+	strong {
+		color: var(--primary);
+	}
+
+	.oops strong {
+		color: var(--danger);
+	}
+
 	@media (prefers-reduced-motion: no-preference) {
 		button :global(svg) {
 			transition: translate var(--hover-transition);
@@ -110,6 +176,16 @@
 
 		/* the little plane gets itchy feet when you go near it */
 		button:hover :global(svg) {
+			translate: var(--send-nudge);
+		}
+
+		button[aria-disabled='true'] :global(svg) {
+			animation: takeoff var(--send-takeoff) infinite alternate;
+		}
+	}
+
+	@keyframes takeoff {
+		to {
 			translate: var(--send-nudge);
 		}
 	}

@@ -25,11 +25,11 @@ npm run check    # type and a11y checks
 
 Follow the developing instructions, then run `npm run build` and upload the `build/` folder to any static host.
 
-The contact form posts to a Cloudflare Worker in [`worker/`](../worker), which emails each message to me through Cloudflare Email Routing. It runs on the `peng.ly/api/contact` route, so the domain needs to stay proxied through Cloudflare. `TO` is the inbox it sends to, and must be a verified destination address in Email Routing.
+The contact form posts to a Cloudflare Worker in [`worker/`](../worker), which emails each message to me through Cloudflare Email Routing. It runs on the `peng.ly/api/contact` route, so the domain needs to stay proxied through Cloudflare. CI deploys it whenever it changes on `main`, given `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. `TO` is the inbox it sends to, must be a verified destination address in Email Routing, and only needs setting once.
 
 ```sh
 npx wrangler secret put TO --config worker/wrangler.toml
-npx wrangler deploy --config worker/wrangler.toml
+npx wrangler deploy --config worker/wrangler.toml   # or by hand
 ```
 
 ---
