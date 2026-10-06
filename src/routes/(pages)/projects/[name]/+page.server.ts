@@ -3,9 +3,6 @@ import { projects } from '$lib/content';
 import { gh } from '$lib/github.server';
 import { readme } from '$lib/readme.server';
 
-// nuffin' links 'ere yet, so the prerenderer needs tellin' which ones to build
-export const entries = () => projects.map(({ name }) => ({ name }));
-
 export const load = async ({ fetch, params }) => {
 	const project = projects.find(({ name }) => name === params.name);
 	if (!project) error(404);
