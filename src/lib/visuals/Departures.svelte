@@ -106,7 +106,8 @@
 	}
 
 	function flipRow(r: number, delay = 0, again = false) {
-		board[r].forEach((column, c) => write(column, texts()[r][c], delay, again));
+		const row = texts()[r];
+		board[r].forEach((column, c) => write(column, row[c], delay, again));
 	}
 
 	// it only ticks over while summat's still spinnin'
@@ -147,7 +148,10 @@
 		subject = rows[r];
 		glance();
 		clearTimeout(focus);
-		focus = setTimeout(() => ((subject = undefined), glance()), FOCUS);
+		focus = setTimeout(() => {
+			subject = undefined;
+			glance();
+		}, FOCUS);
 	}
 
 	function follow(event: PointerEvent) {

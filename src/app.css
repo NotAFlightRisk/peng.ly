@@ -78,6 +78,16 @@
 	--swap-back-duration: 0.5s;
 	--noot-duration: 0.3s;
 	--noot-open: 1.2;
+	/* the faces 'e pulls every so often, in 'is own units */
+	--tic-blink: 0.22s;
+	--tic-quick: 0.6s;
+	--tic-pose: 1.2s;
+	--tic-slow: 2.4s;
+	--tic-drowsy: 50px;
+	--tic-beam: -70px;
+	--tic-tilt: 3deg;
+	--tic-yawn: 1.4;
+	--tic-stretch: 0.96 1.05;
 
 	--nav-height: 4rem;
 	--nav-gutter: clamp(1rem, 1vw, 4rem);
@@ -159,6 +169,8 @@
 
 	/* the pictures over in lib/visuals */
 	--beak-outline: 32px;
+	--lid-shut: 96px;
+	--lid-overlap: 2px;
 
 	--planes-height: clamp(8.5rem, 12vw, 11rem);
 	--planes-sky: var(--bg);
@@ -182,7 +194,6 @@
 	--actor-jump: -80px;
 	--actor-squash: 1.06 0.92;
 	--actor-stretch: 0.95 1.07;
-	--actor-shut: 96px;
 	--actor-blink: 0.16s;
 	--actor-face: 0.2s;
 	--actor-throw: 0.9s;

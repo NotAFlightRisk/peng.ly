@@ -66,6 +66,7 @@
 	let queued: { target: Point; manual: boolean } | undefined;
 	let pointer: Point | undefined;
 	let wander: Point | undefined;
+	let seen = false;
 	let greeted = -Infinity;
 	let frame = 0;
 	let last = 0;
@@ -161,10 +162,12 @@
 		const dt = Math.min((at - last) / 1000, 1 / 30) / SUBSTEPS;
 		last = at;
 		const boxes = solids();
-		for (const p of flying) for (let i = 0; i < SUBSTEPS; i++) step(p, dt, boxes);
-		flying.forEach(notice);
-		flying.filter(grounded).forEach(crumple);
-		flying.filter((p) => lost(p) && !grounded(p)).forEach(gone);
+		for (const p of flying) {
+			for (let i = 0; i < SUBSTEPS; i++) step(p, dt, boxes);
+			notice(p);
+			if (grounded(p)) crumple(p);
+			else if (lost(p)) gone(p);
+		}
 		flying = flying.filter((p) => !grounded(p) && !lost(p));
 		glance();
 		frame = flying.length ? requestAnimationFrame(tick) : 0;
@@ -197,8 +200,14 @@
 
 	function begin(target: Point, manual = false) {
 		clearTimeout(idle);
-		if (prefersReducedMotion.current) return (placed = [...placed, target].slice(-2));
-		if (throwing) return (queued = { target, manual });
+		if (prefersReducedMotion.current) {
+			placed = [...placed, target].slice(-2);
+			return;
+		}
+		if (throwing) {
+			queued = { target, manual };
+			return;
+		}
 		const dud = throws++ > 0 && Math.random() < DUD;
 		held = true;
 		aim = target;
@@ -214,10 +223,10 @@
 		else later();
 	}
 
-	// 'e gets on wiv it 'imself after a bit
-	function later() {
+	// 'e gets on wiv it 'imself after a bit, but only while someone can see 'im
+	function later(wait = random(PATIENCE[0], PATIENCE[1])) {
 		clearTimeout(idle);
-		idle = setTimeout(() => begin(somewhere()), random(PATIENCE[0], PATIENCE[1]));
+		if (seen && !prefersReducedMotion.current) idle = setTimeout(() => begin(somewhere()), wait);
 	}
 
 	// looks about a bit when there's nuffin' on: up at the sky, down at 'is pile, or right at you
@@ -258,11 +267,14 @@
 	}
 
 	onMount(() => {
-		idle = setTimeout(() => {
-			if (!prefersReducedMotion.current) begin(somewhere());
-		}, FIRST);
+		const watching = new IntersectionObserver(([entry]) => {
+			seen = entry.isIntersecting;
+			later(FIRST);
+		});
+		watching.observe(svg);
 		dream = setTimeout(daydream, DREAMS[0]);
 		return () => {
+			watching.disconnect();
 			[idle, release, dream].forEach(clearTimeout);
 			cancelAnimationFrame(frame);
 		};

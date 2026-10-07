@@ -38,7 +38,7 @@
 
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
-	import { beak, belly, body, box, eyes, pupils } from './penguin';
+	import { beak, belly, body, box, eyes, lids, pupils } from './penguin';
 
 	type Props = {
 		face?: Face;
@@ -84,12 +84,8 @@
 	style:--beak={f.beak}
 >
 	<defs>
-		<!-- a touch bigger than the eye, so a shut lid don't leave a white rim round it -->
-		{#each eyes as d, i (d)}
-			{@const { x } = pupils[i]}
-			<clipPath id="{uid}-eye{i}">
-				<path {d} transform="translate({x} 122) scale(1.08) translate({-x} -122)" />
-			</clipPath>
+		{#each lids as { socket }, i (socket)}
+			<mask id="{uid}-eye{i}"><path class="socket" d={socket} /></mask>
 		{/each}
 	</defs>
 
@@ -113,19 +109,16 @@
 				<path class="beak" d={beak} />
 				{#each eyes as d, i (d)}
 					{@const { x, y, r } = pupils[i]}
-					<g class:right={i === 1} clip-path="url(#{uid}-eye{i})">
+					<g class:right={i === 1} mask="url(#{uid}-eye{i})">
 						<path class="white" {d} />
 						<circle class="pupil" cx={x + look.x * REACH} cy={y + look.y * REACH} {r} />
 						<rect
 							class="lid"
 							class:blinking
-							x={x - 60}
-							y="-50"
-							width="120"
-							height="120"
+							{...lids[i].top}
 							onanimationend={() => (blinking = false)}
 						/>
-						<ellipse class="under" cx={x} cy="212" rx="40" ry="49" />
+						<ellipse class="under" {...lids[i].bottom} />
 					</g>
 				{/each}
 			</g>
@@ -147,6 +140,14 @@
 
 	.white {
 		fill: var(--white);
+	}
+
+	/* a pixel past the eye all round, so shut lids don't leave a white rim however small 'e is */
+	.socket {
+		fill: var(--white);
+		stroke: var(--white);
+		stroke-width: var(--lid-overlap);
+		vector-effect: non-scaling-stroke;
 	}
 
 	.beak {
@@ -297,7 +298,7 @@
 
 	@keyframes blink {
 		50% {
-			translate: 0 var(--actor-shut);
+			translate: 0 var(--lid-shut);
 		}
 	}
 

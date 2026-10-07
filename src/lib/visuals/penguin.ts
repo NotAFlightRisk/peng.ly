@@ -12,6 +12,12 @@ export const pupils = [
 	{ x: -40, y: 128, r: 19 },
 	{ x: 40, y: 128, r: 15.5 }
 ];
+// 'is lids come down from the top an' up from the bottom, masked to a socket the shape of each eye
+export const lids = eyes.map((socket, i) => ({
+	socket,
+	top: { x: pupils[i].x - 60, y: -50, width: 120, height: 120 },
+	bottom: { cx: pupils[i].x, cy: 212, rx: 40, ry: 49 }
+}));
 
 // nice 'n' lazy, an' the damping's matched so 'is eyes don't go all wobbly
 export const lazy = { stiffness: 0.04, damping: 0.36 };
