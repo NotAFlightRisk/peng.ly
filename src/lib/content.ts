@@ -19,6 +19,21 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-4j63-5v5f-xcc4',
+		title: 'Dynamic-frontend remote API proxy (WithRemoteApis) skips the BFF anti-forgery header',
+		repo: 'DuendeSoftware/products'
+	},
+	{
+		ghsa: 'GHSA-x8g6-w83h-p745',
+		title: 'Uncontrolled resource consumption from JSON Schema $ref expansion',
+		repo: 'theagentrouter/agent-router'
+	},
+	{
+		ghsa: 'GHSA-hf68-9v92-hfwc',
+		title: 'Uncontrolled recursion in GeoJSON line simplification',
+		repo: 'maplibre/geojson-vt'
+	},
+	{
 		ghsa: 'GHSA-mm34-2v69-6vg6',
 		title: 'Stack overflow decoding deeply nested dynamic protobuf messages',
 		repo: 'jhump/protoreflect'
@@ -40,6 +55,7 @@ export const reports: Report[] = [
 	},
 	{
 		ghsa: 'GHSA-cqgh-8p3p-mx4m',
+		cve: 'CVE-2026-106121',
 		title: 'JSONReader in the default JSON-RPC mapper never terminates on truncated input, causing DoS',
 		repo: 'rabbitmq/rabbitmq-java-client'
 	},
