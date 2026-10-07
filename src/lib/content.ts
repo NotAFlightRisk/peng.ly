@@ -1,17 +1,21 @@
 import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
 
-export type Contribution = { repo: string; threads: { number: number; title: string }[] };
+// merged is when it went in, if it's a PR an' we know
+export type Contribution = { repo: string; threads: { number: number; title: string; merged?: string }[] };
 
 // the ones worth showing on the front page, as owner/repo#pr. GitHub gives us the titles
 export const contributions = [
-	'gotify/server#1046',
-	'wazero/wazero#2540',
-	'wazero/wazero#2537',
-	'emersion/go-smtp#309',
-	'emersion/go-smtp#308',
-	'emersion/go-smtp#306',
+	'smartcorelib/smartcore#476',
+	'sveltejs/devalue#189',
 	'redis/rueidis#1026',
 	'redis/rueidis#1025',
+	'gotify/server#1046',
+	'rust-lang/rust-forge#1110',
+	'valkey-io/valkey-go#195',
+	'valkey-io/valkey-go#182',
+	'wazero/wazero#2540',
+	'wazero/wazero#2537',
+	'wazero/wazero#2553',
 	'anacrolix/torrent#1099'
 ];
 

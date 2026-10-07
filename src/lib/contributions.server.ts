@@ -24,10 +24,11 @@ const search = async (fetch: typeof globalThis.fetch) => {
 	found.sort((a, b) => b.pull_request.merged_at.localeCompare(a.pull_request.merged_at));
 
 	const repos = byRepo(
-		found.map(({ number, title, repository_url }) => ({
+		found.map(({ number, title, repository_url, pull_request }) => ({
 			repo: repository_url.split('/repos/')[1],
 			number,
-			title
+			title,
+			merged: pull_request.merged_at
 		}))
 	);
 
