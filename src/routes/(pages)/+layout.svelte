@@ -21,6 +21,11 @@
 	{@render children()}
 </main>
 
+<!-- some pages bring a picture to sit on top o' the footer -->
+{#if page.data.footer}
+	<page.data.footer />
+{/if}
+
 <style>
 	header {
 		--avatar-size: var(--nav-avatar-size);
@@ -50,6 +55,8 @@
 	}
 
 	main {
+		/* soaks up the slack, so a picture under it stays stuck to the footer */
+		flex-grow: 1;
 		width: 100%;
 		max-width: var(--page-width);
 		margin-inline: auto;

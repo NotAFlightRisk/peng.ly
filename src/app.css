@@ -156,6 +156,117 @@
 	--zero-ratio: 0.875;
 	--zero-stroke: 0.16em;
 	--zero-gap: 0.03em;
+
+	/* the pictures over in lib/visuals */
+	--beak-outline: 32px;
+
+	--planes-height: clamp(8.5rem, 12vw, 11rem);
+	--planes-sky: var(--bg);
+	--planes-ceiling: -400%;
+	--planes-line: 2.5px;
+	--planes-fold: 0.35;
+	--planes-land: 0.35s;
+	--planes-squash: 1.3 0.6;
+	--planes-sink: 40px;
+
+	/* the penguin that acts things out, in 'is own units */
+	--actor-rim: #ffffff2e;
+	--actor-rim-width: 14px;
+	--actor-rest: -18deg;
+	--actor-reach: -150deg;
+	--actor-raise: -165deg;
+	--actor-fling: -70deg;
+	--actor-out: -80deg;
+	--actor-flap: 50deg;
+	--actor-lean: 6deg;
+	--actor-hop: -50px;
+	--actor-jump: -80px;
+	--actor-squash: 1.06 0.92;
+	--actor-stretch: 0.95 1.07;
+	--actor-shut: 96px;
+	--actor-blink: 0.16s;
+	--actor-face: 0.2s;
+	--actor-throw: 0.9s;
+	--actor-quick: 0.7s;
+	--actor-slow: 1.4s;
+
+	--mug-ratio: 8 / 5;
+	--mug-narrow-ratio: 1;
+	--mug-wall: #cdd5de;
+	--mug-rule: #a9b4c0;
+	--mug-rule-bold: #75828f;
+	--mug-rule-width: 1.5px;
+	--mug-rule-bold-width: 3px;
+	--mug-label-size: 20px;
+	--mug-label-weight: 700;
+	--mug-felt: #2c3037;
+	--mug-groove: #383d45;
+	--mug-letter-big: 27px;
+	--mug-letter-small: 15px;
+	--mug-letter-weight: 600;
+	--mug-letter-spacing: 0.06em;
+	--mug-tilt: -2deg;
+	--mug-gaze-reach: 8px;
+	--mug-lid-overlap: 4px;
+	--mug-blink-every: 5s;
+	--mug-flash: 0.85;
+	--mug-flash-duration: 0.45s;
+
+	--tower-ratio: 3 / 2;
+	--tower-narrow-ratio: 2 / 3;
+	--tower-seam: 3px;
+	--tower-line: 1.5px;
+	--tower-label-size: 12px;
+	--tower-small-size: 10px;
+	--tower-tag-size: 9.5px;
+	--tower-label-weight: 600;
+	/* where 'is little block meets the floor, so the 'ole stack rocks on it */
+	--tower-foot: 34px 530px;
+	--tower-breathe: 7s;
+	--tower-breathe-tilt: 0.25deg;
+	--tower-pat: 1s;
+	--tower-pat-lift: 12deg;
+	--tower-drip: 1.2s;
+	--tower-drip-fall: 60px;
+
+	--term-size: 0.75rem;
+	--term-leading: 1.65;
+	--term-body: #8792a2;
+	--term-dim: #6c7686;
+	--term-padding: clamp(1rem, 3cqi, 1.75rem);
+	--term-gap: clamp(1rem, 4cqi, 2.5rem);
+	--term-header-padding: 0.5rem var(--term-padding);
+	--term-columns: 1.15fr 1fr;
+	--term-tag-width: 7ch;
+	--term-tag-gap: 1ch;
+	--term-bold: 700;
+	--term-log-lines: 11;
+	--term-cursor-width: 0.6em;
+	--term-cursor-blink: 1.1s;
+	--term-hop: -7%;
+	--term-hop-duration: 0.7s;
+
+	--dep-width: 44rem;
+	--dep-row-gap: 0.9cqi;
+	--dep-own-gap: 2.5cqi;
+	--dep-col-gap: 3cqi;
+	--dep-tile-gap: 0.3cqi;
+	--dep-tile-ratio: 1.45;
+	--dep-seam: 0.5px;
+	/* in ms, the script reads this one to time the flaps */
+	--dep-flip: 70ms;
+	--dep-floor: 14.5rem;
+	--dep-floor-narrow: 10rem;
+	--dep-handle: 12px;
+	--dep-gaze-reach: 22px;
+	--dep-title-gap: 0.3em;
+	--dep-title-scale: 1.9;
+	--dep-label-scale: 0.75;
+	--dep-char-scale: 1.05;
+	--dep-depth: 6;
+	--dep-hope: 1 1.12;
+	--dep-hope-in: 0.5s var(--bounce);
+	--dep-hope-out: 0.9s var(--ease);
 }
 
 * {

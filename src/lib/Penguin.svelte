@@ -1,23 +1,17 @@
 <script lang="ts">
 	import { Spring, prefersReducedMotion } from 'svelte/motion';
 	import { site } from '$lib/config';
+	import { beak, belly, body, eyes, gaze, lazy, pupils, viewBox } from '$lib/visuals/penguin';
 
-	let eyes: SVGGElement;
+	let patches: SVGGElement;
 	let pointer: PointerEvent | undefined;
 	let pressed = $state(false);
 	let nooting = $state(false);
-	// nice 'n' lazy, and the damping's matched so 'is eyes don't go all wobbly
-	const look = new Spring({ x: 0, y: 0 }, { stiffness: 0.04, damping: 0.36 });
+	const look = new Spring({ x: 0, y: 0 }, lazy);
 
 	function follow(event: PointerEvent) {
 		pointer = event;
-		const box = eyes.getBoundingClientRect();
-		const x = event.clientX - box.x - box.width / 2;
-		const y = event.clientY - box.y - box.height / 2;
-		const angle = Math.atan2(y, x);
-		const reach = Math.tanh(Math.hypot(x, y) / box.width);
-		const target = { x: Math.cos(angle) * reach, y: Math.sin(angle) * reach };
-		look.set(target, { instant: prefersReducedMotion.current });
+		look.set(gaze(event, patches.getBoundingClientRect()), { instant: prefersReducedMotion.current });
 		pressed = event.buttons > 0;
 	}
 </script>
@@ -31,7 +25,7 @@
 />
 
 <svg
-	viewBox="-255 0 510 465"
+	{viewBox}
 	role="img"
 	aria-label="{site.author}'s avatar, a cartoon penguin"
 	class:pressed
@@ -40,22 +34,16 @@
 	style:--look-x={look.current.x}
 	style:--look-y={look.current.y}
 >
-	<path
-		d="M0 0 C98 0 119 67 119 134 C119 238 127 259 227 375 C242 393 255 427 255 450 V465 H-255 V450 C-255 427 -242 393 -227 375 C-127 259 -119 238 -119 134 C-119 67 -98 0 0 0 Z"
-	/>
-	<path class="white" d="M-171 465 V405 A171 171 0 0 1 171 405 V465 Z" />
-	<path
-		class="beak"
-		onanimationend={() => (nooting = false)}
-		stroke-width="32"
-		paint-order="stroke"
-		d="M0 176 C55 176 98 184 98 197 C98 221 20 276 0 276 C-20 276 -98 221 -98 197 C-98 184 -55 176 0 176 Z"
-	/>
-	<g bind:this={eyes}>
-		<path class="white" d="M-63 160 A37 49 0 1 1 -17 158 Z" />
-		<path class="white" d="M17 158 A37 49 0 1 1 63 160 Z" />
-		<circle class="pupil big" cx="-40" cy="128" />
-		<circle class="pupil small" cx="40" cy="128" />
+	<path d={body} />
+	<path class="white" d={belly} />
+	<path class="beak" onanimationend={() => (nooting = false)} d={beak} />
+	<g bind:this={patches}>
+		<path class="white" d={eyes[0]} />
+		<path class="white" d={eyes[1]} />
+		<!-- the sizes come from the css, so pressin' can swap 'em over -->
+		{#each pupils as { x, y }, i (x)}
+			<circle class="pupil {i ? 'small' : 'big'}" cx={x} cy={y} />
+		{/each}
 	</g>
 </svg>
 
@@ -79,6 +67,8 @@
 		transform-origin: top;
 		fill: var(--primary);
 		stroke: var(--primary-text);
+		stroke-width: var(--beak-outline);
+		paint-order: stroke;
 	}
 
 	.pupil {
