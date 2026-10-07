@@ -167,7 +167,6 @@
 	--planes-fold: 0.35;
 	--planes-land: 0.35s;
 	--planes-squash: 1.3 0.6;
-	--planes-sink: 40px;
 
 	/* the penguin that acts things out, in 'is own units */
 	--actor-rim: #ffffff2e;
@@ -246,27 +245,23 @@
 	--term-hop: -7%;
 	--term-hop-duration: 0.7s;
 
-	--dep-width: 44rem;
-	--dep-row-gap: 0.9cqi;
-	--dep-own-gap: 2.5cqi;
+	--dep-width: 38rem;
+	--dep-gap: var(--gutter);
+	--dep-lift: var(--list-gap);
+	--dep-penguin: clamp(5.5rem, 14vw, 10rem);
+	--dep-row-gap: 0.7cqi;
+	--dep-own-gap: 2cqi;
 	--dep-col-gap: 3cqi;
 	--dep-tile-gap: 0.3cqi;
 	--dep-tile-ratio: 1.45;
 	--dep-seam: 0.5px;
 	/* in ms, the script reads this one to time the flaps */
-	--dep-flip: 70ms;
-	--dep-floor: 14.5rem;
-	--dep-floor-narrow: 10rem;
-	--dep-handle: 12px;
-	--dep-gaze-reach: 22px;
+	--dep-flip: 80ms;
 	--dep-title-gap: 0.3em;
-	--dep-title-scale: 1.9;
-	--dep-label-scale: 0.75;
+	--dep-title-scale: 1.15;
+	--dep-label-scale: 0.7;
 	--dep-char-scale: 1.05;
 	--dep-depth: 6;
-	--dep-hope: 1 1.12;
-	--dep-hope-in: 0.5s var(--bounce);
-	--dep-hope-out: 0.9s var(--ease);
 }
 
 * {

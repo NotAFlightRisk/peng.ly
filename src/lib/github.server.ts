@@ -17,7 +17,7 @@ export const gh = async (fetch: typeof globalThis.fetch, path: string, body?: ob
 export const ghHtml = async (fetch: typeof globalThis.fetch, path: string) =>
 	(await ask(fetch, path, { headers: { accept: 'application/vnd.github.html+json' } })).text();
 
-type Thread = { repo: string; number: number; title: string };
+type Thread = { repo: string; number: number; title: string; merged?: string };
 
 // one entry per repo, in the order they first turn up
 export const byRepo = (threads: Thread[]) => {

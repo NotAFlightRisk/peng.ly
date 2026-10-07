@@ -24,8 +24,6 @@
 	const FIRST = 1800;
 	const PATIENCE = [5000, 9000];
 	const DREAMS = [2500, 6000];
-	// pokes closer together than this count as the same go
-	const TICKLISH = 2500;
 	const GREETED = 30000;
 	const SUBSTEPS = 4;
 	// the bits o' page a plane can clatter into once it's out, padded by 'alf a plane
@@ -37,18 +35,10 @@
 	// as far along the table as 'e can reach, an' where a scrunched one sits on it
 	const NEARBY = X + 450;
 	const TABLE = H - 13;
-	// old 'uns still up there, catchin' every breeze goin'
-	const FAR = [
-		{ y: 40, size: 0.5, time: '46s', delay: '-17s' },
-		{ y: 95, size: 0.36, time: '64s', delay: '-41s' }
-	];
 	// 'ow 'e takes fings: 'is face, what 'is body does, an' whether it trumps what 'e's already at
 	const REACTIONS = {
 		throw: { face: 'focus', act: 'throw', rank: 9 },
 		hurl: { face: 'focus', act: 'hurl', rank: 9 },
-		poked: { face: 'shock', act: 'jump', rank: 8 },
-		tickled: { face: 'happy', act: 'giggle', rank: 8 },
-		fedup: { face: 'cross', act: 'huff', rank: 8 },
 		bonk: { face: 'wince', act: 'wince', rank: 7 },
 		loop: { face: 'wow', act: 'gasp', rank: 6 },
 		follow: { face: 'focus', act: 'flap', rank: 5 },
@@ -59,7 +49,6 @@
 		proud: { face: 'happy', act: 'nod', rank: 1 }
 	} satisfies Record<string, { face: Face; act: Act; rank: number }>;
 	type Reaction = keyof typeof REACTIONS;
-	const POKES: Reaction[] = ['poked', 'tickled', 'fedup'];
 
 	let svg: SVGSVGElement;
 	let width = $state(0);
@@ -70,16 +59,13 @@
 	let near = $state(false);
 	let held = $state(false);
 	let flying = $state<Plane[]>([]);
-	// one's already in the pile, 'e's been at this a while
-	let pile = $state([{ x: X + 190, y: TABLE, spin: 20 }]);
+	let pile = $state<(Point & { spin: number })[]>([]);
 	let placed = $state<Point[]>([]);
 	let aim: Point | undefined;
 	let subject: Point | undefined;
 	let queued: { target: Point; manual: boolean } | undefined;
 	let pointer: Point | undefined;
 	let wander: Point | undefined;
-	let pokes = 0;
-	let poked = 0;
 	let greeted = -Infinity;
 	let frame = 0;
 	let last = 0;
@@ -89,7 +75,6 @@
 
 	// before it's been measured it's drawn extra wide, an' the right just gets cropped off
 	const w = $derived(height ? (H * width) / height : 2400);
-	const still = $derived([{ x: X + 330, y: H * 0.45 }, { x: X + 500, y: H * 0.2 }, ...placed].slice(-2));
 	const face = $derived<Face>(doing ? REACTIONS[doing].face : near ? 'curious' : 'calm');
 	const throwing = $derived(doing === 'throw' || doing === 'hurl');
 	const look = new Spring({ x: 0, y: 0 }, { stiffness: 0.08, damping: 0.4 });
@@ -235,15 +220,6 @@
 		idle = setTimeout(() => begin(somewhere()), random(PATIENCE[0], PATIENCE[1]));
 	}
 
-	// first poke makes 'im jump, the second tickles, after that 'e's 'ad enough. 'E won't chuck one while you're at it
-	function poke() {
-		const now = performance.now();
-		pokes = now - poked < TICKLISH ? pokes + 1 : 1;
-		poked = now;
-		react(POKES[Math.min(pokes, POKES.length) - 1]);
-		if (!throwing) later();
-	}
-
 	// looks about a bit when there's nuffin' on: up at the sky, down at 'is pile, or right at you
 	function daydream() {
 		const spots = [{ x: X + 260, y: -40 }, pile.at(-1), { x: X, y: EYES }, { x: w * 0.7, y: H * 0.3 }];
@@ -262,10 +238,10 @@
 		return { x: Math.max(x, X + 200), y: Math.min(y, H - 30) };
 	}
 
+	// clickin' 'im chucks one wherever 'e fancies, clickin' anywhere else aims it there
 	function press(event: Pointing) {
 		const at = point(event);
-		if (onHim(at)) poke();
-		else begin(aimAt(at), true);
+		begin(onHim(at) ? somewhere() : aimAt(at), true);
 	}
 
 	// waves when you turn up, but not every time you wander in an' out
@@ -325,18 +301,6 @@
 			<clipPath id="{uid}-band"><rect width={w} height={H} /></clipPath>
 		</defs>
 
-		{#each FAR as { y, size, time, delay } (y)}
-			<g
-				class="far"
-				transform="translate(-80 {y}) scale({size}) rotate(6)"
-				style:--far-time={time}
-				style:--far-delay={delay}
-				style:--far-span="{w + 160}px"
-			>
-				{@render plane()}
-			</g>
-		{/each}
-
 		{#each pile as { x, y, spin }, i (i)}
 			<g transform="translate({x} {y}) rotate({spin})">
 				<g class="squash">
@@ -346,7 +310,7 @@
 			</g>
 		{/each}
 
-		<g transform="translate({X} {BASE}) scale({SIZE})">
+		<g class="penguin" transform="translate({X} {BASE}) scale({SIZE})">
 			<Actor
 				{face}
 				act={doing && REACTIONS[doing].act}
@@ -368,23 +332,19 @@
 		{/each}
 
 		{#if prefersReducedMotion.current}
-			{#each still as at, i (i)}
+			{#each placed as at, i (i)}
 				<g transform="translate({at.x} {at.y}) rotate(-12) scale({1 - i * 0.3})">{@render plane()}</g>
 			{/each}
 		{/if}
 	</svg>
-
-	<button class="button" onclick={() => begin(somewhere(), true)}>Click to throw!</button>
 </div>
 
 <style>
 	/* nice an' quiet so it don't shout over the form, wiv a line along the bottom for 'is table */
 	.planes {
-		position: relative;
 		height: var(--planes-height);
 		border-bottom: var(--separator);
 		background: var(--planes-sky);
-		color: var(--muted);
 	}
 
 	svg {
@@ -398,6 +358,10 @@
 		cursor: crosshair;
 		touch-action: manipulation;
 		user-select: none;
+	}
+
+	.penguin {
+		cursor: pointer;
 	}
 
 	/* so one sailin' over the form don't get in the way of it */
@@ -424,39 +388,31 @@
 		transform-origin: bottom;
 	}
 
-	button {
-		position: absolute;
-		top: var(--list-gap);
-		right: var(--gutter);
-		border: 0;
-		color: inherit;
-		font-family: inherit;
-		cursor: pointer;
-	}
+	/* once 'e fits left o' the form, 'e chucks 'em over it, so the band takes up no space at all */
+	@media (width >= 90rem) {
+		/* positioned so it's drawn on top o' the form, but the form still gets the clicks, only 'e don't */
+		.planes {
+			position: relative;
+			margin-top: calc(-1 * var(--planes-height));
+			border: 0;
+			background: none;
+			pointer-events: none;
+		}
 
-	button:hover {
-		color: var(--primary);
+		.penguin {
+			pointer-events: auto;
+		}
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
 		.squash {
 			animation: squash var(--planes-land) var(--bounce);
 		}
-
-		.far {
-			animation: drift var(--far-time) var(--far-delay) linear infinite;
-		}
 	}
 
 	@keyframes squash {
 		from {
 			scale: var(--planes-squash);
-		}
-	}
-
-	@keyframes drift {
-		to {
-			translate: var(--far-span) var(--planes-sink);
 		}
 	}
 </style>

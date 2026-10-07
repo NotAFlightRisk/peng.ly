@@ -1,6 +1,7 @@
 import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
 
-export type Contribution = { repo: string; threads: { number: number; title: string }[] };
+// merged is when it went in, if it's a PR an' we know
+export type Contribution = { repo: string; threads: { number: number; title: string; merged?: string }[] };
 
 // the ones worth showing on the front page, as owner/repo#pr. GitHub gives us the titles
 export const contributions = [

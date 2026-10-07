@@ -32,7 +32,6 @@
 		| 'gasp'
 		| 'peer'
 		| 'nod'
-		| 'giggle'
 		| 'huff'
 		| 'hello';
 </script>
@@ -279,10 +278,6 @@
 			animation: nod var(--actor-quick) ease-in-out;
 		}
 
-		.giggle {
-			animation: giggle var(--actor-quick) linear;
-		}
-
 		.huff {
 			animation: huff var(--actor-slow) ease-in-out;
 		}
@@ -467,23 +462,6 @@
 
 		60% {
 			scale: var(--actor-stretch);
-		}
-	}
-
-	@keyframes giggle {
-		12%,
-		37%,
-		62%,
-		87% {
-			rotate: calc(var(--actor-lean) * 0.5);
-			translate: 0 calc(var(--actor-hop) * 0.2);
-		}
-
-		25%,
-		50%,
-		75% {
-			rotate: calc(var(--actor-lean) * -0.5);
-			translate: 0 0;
 		}
 	}
 
