@@ -23,6 +23,16 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-rxxj-c5wr-phqp',
+		title: 'Offline password guessing on password-protected files',
+		repo: 'Skyfay/SkySend'
+	},
+	{
+		ghsa: 'GHSA-69rc-6f6g-43xj',
+		title: 'import_workbook checks only cell formulas, not names or rules',
+		repo: 'haris-musa/excel-mcp-server'
+	},
+	{
 		ghsa: 'GHSA-4j63-5v5f-xcc4',
 		title: 'Dynamic-frontend remote API proxy (WithRemoteApis) skips the BFF anti-forgery header',
 		repo: 'DuendeSoftware/products'
