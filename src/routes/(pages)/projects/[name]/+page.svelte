@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { moreApps, panels, site } from '$lib/config';
 	import { schema } from '$lib/schema';
+	import Breadcrumbs from '$lib/Breadcrumbs.svelte';
 	import ProjectGrid from '$lib/ProjectGrid.svelte';
 	import ProjectLinks from '$lib/ProjectLinks.svelte';
 	import Readme from '$lib/Readme.svelte';
@@ -13,6 +14,11 @@
 	const { title, description, repo, site: website, logo, image, stats, topics, readme, more } = $derived(data);
 	const source = $derived(`https://github.com/${repo}`);
 	const url = $derived(new URL(page.url.pathname, site.url).href);
+	const trail: [string, string][] = $derived([
+		[site.name, '/'],
+		[panels.projects.title, panels.projects.href],
+		[title, page.url.pathname]
+	]);
 
 	// what it is an' where it sits, both in the one lump for the search engines
 	const code = $derived(
@@ -33,11 +39,7 @@
 				},
 				{
 					'@type': 'BreadcrumbList',
-					itemListElement: [
-						[site.name, '/'],
-						[panels.projects.title, panels.projects.href],
-						[title, page.url.pathname]
-					].map(([name, path], i) => ({
+					itemListElement: trail.map(([name, path], i) => ({
 						'@type': 'ListItem',
 						position: i + 1,
 						name,
@@ -50,6 +52,9 @@
 </script>
 
 <svelte:head>{@html code}</svelte:head>
+
+<!-- the header's already got the way 'ome -->
+<Breadcrumbs trail={trail.slice(1)} />
 
 <div class="hero">
 	<div class="intro">

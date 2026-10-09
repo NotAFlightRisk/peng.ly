@@ -67,8 +67,10 @@
 		max-width: var(--grid-width);
 	}
 
+	/* only a little breadcrumb up top, so it don't need the full gutter */
 	.bare {
 		max-width: none;
+		padding-top: var(--bare-top);
 	}
 
 	h1 {
