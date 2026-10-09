@@ -23,6 +23,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-9vw8-rf55-xvr8',
+		title: 'Stored XSS via unescaped scrobble metadata',
+		repo: 'krateng/maloja'
+	},
+	{
 		ghsa: 'GHSA-vqvm-6237-5phf',
 		title: 'Uncontrolled recursion in ASCII property list parser in com.googlecode.plist:dd-plist',
 		repo: '3breadt/dd-plist'
@@ -271,12 +276,12 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/android-app-compat-screenshot/w1024'
 	},
 	{
-		name: 'ai-usage-dashboard',
+		name: 'token-usage-dashboard',
 		featured: true,
-		title: 'AI Usage Dashboard',
+		title: 'Token Usage Dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
-		repo: 'NotAFlightRisk/ai-usage-dashboard',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
+		repo: 'NotAFlightRisk/token-usage-dashboard',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/token-usage-dashboard/main/static/favicon.svg',
 		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
