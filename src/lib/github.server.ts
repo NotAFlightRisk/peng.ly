@@ -17,7 +17,7 @@ export const gh = async (fetch: typeof globalThis.fetch, path: string, body?: ob
 export const ghHtml = async (fetch: typeof globalThis.fetch, path: string) =>
 	(await ask(fetch, path, { headers: { accept: 'application/vnd.github.html+json' } })).text();
 
-// the numbers we show off for a repo, an' its topics for the search engines
+// a repo's stats, plus topics for the search engines
 export const repoInfo = async (fetch: typeof globalThis.fetch, repo: string) => {
 	const info = await gh(fetch, `repos/${repo}`);
 	return {
@@ -25,7 +25,7 @@ export const repoInfo = async (fetch: typeof globalThis.fetch, repo: string) => 
 		stats: {
 			stars: info.stargazers_count,
 			language: info.language,
-			// it's GitHub for "some licence, dunno which", so it's as good as none
+			// GitHub for "dunno which licence"
 			licence: info.license?.spdx_id === 'NOASSERTION' ? undefined : info.license?.spdx_id,
 			updated: info.pushed_at
 		}

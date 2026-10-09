@@ -10,7 +10,7 @@
 	const count = new Intl.NumberFormat('en-GB', { notation: 'compact' }).format;
 	const day = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'UTC' }).format;
 
-	// nuffin' to show, or no stars yet, an' that one just don't turn up
+	// blanks an' no stars get left out
 	const stats = $derived(
 		[
 			{ icon: Star, label: 'Stars', value: stars && count(stars) },

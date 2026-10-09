@@ -29,14 +29,14 @@
 		background: var(--raised);
 	}
 
-	/* the first one's where most folk want to go, so it gets the yellow */
+	/* the main one gets the yellow */
 	li:first-child .button {
 		background: var(--primary);
 		color: var(--primary-text);
-	}
 
-	/* wiv its dark text the ring'd go proper invisible against the dark behind it */
-	li:first-child .button:focus-visible {
-		outline-color: var(--primary);
+		/* a dark ring'd vanish on the card */
+		&:focus-visible {
+			outline-color: var(--primary);
+		}
 	}
 </style>

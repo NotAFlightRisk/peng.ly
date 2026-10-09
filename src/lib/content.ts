@@ -263,7 +263,7 @@ export type Project = {
 	featured?: boolean;
 };
 
-// the featured ones get a big row on /projects an' a spot on the front page, the rest are mini apps
+// featured ones go big on /projects an' the front page
 export const projects: Project[] = [
 	{
 		name: 'android-rom-compat',

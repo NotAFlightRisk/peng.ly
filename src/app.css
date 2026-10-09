@@ -144,7 +144,7 @@
 	--section-gap: calc(2 * var(--gutter));
 
 	--stat-gap: 0.25rem;
-	/* a shade up from whatever's underneath, so the buttons don't vanish into it */
+	/* a shade up from what's underneath */
 	--raised: var(--card);
 	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
 	--hero-title-size: clamp(2.5rem, 14cqi, 5rem);
