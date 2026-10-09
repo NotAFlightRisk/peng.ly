@@ -23,6 +23,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-v4c2-4fvx-chr3',
+		title: 'Symlinked store entry escapes the gopass store root',
+		repo: 'gopasspw/gopass'
+	},
+	{
 		ghsa: 'GHSA-9vw8-rf55-xvr8',
 		title: 'Stored XSS via unescaped scrobble metadata',
 		repo: 'krateng/maloja'
