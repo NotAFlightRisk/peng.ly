@@ -60,7 +60,7 @@
 	</div>
 
 	{#if image}
-		<img class="screenshot" src={image.src} alt={image.alt} fetchpriority="high" />
+		<div class="screenshot"><img src={image.src} alt={image.alt} fetchpriority="high" /></div>
 	{/if}
 </div>
 
@@ -112,8 +112,6 @@
 		width: 100%;
 		max-height: calc(100svh - var(--nav-height) - 2 * var(--gutter) - 2 * var(--hero-padding));
 		aspect-ratio: var(--screenshot-ratio);
-		object-fit: cover;
-		object-position: left top;
 		border-radius: var(--radius);
 		box-shadow: var(--panel-shadow);
 	}

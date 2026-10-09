@@ -121,7 +121,6 @@
 
 	/* the border's on the link, so it don't zoom */
 	.screenshot {
-		overflow: hidden;
 		border-top: var(--separator);
 
 		@media (width >= 55rem) {
@@ -130,12 +129,7 @@
 		}
 
 		img {
-			display: block;
-			width: 100%;
-			height: 100%;
 			aspect-ratio: var(--screenshot-ratio);
-			object-fit: cover;
-			object-position: left top;
 		}
 
 		@media (prefers-reduced-motion: no-preference) {
