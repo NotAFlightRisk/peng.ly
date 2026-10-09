@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { panels, site } from '$lib/config';
+	import { moreApps, panels, site } from '$lib/config';
 	import { schema } from '$lib/schema';
+	import ProjectGrid from '$lib/ProjectGrid.svelte';
 	import ProjectLinks from '$lib/ProjectLinks.svelte';
 	import Readme from '$lib/Readme.svelte';
 	import Stats from '$lib/Stats.svelte';
@@ -9,7 +10,7 @@
 
 	let { data }: PageProps = $props();
 
-	const { title, description, repo, site: website, logo, image, stats, topics, readme } = $derived(data);
+	const { title, description, repo, site: website, logo, image, stats, topics, readme, more } = $derived(data);
 	const source = $derived(`https://github.com/${repo}`);
 	const url = $derived(new URL(page.url.pathname, site.url).href);
 
@@ -65,6 +66,7 @@
 </div>
 
 <Readme {...readme} />
+<ProjectGrid title={moreApps.title} description={moreApps.description} projects={more} />
 
 <style>
 	.hero {

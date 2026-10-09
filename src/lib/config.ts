@@ -44,6 +44,13 @@ export const miniApps = {
 	description: 'Smaller tools that each do one job. Think little penguin, not emperor.'
 };
 
+// the rest, at the bottom of each project's page
+export const moreApps = {
+	title: 'More Apps',
+	description: 'Plenty more fish in the sea. Here\'s what else I\'ve built.',
+	max: 12
+};
+
 export const pages = {
 	about: {
 		title: 'About',
