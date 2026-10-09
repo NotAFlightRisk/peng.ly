@@ -23,6 +23,16 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-vqvm-6237-5phf',
+		title: 'Uncontrolled recursion in ASCII property list parser in com.googlecode.plist:dd-plist',
+		repo: '3breadt/dd-plist'
+	},
+	{
+		ghsa: 'GHSA-wgj2-p45w-v5mr',
+		title: 'Path traversal in Web Report Server file upload',
+		repo: 'ariacom/Seal-Report'
+	},
+	{
 		ghsa: 'GHSA-rxxj-c5wr-phqp',
 		title: 'Offline password guessing on password-protected files',
 		repo: 'Skyfay/SkySend'
@@ -262,6 +272,15 @@ export const projects = [
 		repo: 'NotAFlightRisk/track-the-gap',
 		site: 'https://track-the-gap.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg'
+	},
+	{
+		name: 'tubespotting',
+		title: 'tubespotting',
+		description: 'Every London Underground train on one live map, gliding between stations as TfL reports them',
+		repo: 'NotAFlightRisk/tubespotting',
+		site: 'https://tubespotting.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
+		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/.github/screenshot.png'
 	},
 	{
 		name: 'parallax',
