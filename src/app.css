@@ -138,16 +138,26 @@
 	--page-width: 56rem;
 	--grid-width: 72rem;
 	--panels-width: 90rem;
+	--bare-top: 1rem;
 	--page-title-size: clamp(2.5rem, 10vw, 5rem);
 	--page-title-leading: 1;
+	--section-title-size: clamp(1.75rem, 6vw, 3rem);
+	--section-gap: calc(2 * var(--gutter));
 
 	--stat-gap: 0.25rem;
+	/* a shade up from what's underneath */
+	--raised: var(--card);
 	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
 	--hero-title-size: clamp(2.5rem, 14cqi, 5rem);
 	--hero-logo-size: clamp(3.5rem, 16cqi, 6rem);
 	/* nuffin' on a short screen, a bit more breathin' room the taller it gets */
 	--hero-padding: clamp(0rem, 8svh - 2.5rem, 3rem);
 	--screenshot-ratio: 16 / 10;
+	--screenshot-zoom: 1.03;
+	--zoom-transition: 0.6s var(--ease);
+	--sheen: linear-gradient(90deg, transparent, #ffffff14, transparent);
+	--sheen-sweep: 1.5s var(--ease) infinite;
+	--featured-width: 28rem;
 	--readme-indent: 1.5em;
 	--readme-heading-gap: 2rem;
 	--quote-border: 0.25rem solid var(--muted);
@@ -350,4 +360,41 @@ header ::selection {
 :focus-visible {
 	outline: var(--outline);
 	outline-offset: var(--outline-offset);
+}
+
+/* a sheen sweeps the frame till the picture lands on top of it */
+.screenshot {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	background: var(--card-hover);
+
+	@media (prefers-reduced-motion: no-preference) {
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			background: var(--sheen);
+			animation: sheen var(--sheen-sweep);
+		}
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+@keyframes sheen {
+	from {
+		translate: -100%;
+	}
+
+	to {
+		translate: 100%;
+	}
 }

@@ -17,6 +17,21 @@ export const gh = async (fetch: typeof globalThis.fetch, path: string, body?: ob
 export const ghHtml = async (fetch: typeof globalThis.fetch, path: string) =>
 	(await ask(fetch, path, { headers: { accept: 'application/vnd.github.html+json' } })).text();
 
+// a repo's stats, plus topics for the search engines
+export const repoInfo = async (fetch: typeof globalThis.fetch, repo: string) => {
+	const info = await gh(fetch, `repos/${repo}`);
+	return {
+		topics: info.topics as string[],
+		stats: {
+			stars: info.stargazers_count,
+			language: info.language,
+			// GitHub for "dunno which licence"
+			licence: info.license?.spdx_id === 'NOASSERTION' ? undefined : info.license?.spdx_id,
+			updated: info.pushed_at
+		}
+	};
+};
+
 type Thread = { repo: string; number: number; title: string; merged?: string };
 
 // one entry per repo, in the order they first turn up

@@ -2,9 +2,11 @@
 	import type { Snippet } from 'svelte';
 
 	let { href, icon, children }: { href: string; icon?: string; children: Snippet } = $props();
+
+	const target = $derived(href.startsWith('/') ? undefined : '_blank');
 </script>
 
-<a {href} target="_blank">
+<a {href} {target}>
 	{#if icon}<img src={icon} alt="" loading="lazy" />{/if}
 	{@render children()}
 </a>

@@ -23,6 +23,16 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-v4c2-4fvx-chr3',
+		title: 'Symlinked store entry escapes the gopass store root',
+		repo: 'gopasspw/gopass'
+	},
+	{
+		ghsa: 'GHSA-9vw8-rf55-xvr8',
+		title: 'Stored XSS via unescaped scrobble metadata',
+		repo: 'krateng/maloja'
+	},
+	{
 		ghsa: 'GHSA-vqvm-6237-5phf',
 		title: 'Uncontrolled recursion in ASCII property list parser in com.googlecode.plist:dd-plist',
 		repo: '3breadt/dd-plist'
@@ -247,23 +257,37 @@ export const reports: Report[] = [
 	}
 ];
 
-export const projects = [
+export type Project = {
+	name: string;
+	title: string;
+	description: string;
+	repo: string;
+	site?: string;
+	logo: string;
+	screenshot?: string;
+	featured?: boolean;
+};
+
+// featured ones go big on /projects an' the front page
+export const projects: Project[] = [
 	{
 		name: 'android-rom-compat',
+		featured: true,
 		title: 'Android ROM Compat',
 		description: 'Which Android ROMs run on your phone, feature availability and bootloader unlock status',
 		repo: 'NotAFlightRisk/android-rom-compat',
 		site: 'https://android-rom-compat.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/.github/screenshot.png'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/android-app-compat-screenshot/w1024'
 	},
 	{
-		name: 'ai-usage-dashboard',
-		title: 'AI Usage Dashboard',
+		name: 'token-usage-dashboard',
+		featured: true,
+		title: 'Token Usage Dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
-		repo: 'NotAFlightRisk/ai-usage-dashboard',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/.github/screenshot.png'
+		repo: 'NotAFlightRisk/token-usage-dashboard',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/token-usage-dashboard/main/static/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
 		name: 'track-the-gap',
@@ -275,12 +299,13 @@ export const projects = [
 	},
 	{
 		name: 'tubespotting',
-		title: 'tubespotting',
-		description: 'Every London Underground train on one live map, gliding between stations as TfL reports them',
+		featured: true,
+		title: 'Tube Spotting',
+		description: 'Real-time London Underground map for live train locations',
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/.github/screenshot.png'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
 	},
 	{
 		name: 'parallax',
@@ -289,7 +314,7 @@ export const projects = [
 		repo: 'NotAFlightRisk/parallax',
 		site: 'https://parallax.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax/w1024'
 	},
 	{
 		name: 'color-code-convertor',
@@ -299,15 +324,17 @@ export const projects = [
 		site: 'https://color-code-convertor.peng.ly',
 		// its favicon's drawn in code over there, so we keep our own copy
 		logo: colorCodeConvertor,
-		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor/w1024'
 	},
 	{
 		name: 'statusquo',
+		featured: true,
 		title: 'statusquo',
 		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
 		repo: 'NotAFlightRisk/statusquo',
 		site: 'https://statusquo.peng.ly',
-		logo: 'https://statusquo.peng.ly/favicon.svg'
+		logo: 'https://statusquo.peng.ly/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
 	}
 ];
 

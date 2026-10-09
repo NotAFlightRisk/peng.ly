@@ -7,13 +7,19 @@
 	import Reports from '$lib/Reports.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Posts from '$lib/Posts.svelte';
+	import { schema } from '$lib/schema';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
 	// the front page only gets reports with a CVE number on 'em
 	const featured = reports.filter(({ cve }) => cve);
+
+	// what Google calls the site
+	const website = schema({ '@type': 'WebSite', name: site.name, url: new URL('/', site.url).href });
 </script>
+
+<svelte:head>{@html website}</svelte:head>
 
 <header>
 	<nav aria-label="Pages">

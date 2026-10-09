@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { sections } from '$lib/config';
+
+	let menu: HTMLUListElement;
+
+	// a link that don't reload the page would leave it open
+	const close = () => menu.hidePopover?.();
 </script>
 
 <nav aria-label="Main">
@@ -16,10 +21,10 @@
 		</svg>
 	</button>
 
-	<ul id="menu" popover>
+	<ul id="menu" popover bind:this={menu}>
 		{#each sections as { title, href } (href)}
 			<li>
-				<a class="button" {href} aria-current={page.url.pathname === href ? 'page' : undefined}>
+				<a class="button" {href} aria-current={page.url.pathname === href ? 'page' : undefined} onclick={close}>
 					{title}
 				</a>
 			</li>
@@ -84,8 +89,11 @@
 			translate: var(--menu-drop);
 		}
 
+		/* no taller than the links */
 		ul:popover-open {
 			display: grid;
+			align-content: start;
+			height: fit-content;
 			opacity: 1;
 			translate: none;
 		}

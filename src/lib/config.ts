@@ -38,6 +38,19 @@ export const panels = {
 	}
 };
 
+// the little 'uns, under the featured ones on /projects
+export const miniApps = {
+	title: 'Mini Apps',
+	description: 'Smaller tools that each do one job. Think little penguin, not emperor.'
+};
+
+// the rest, at the bottom of each project's page
+export const moreApps = {
+	title: 'More Apps',
+	description: 'Plenty more fish in the sea. Here\'s what else I\'ve built.',
+	max: 12
+};
+
 export const pages = {
 	about: {
 		title: 'About',
@@ -97,7 +110,7 @@ export const contact = {
 };
 
 // the lot that gets a link in the header an' footer, so add one an' their breakpoints want shiftin'
-export const sections = [...Object.values(panels), ...Object.values(pages)];
+export const sections = [panels.projects, panels.security, panels.writing, panels.contributions, pages.about, pages.contact];
 
 // what the error page says, lost is a 404 an' broken is anyfin' else
 export const errors = {

@@ -1,30 +1,26 @@
 import { error } from '@sveltejs/kit';
+import { moreApps } from '$lib/config';
 import { projects } from '$lib/content';
-import { gh } from '$lib/github.server';
+import { repoInfo } from '$lib/github.server';
 import { readme } from '$lib/readme.server';
 
 export const load = async ({ fetch, params }) => {
 	const project = projects.find(({ name }) => name === params.name);
 	if (!project) error(404);
 
-	const [repo, docs] = await Promise.all([gh(fetch, `repos/${project.repo}`), readme(fetch, project.repo)]);
+	const [info, docs] = await Promise.all([repoInfo(fetch, project.repo), readme(fetch, project.repo)]);
+	const i = projects.indexOf(project);
 
 	return {
 		...project,
+		...info,
 		// the one-liner's a bit short for Google, so it gets a touch more
 		meta: `${project.description}. Free and open source, with the code on GitHub.`,
 		image: project.screenshot ? { src: project.screenshot, alt: `Screenshot of ${project.title}` } : undefined,
 		// it does its own title an' widths, so the hero can spread out
 		bare: true,
-		topics: repo.topics as string[],
-		stats: {
-			stars: repo.stargazers_count,
-			forks: repo.forks_count,
-			issues: repo.open_issues_count,
-			language: repo.language,
-			licence: repo.license?.spdx_id,
-			updated: repo.pushed_at
-		},
-		readme: docs
+		readme: docs,
+		// the next ones first, so they all get a look-in
+		more: [...projects.slice(i + 1), ...projects.slice(0, i)].slice(0, moreApps.max)
 	};
 };

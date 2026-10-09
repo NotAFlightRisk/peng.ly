@@ -1,5 +1,11 @@
 <script lang="ts">
-	import ProjectCards from '$lib/ProjectCards.svelte';
+	import { miniApps } from '$lib/config';
+	import FeaturedProjects from '$lib/FeaturedProjects.svelte';
+	import ProjectGrid from '$lib/ProjectGrid.svelte';
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
 </script>
 
-<ProjectCards />
+<FeaturedProjects projects={data.featured} />
+<ProjectGrid {...miniApps} projects={data.mini} />

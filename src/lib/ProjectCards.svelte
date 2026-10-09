@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { projects } from '$lib/content';
+	import type { Project } from '$lib/content';
 	import Github from '~icons/tabler/brand-github';
 	import World from '~icons/tabler/world';
+
+	let { projects }: { projects: Project[] } = $props();
 </script>
 
 <ul>
 	{#each projects as { name, description, repo, site, logo } (repo)}
 		<li>
-			<h2><a href="/projects/{name}">{name}</a></h2>
+			<h3><a href="/projects/{name}">{name}</a></h3>
 			<div>
 				<img src={logo} alt="" loading="lazy" />
 				<p>{description}</p>
@@ -36,7 +38,7 @@
 		box-shadow: var(--panel-shadow);
 	}
 
-	h2 {
+	h3 {
 		margin: 0;
 		padding: var(--panel-padding) var(--panel-padding) var(--gap);
 		font-size: var(--card-title-size);
@@ -73,7 +75,7 @@
 		font-weight: var(--button-weight);
 	}
 
-	h2 a:hover {
+	h3 a:hover {
 		color: var(--primary);
 	}
 
