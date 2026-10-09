@@ -8,7 +8,15 @@ import { defineConfig } from 'vite';
 const files = adapter();
 const routing = '.vercel/output/config.json';
 
-// Vercel only shows our 404 page at /404, so this tells it to use it for anyfin' it can't find
+// safety 'eaders for every response
+const security = {
+	'content-security-policy': "base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'",
+	'cross-origin-opener-policy': 'same-origin',
+	'referrer-policy': 'strict-origin-when-cross-origin',
+	'x-content-type-options': 'nosniff'
+};
+
+// our extra rules for Vercel's routin'
 const vercel: Adapter = {
 	...files,
 	async adapt(builder) {
@@ -16,6 +24,11 @@ const vercel: Adapter = {
 		if (!process.env.VERCEL) return;
 
 		const config = JSON.parse(readFileSync(routing, 'utf8'));
+		config.routes.unshift(
+			{ src: '/.*', headers: security, continue: true },
+			// fresh every build, so a week's fine
+			{ src: '/avatars/.+', headers: { 'cache-control': 'public, max-age=604800' }, continue: true }
+		);
 		config.routes.push(
 			// a missing script wants a plain 404, not our page cached for a year in its place
 			{ src: `/${builder.getAppPath()}/immutable/.+`, status: 404, headers: { 'cache-control': 'no-store' } },

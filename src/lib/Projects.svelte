@@ -9,7 +9,7 @@
 <ul>
 	{#each featured as { name, description, repo, logo } (repo)}
 		<li>
-			<IconLink href="https://github.com/{repo}" icon={logo}>{name}</IconLink>
+			<IconLink href="/projects/{name}" icon={logo}>{name}</IconLink>
 			<p>{description}</p>
 		</li>
 	{/each}

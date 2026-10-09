@@ -4,6 +4,6 @@
 	let { repo }: { repo: string } = $props();
 </script>
 
-<IconLink href="https://github.com/{repo}" icon="https://github.com/{repo.split('/')[0]}.png?size=64">
+<IconLink href="https://github.com/{repo}" icon="/avatars/{repo.split('/')[0]}.png">
 	{repo}
 </IconLink>

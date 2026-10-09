@@ -268,7 +268,7 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/android-rom-compat',
 		site: 'https://android-rom-compat.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/android-app-compat-screenshot'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/android-app-compat-screenshot/w1024'
 	},
 	{
 		name: 'ai-usage-dashboard',
@@ -277,7 +277,7 @@ export const projects: Project[] = [
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
 		repo: 'NotAFlightRisk/ai-usage-dashboard',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
 		name: 'track-the-gap',
@@ -295,7 +295,7 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
 	},
 	{
 		name: 'parallax',
@@ -304,7 +304,7 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/parallax',
 		site: 'https://parallax.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax/w1024'
 	},
 	{
 		name: 'color-code-convertor',
@@ -314,7 +314,7 @@ export const projects: Project[] = [
 		site: 'https://color-code-convertor.peng.ly',
 		// its favicon's drawn in code over there, so we keep our own copy
 		logo: colorCodeConvertor,
-		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor/w1024'
 	},
 	{
 		name: 'statusquo',
@@ -324,7 +324,7 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/statusquo',
 		site: 'https://statusquo.peng.ly',
 		logo: 'https://statusquo.peng.ly/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
 	}
 ];
 

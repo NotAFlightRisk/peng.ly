@@ -1,5 +1,6 @@
 import { site } from '$lib/config';
 import { projects } from '$lib/content';
+import { repoInfo } from '$lib/github.server';
 
 export const prerender = true;
 
@@ -16,14 +17,22 @@ const paths = Object.keys(pages)
 			.join('/')
 	)
 	// a [name] page is one file doin' lots of pages, so they get listed one by one below
-	.filter((path) => !path.includes('['))
-	.concat(projects.map(({ name }) => `/projects/${name}`));
+	.filter((path) => !path.includes('['));
 
-export const GET = () =>
-	new Response(
+const entry = (path: string, lastmod?: string) =>
+	`<url><loc>${new URL(path, site.url).href}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`;
+
+export const GET = async ({ fetch }) => {
+	// fresh as the repo's last push
+	const dated = await Promise.all(
+		projects.map(async ({ name, repo }) => entry(`/projects/${name}`, (await repoInfo(fetch, repo)).stats.updated))
+	);
+
+	return new Response(
 		`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((path) => `<url><loc>${new URL(path, site.url).href}</loc></url>`).join('\n')}
+${[...paths.map((path) => entry(path)), ...dated].join('\n')}
 </urlset>`,
 		{ headers: { 'Content-Type': 'application/xml' } }
 	);
+};
