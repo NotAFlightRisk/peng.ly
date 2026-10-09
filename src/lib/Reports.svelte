@@ -58,6 +58,17 @@
 		font-size: var(--small-size);
 	}
 
+	/* tiny screens get the repo under the CVE, icon first */
+	@media (width < 25rem) {
+		.featured p {
+			flex-basis: 100%;
+
+			> :global(a) {
+				flex-direction: row;
+			}
+		}
+	}
+
 	p {
 		--icon-size: var(--small-icon-size);
 		display: flex;
