@@ -300,8 +300,8 @@ export const projects: Project[] = [
 	{
 		name: 'tubespotting',
 		featured: true,
-		title: 'tubespotting',
-		description: 'Every London Underground train on one live map, gliding between stations as TfL reports them',
+		title: 'Tube Spotting',
+		description: 'Real-time London Underground map for live train locations',
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
