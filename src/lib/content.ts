@@ -258,12 +258,12 @@ export const projects = [
 		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/.github/screenshot.png'
 	},
 	{
-		name: 'ai-usage-dashboard',
-		title: 'AI Usage Dashboard',
+		name: 'token-usage-dashboard',
+		title: 'Token Usage Dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
-		repo: 'NotAFlightRisk/ai-usage-dashboard',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/.github/screenshot.png'
+		repo: 'NotAFlightRisk/token-usage-dashboard',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/token-usage-dashboard/main/static/favicon.svg',
+		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/token-usage-dashboard/main/.github/screenshot.png'
 	},
 	{
 		name: 'track-the-gap',
