@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { projects } from '$lib/content';
 	import IconLink from '$lib/IconLink.svelte';
+
+	// only the big 'uns make the front page
+	const featured = projects.filter((project) => project.featured);
 </script>
 
 <ul>
-	{#each projects as { name, description, repo, logo } (repo)}
+	{#each featured as { name, description, repo, logo } (repo)}
 		<li>
 			<IconLink href="https://github.com/{repo}" icon={logo}>{name}</IconLink>
 			<p>{description}</p>

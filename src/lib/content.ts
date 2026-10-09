@@ -247,23 +247,37 @@ export const reports: Report[] = [
 	}
 ];
 
-export const projects = [
+export type Project = {
+	name: string;
+	title: string;
+	description: string;
+	repo: string;
+	site?: string;
+	logo: string;
+	screenshot?: string;
+	featured?: boolean;
+};
+
+// the featured ones get a big row on /projects an' a spot on the front page, the rest are mini apps
+export const projects: Project[] = [
 	{
 		name: 'android-rom-compat',
+		featured: true,
 		title: 'Android ROM Compat',
 		description: 'Which Android ROMs run on your phone, feature availability and bootloader unlock status',
 		repo: 'NotAFlightRisk/android-rom-compat',
 		site: 'https://android-rom-compat.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/public/logo.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/android-rom-compat/main/.github/screenshot.png'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/android-app-compat-screenshot'
 	},
 	{
 		name: 'ai-usage-dashboard',
+		featured: true,
 		title: 'AI Usage Dashboard',
 		description: 'Dashboard for historical token usage for Claude, Codex and OpenCode',
 		repo: 'NotAFlightRisk/ai-usage-dashboard',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/static/favicon.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/ai-usage-dashboard/main/.github/screenshot.png'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard'
 	},
 	{
 		name: 'track-the-gap',
@@ -275,12 +289,13 @@ export const projects = [
 	},
 	{
 		name: 'tubespotting',
+		featured: true,
 		title: 'tubespotting',
 		description: 'Every London Underground train on one live map, gliding between stations as TfL reports them',
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
-		screenshot: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/.github/screenshot.png'
+		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting'
 	},
 	{
 		name: 'parallax',
@@ -303,11 +318,13 @@ export const projects = [
 	},
 	{
 		name: 'statusquo',
+		featured: true,
 		title: 'statusquo',
 		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
 		repo: 'NotAFlightRisk/statusquo',
 		site: 'https://statusquo.peng.ly',
-		logo: 'https://statusquo.peng.ly/favicon.svg'
+		logo: 'https://statusquo.peng.ly/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo'
 	}
 ];
 

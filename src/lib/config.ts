@@ -38,6 +38,12 @@ export const panels = {
 	}
 };
 
+// the little 'uns, under the featured ones on /projects
+export const miniApps = {
+	title: 'Mini Apps',
+	description: 'Smaller tools that each do one job. Think little penguin, not emperor.'
+};
+
 export const pages = {
 	about: {
 		title: 'About',
