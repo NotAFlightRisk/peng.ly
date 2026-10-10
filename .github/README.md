@@ -25,9 +25,8 @@ npm run check    # type and a11y checks
 
 ## Deploying
 
-Follow the developing instructions, then run `npm run build` and upload the `build/` folder to any static host.
-
-### Configuring
+Follow the developing instructions, then run `npm run build` and upload the `build/` folder to any static host.<br>
+By default, no configuration is needed, but there's some optional things which can be configured or setup...
 
 <details>
   <summary>Environmental Variables</summary>
@@ -63,6 +62,9 @@ npx wrangler deploy --config worker/wrangler.toml   # or by hand
 
 Licensed under [MIT](../LICENSE)
 
+<details>
+<summary>Imprint</summary>
+
 ```
 Copyright 2026 NotAFlightRisk <Peng.ly>
 
@@ -84,7 +86,7 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-
+</details>
 
 <p  align="center">
   <a href="https://github.com/NotAFlightRisk"><img width="64" src="https://pixelflare.cc/iain/gif/penguin-dance.gif" /></a><br>
@@ -92,4 +94,12 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <i>© <a href="https://github.com/NotAFlightRisk">NotAFlightRisk</a> 2026</i>
   </sup>
 </p>
+
+<!--
+oooh, hello there! hope you're having a nice day :)
+   |\__      |\___
+ (:> __)X  (:o ___(
+   |/        |/
+-->
+
 
