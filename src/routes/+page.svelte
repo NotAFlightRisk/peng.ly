@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { site, panels, pages } from '$lib/config';
 	import { posts, projects, reports } from '$lib/content';
 	import Penguin from '$lib/Penguin.svelte';
@@ -17,11 +18,27 @@
 
 	// what Google calls the site
 	const website = schema({ '@type': 'WebSite', name: site.name, url: new URL('/', site.url).href });
+
+	let header: HTMLElement;
+	let shrink: Animation | undefined;
+
+	// no scroll timelines? then the shrink sits paused an' we wind it along by 'and
+	function wind() {
+		if (shrink?.playState !== 'paused') return;
+		const range = Math.max(-parseFloat(getComputedStyle(header).top), 1);
+		shrink.currentTime = Math.min(scrollY / range, 1) * 1000;
+	}
+
+	onMount(() => {
+		[shrink] = header.getAnimations();
+		wind();
+	});
 </script>
 
 <svelte:head>{@html website}</svelte:head>
+<svelte:window onscroll={wind} onresize={wind} />
 
-<header>
+<header bind:this={header}>
 	<nav aria-label="Pages">
 		<ul>
 			{#each Object.values(pages) as { title, href } (href)}
@@ -55,13 +72,15 @@
 		align-content: end;
 		justify-content: end;
 		min-height: var(--nav-height);
-		padding: 0 var(--gutter);
+		padding: 0 var(--nav-gutter);
 		overflow: hidden;
 		background: var(--primary);
 		color: var(--primary-text);
 		box-shadow: var(--hero-shadow);
-		/* no scroll animation to be had? then it sits at the nav end of the shrink */
-		animation: shrink 0s linear both;
+		--title-size: var(--nav-title-size);
+		--title-gap: var(--nav-title-gap);
+		--avatar-size: var(--nav-avatar-size);
+		--gaze-reach: var(--nav-gaze-reach);
 	}
 
 	nav {
@@ -100,31 +119,44 @@
 	  margin: 0 auto;
 	}
 
-	@supports (animation-timeline: scroll()) {
-		@media (prefers-reduced-motion: no-preference) {
+	@media (prefers-reduced-motion: no-preference) {
+		header {
+			top: calc(var(--nav-height) - var(--hero-height));
+			min-height: var(--hero-height);
+			align-content: space-between;
+			animation: shrink linear both;
+		}
+
+		/* only worth showin' these while there's an open hero to sit in */
+		nav {
+			display: flex;
+		}
+
+		@supports (animation-timeline: scroll()) {
 			header {
-				top: calc(var(--nav-height) - var(--hero-height));
-				min-height: var(--hero-height);
-				align-content: space-between;
 				animation-duration: auto;
 				animation-timeline: scroll();
 				animation-range: 0 calc(var(--hero-height) - var(--nav-height));
 			}
+		}
 
-			/* only worth showin' these while there's an open hero to sit in */
-			nav {
-				display: flex;
+		/* no scroll timeline (hiya Firefox)? then it sits paused for wind() to move */
+		@supports not (animation-timeline: scroll()) {
+			header {
+				animation-duration: 1s;
+				animation-play-state: paused;
 			}
 		}
 	}
 
+	/* the hero sizes come down from :root, the nav ones are the header's own */
 	@keyframes shrink {
-		to {
-			padding-inline: var(--nav-gutter);
-			--title-size: var(--nav-title-size);
-			--title-gap: var(--nav-title-gap);
-			--avatar-size: var(--nav-avatar-size);
-			--gaze-reach: var(--nav-gaze-reach);
+		from {
+			padding-inline: var(--gutter);
+			--title-size: inherit;
+			--title-gap: inherit;
+			--avatar-size: inherit;
+			--gaze-reach: inherit;
 		}
 	}
 </style>

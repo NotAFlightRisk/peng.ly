@@ -4,6 +4,9 @@
 
 	// path is the bit of the GitHub URL between the repo an' the number
 	let { contributions, path = 'pull' }: { contributions: Contribution[]; path?: string } = $props();
+
+	// any more than this from one repo an' the rest just get counted
+	const limit = 8;
 </script>
 
 <ul>
@@ -11,7 +14,7 @@
 		<li>
 			<Repo {repo} />
 			<ul>
-				{#each threads as { number, title } (number)}
+				{#each threads.slice(0, limit) as { number, title } (number)}
 					<li>
 						<a href="https://github.com/{repo}/{path}/{number}" target="_blank">
 							<span {title}>{title}</span>
@@ -19,6 +22,9 @@
 						</a>
 					</li>
 				{/each}
+				{#if threads.length > limit}
+					<li class="more">+{threads.length - limit} more</li>
+				{/if}
 			</ul>
 		</li>
 	{/each}
@@ -41,6 +47,11 @@
 		justify-content: space-between;
 		min-height: var(--target-size);
 		gap: var(--gap);
+		color: var(--muted);
+		font-size: var(--small-size);
+	}
+
+	.more {
 		color: var(--muted);
 		font-size: var(--small-size);
 	}

@@ -2,7 +2,6 @@ import { site } from '$lib/config';
 import { byRepo, gh } from '$lib/github.server';
 
 const query = `author:${site.github} is:pr is:merged -user:${site.github} -user:lissy93`;
-const busiest = 20;
 
 type Found = {
 	number: number;
@@ -23,7 +22,7 @@ const search = async (fetch: typeof globalThis.fetch) => {
 
 	found.sort((a, b) => b.pull_request.merged_at.localeCompare(a.pull_request.merged_at));
 
-	const repos = byRepo(
+	return byRepo(
 		found.map(({ number, title, repository_url, pull_request }) => ({
 			repo: repository_url.split('/repos/')[1],
 			number,
@@ -31,9 +30,6 @@ const search = async (fetch: typeof globalThis.fetch) => {
 			merged: pull_request.merged_at
 		}))
 	);
-
-	// repos we've piled more than a few PRs into would 'og the whole page
-	return repos.filter(({ threads }) => threads.length <= busiest);
 };
 
 let asked: ReturnType<typeof search> | undefined;
