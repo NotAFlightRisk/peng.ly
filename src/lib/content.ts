@@ -23,6 +23,56 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-jh54-c7gc-mvcc',
+		title: 'Unescaped class attribute value allows HTML injection in inline() output',
+		repo: 'Stranger6667/css-inline'
+	},
+	{
+		ghsa: 'GHSA-697g-g6mq-w29r',
+		title: 'gmsm block-cipher decryption panics on malformed IV or ciphertext',
+		repo: 'emmansun/gmsm'
+	},
+	{
+		ghsa: 'GHSA-7qcr-88c3-f9p7',
+		title: 'Path traversal via unvalidated uploadId and batch-delete keys',
+		repo: 'versity/versitygw'
+	},
+	{
+		ghsa: 'GHSA-jxjx-4v2j-96qg',
+		title: "Unvalidated crate bin name escapes cargo-binstall's install directory",
+		repo: 'cargo-bins/cargo-binstall'
+	},
+	{
+		ghsa: 'GHSA-g9qh-gcxj-jf82',
+		title: 'Query injection via incomplete value escaping in formatQuery',
+		repo: 'react-querybuilder/react-querybuilder'
+	},
+	{
+		ghsa: 'GHSA-5729-mvhf-9gq4',
+		title: 'get_objects_for_user returns objects the user lacks a required permission on',
+		repo: 'django-guardian/django-guardian'
+	},
+	{
+		ghsa: 'GHSA-vqhm-6cm7-rvcv',
+		title: 'Staff-only custom fields exposed to the ticket submitter',
+		repo: 'django-helpdesk/django-helpdesk'
+	},
+	{
+		ghsa: 'GHSA-2h3h-h357-cg2q',
+		title: 'Path traversal via TNEF attachment filenames',
+		repo: 'Sicos1977/MSGReader'
+	},
+	{
+		ghsa: 'GHSA-wj7m-ffj3-574h',
+		title: 'Default encrypt: true sends LOGIN7 credentials in cleartext when the server declines encryption in PRELOGIN',
+		repo: 'tediousjs/tedious'
+	},
+	{
+		ghsa: 'GHSA-6wm9-v9g6-3gfp',
+		title: 'SSRF via the #:schema document directive',
+		repo: 'tombi-toml/tombi'
+	},
+	{
 		ghsa: 'GHSA-v4c2-4fvx-chr3',
 		title: 'Symlinked store entry escapes the gopass store root',
 		repo: 'gopasspw/gopass'
