@@ -1,7 +1,7 @@
 import { site } from '$lib/config';
 import { byRepo, gh } from '$lib/github.server';
 
-const query = `author:${site.github} is:pr is:merged -user:${site.github} -user:lissy93`;
+const query = `author:${site.github} is:pr is:merged -user:${site.github}`;
 
 type Found = {
 	number: number;
