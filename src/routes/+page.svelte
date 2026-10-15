@@ -20,16 +20,19 @@
 	const website = schema({ '@type': 'WebSite', name: site.name, url: new URL('/', site.url).href });
 
 	let header: HTMLElement;
+	let shrink: Animation | undefined;
 
-	// no scroll timelines? then we wind the shrink along by 'and
+	// no scroll timelines? then the shrink sits paused an' we wind it along by 'and
 	function wind() {
-		const [shrink] = header.getAnimations();
 		if (shrink?.playState !== 'paused') return;
-		const range = -parseFloat(getComputedStyle(header).top);
+		const range = Math.max(-parseFloat(getComputedStyle(header).top), 1);
 		shrink.currentTime = Math.min(scrollY / range, 1) * 1000;
 	}
 
-	onMount(wind);
+	onMount(() => {
+		[shrink] = header.getAnimations();
+		wind();
+	});
 </script>
 
 <svelte:head>{@html website}</svelte:head>
