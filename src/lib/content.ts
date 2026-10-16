@@ -23,6 +23,21 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-pwxw-f553-2v86',
+		title: 'Open Data catalog endpoints perform no authorization',
+		repo: 'rucio/rucio'
+	},
+	{
+		ghsa: 'GHSA-qw3f-cg63-5h6f',
+		title: "Backup imports can re-assign and modify another portfolio's transactions",
+		repo: 'investbrainapp/investbrain'
+	},
+	{
+		ghsa: 'GHSA-f4h2-2r6m-w59r',
+		title: 'Uncontrolled XML entity expansion when reading untrusted workbooks',
+		repo: 'EPPlusSoftware/EPPlus'
+	},
+	{
 		ghsa: 'GHSA-jh54-c7gc-mvcc',
 		title: 'Unescaped class attribute value allows HTML injection in inline() output',
 		repo: 'Stranger6667/css-inline'
@@ -388,4 +403,11 @@ export const projects: Project[] = [
 	}
 ];
 
-export const posts: { title: string; date: string; url: string }[] = [];
+export type Post = {
+	title: string;
+	description: string;
+	url: string;
+	date: string;
+	tags: string[];
+	readingMinutes: number;
+};
