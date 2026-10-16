@@ -1,6 +1,7 @@
 export const site = {
 	name: 'Peng.ly',
 	url: 'https://peng.ly',
+	blog: 'https://blog.peng.ly',
 	author: 'Iain',
 	github: 'NotAFlightRisk',
 	security: 'security@peng.ly',
@@ -37,6 +38,9 @@ export const panels = {
 		meta: 'Occasional posts about code, security, and whatever else I\'ve been poking at.'
 	}
 };
+
+// how many posts make the front page, the rest are on /blog
+export const latestPosts = 10;
 
 // the little 'uns, under the featured ones on /projects
 export const miniApps = {
