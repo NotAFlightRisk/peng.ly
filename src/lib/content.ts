@@ -400,6 +400,14 @@ export const projects: Project[] = [
 		site: 'https://statusquo.peng.ly',
 		logo: 'https://statusquo.peng.ly/favicon.svg',
 		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
+	},
+	{
+		name: 'portainer-templates-extras',
+		title: 'Portainer Templates Extras',
+		description: 'Tested Portainer templates for self-hosted apps, add one URL and deploy with a click',
+		repo: 'NotAFlightRisk/portainer-templates-extras',
+		site: 'https://portainer-templates-extras.peng.ly',
+		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
 	}
 ];
 
