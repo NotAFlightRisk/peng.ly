@@ -23,6 +23,11 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-j5xg-j54g-8mw6',
+		title: 'Query synthesises unbounded empty rows from a crafted worksheet row index',
+		repo: 'mini-software/MiniExcel'
+	},
+	{
 		ghsa: 'GHSA-pwxw-f553-2v86',
 		title: 'Open Data catalog endpoints perform no authorization',
 		repo: 'rucio/rucio'
