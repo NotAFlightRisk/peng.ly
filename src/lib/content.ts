@@ -23,6 +23,21 @@ export type Report = { ghsa: string; cve?: string; title: string; repo: string }
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-f4p3-5486-mh7g',
+		title: 'Cross-user task disclosure via the Everyone dashboard',
+		repo: 'chrisvel/tududi'
+	},
+	{
+		ghsa: 'GHSA-x2mx-f527-mxr9',
+		title: 'DOM XSS in Vditor.preview media rendering bypasses sanitize',
+		repo: 'Vanessa219/vditor'
+	},
+	{
+		ghsa: 'GHSA-7w7v-2j76-mqwp',
+		title: 'Unfiltered Java deserialization in the native MVStore read path',
+		repo: 'nitrite/nitrite-java'
+	},
+	{
 		ghsa: 'GHSA-j5xg-j54g-8mw6',
 		title: 'Query synthesises unbounded empty rows from a crafted worksheet row index',
 		repo: 'mini-software/MiniExcel'
@@ -413,6 +428,14 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/portainer-templates-extras',
 		site: 'https://portainer-templates-extras.peng.ly',
 		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
+	},
+	{
+		name: 'carbonara',
+		title: 'carbonara',
+		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
+		repo: 'NotAFlightRisk/carbonara',
+		site: 'https://carbonara.peng.ly',
+		logo: 'https://carbonara.peng.ly/favicon.svg'
 	}
 ];
 
