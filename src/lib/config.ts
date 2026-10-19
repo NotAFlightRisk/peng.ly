@@ -134,6 +134,23 @@ export const unlisted = {
 		title: 'Answers',
 		description: 'Occasionally I answer questions on the codebases I\'m familiar with...',
 		meta: 'Questions I\'ve answered in GitHub Discussions, where my reply was marked as the accepted answer.'
+	},
+	timeline: {
+		title: 'Timeline',
+		description: 'Everything I\'ve been up to, waddling through open source and beyond',
+		meta: 'Everything I\'ve done in the open, newest first. Pull requests, security reports, blog posts, new projects and answered questions.',
+		// what goes next to each dot's date
+		kinds: {
+			theirs: 'Contributed',
+			mine: 'Shipped',
+			project: 'Launched',
+			report: 'Reported',
+			post: 'Wrote',
+			answer: 'Answered'
+		},
+		// PRs in these don't count as Shipped, the blog's are its posts so they're on as Wrote
+		skip: ['NotAFlightRisk/blog'],
+		end: 'That\'s as far back as it goes. Before this I was still an egg.'
 	}
 };
 

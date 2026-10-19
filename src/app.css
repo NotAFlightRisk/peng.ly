@@ -146,6 +146,11 @@
 	--section-gap: calc(2 * var(--gutter));
 
 	--stat-gap: 0.25rem;
+	--timeline-dot: 2rem;
+	--timeline-icon: 1rem;
+	--timeline-gap: 0.25rem;
+	--timeline-line: 2px solid #ffffff1f;
+	--timeline-months: 9rem;
 	/* a shade up from what's underneath */
 	--raised: var(--card);
 	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
