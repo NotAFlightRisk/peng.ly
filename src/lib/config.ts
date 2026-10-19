@@ -154,4 +154,11 @@ export const unlisted = {
 	}
 };
 
+// the newest o' the timeline as RSS, not the 'ole lot
+export const feed = {
+	title: `${site.name}'s RSS Feed`,
+	href: '/feed.xml',
+	max: 100
+};
+
 export const links =[{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' }];
