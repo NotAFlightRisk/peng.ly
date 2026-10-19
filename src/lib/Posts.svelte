@@ -68,7 +68,7 @@
 
 	h2 {
 		margin: 0;
-		font-size: var(--card-title-size);
+		font-size: var(--post-title-size);
 		font-weight: var(--title-weight);
 
 		a:hover {
