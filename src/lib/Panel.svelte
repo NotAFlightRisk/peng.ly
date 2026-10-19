@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	type Props = { title: string; href?: string; count?: number; children: Snippet };
-	let { title, href, count, children }: Props = $props();
+	type Props = { title: string; id?: string; href?: string; count?: number; children: Snippet };
+	let { title, id, href, count, children }: Props = $props();
 
 	// nought, or no number at all, an' the button just says View all
 	const tally = $derived(count ? ` (${count})` : '');
 </script>
 
-<section>
+<section {id}>
 	<header>
 		<h2>{title}</h2>
 		{#if href}<a class="button" {href} aria-label="View all{tally} {title}">View all{tally}</a>{/if}
@@ -22,6 +22,8 @@
 		border-radius: var(--radius);
 		background: var(--card);
 		box-shadow: var(--panel-shadow);
+		/* a link straight to one leaves a bit o' room up top */
+		scroll-margin-top: var(--gutter);
 	}
 
 	header {

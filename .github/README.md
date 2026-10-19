@@ -12,7 +12,7 @@
 
 ## Developing
 
-Static site built with SvelteKit. Data is pulled from GitHub API, so a `GITHUB_TOKEN` is needed.
+Static site built with SvelteKit, on Node 22 or newer. Data is pulled from GitHub API, so a `GITHUB_TOKEN` is needed.
 
 ```sh
 npm install
@@ -33,7 +33,7 @@ By default, no configuration is needed, but there's some optional things which c
 
 | Name | Required / default | Description |
 |---|---|---|
-| `GITHUB_TOKEN` | Required | GitHub API token used at build time. The code runs without it, but the `/answers` GraphQL query fails and REST calls hit the 60/hr limit. |
+| `GITHUB_TOKEN` | Required | GitHub API token used at build time. The code runs without it, but the GraphQL query behind `/answers` and `/timeline` fails and REST calls hit the 60/hr limit. |
 | `PUBLIC_PLAUSIBLE_SCRIPT` | Optional, `''` | URL of the Plausible script. When it's empty, the tracker isn't added. |
 | `VERCEL` | Optional, set by Vercel | When present, the build adds security headers, avatar caching and 404 routing to the Vercel output. |
 | `TO` | Required (worker) | The inbox the contact form emails go to. Set it as a Wrangler secret, and it must be a verified Email Routing address. |

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
-	import { site, links } from '$lib/config';
+	import { feed, site, links } from '$lib/config';
 	import Footer from '$lib/Footer.svelte';
 	import { schema } from '$lib/schema';
 	import favicon from '$lib/assets/favicon.svg';
@@ -46,6 +46,7 @@
 	<meta name="description" content={description} />
 	<meta name="author" content={site.author} />
 	<link rel="canonical" href={url} />
+	<link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
 	<meta name="theme-color" content={site.color} />
 	<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
 	<link rel="icon" href={favicon} type="image/svg+xml" />
