@@ -16,7 +16,9 @@
 <main class:wide={page.data.wide} class:bare={page.data.bare}>
 	{#if !page.data.bare}
 		<h1>{page.data.title}</h1>
-		<p>{page.data.description}</p>
+		<p>
+			{page.data.description}{#if page.data.rss}, also available <a href={page.data.rss}>via RSS</a>{/if}
+		</p>
 	{/if}
 	{@render children()}
 </main>
@@ -45,7 +47,7 @@
 		box-shadow: var(--hero-shadow);
 	}
 
-	a {
+	header > a {
 		margin: 0 auto var(--nav-title-gap) 0;
 		font-size: var(--nav-title-size);
 		font-weight: var(--title-weight);
@@ -84,5 +86,10 @@
 	p {
 		margin: var(--gap) 0 var(--gutter);
 		color: var(--muted);
+
+		a {
+			color: var(--primary);
+			text-decoration: underline;
+		}
 	}
 </style>

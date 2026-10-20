@@ -57,7 +57,7 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={url} />
-	<meta property="og:image" content={image.src} />
+	<meta property="og:image" content={new URL(image.src, site.url).href} />
 	{#if image.width}
 		<meta property="og:image:width" content={image.width} />
 		<meta property="og:image:height" content={image.height} />

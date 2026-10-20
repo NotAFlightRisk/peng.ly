@@ -34,7 +34,8 @@ export const panels = {
 	writing: {
 		title: 'Writing',
 		href: '/blog',
-		description: 'Thoughts',
+		description: 'Random things I\'ve been looking into',
+		rss: `${site.blog}/rss.xml`,
 		meta: 'Occasional posts about code, security, and whatever else I\'ve been poking at.'
 	}
 };

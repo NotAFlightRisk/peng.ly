@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<link rel="alternate" type="application/rss+xml" title="{site.name} Blog" href="{site.blog}/rss.xml" />
+	<link rel="alternate" type="application/rss+xml" title="{site.name} Blog" href={data.rss} />
 </svelte:head>
 
 <Posts posts={data.posts} full />
