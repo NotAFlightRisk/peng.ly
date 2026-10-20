@@ -33,7 +33,7 @@
 					programmingLanguage: stats.language,
 					license: stats.licence && `https://spdx.org/licenses/${stats.licence}`,
 					keywords: topics,
-					image: image?.src ?? new URL(logo, site.url).href,
+					image: new URL(image?.src ?? logo, site.url).href,
 					dateModified: stats.updated,
 					author: { '@type': 'Person', name: site.author, url: site.url }
 				},

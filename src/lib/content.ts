@@ -1,4 +1,8 @@
 import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
+import carbonaraShot from '$lib/assets/screenshots/carbonara.webp';
+import fineprintShot from '$lib/assets/screenshots/fineprint.webp';
+import floodpulseShot from '$lib/assets/screenshots/floodpulse.webp';
+import trackTheGapShot from '$lib/assets/screenshots/track-the-gap.webp';
 import type { unlisted } from '$lib/config';
 
 // merged is when it went in, if it's a PR an' we know
@@ -23,6 +27,18 @@ export const contributions = [
 export type Report = { ghsa: string; cve?: string; published: string; title: string; repo: string };
 
 export const reports: Report[] = [
+	{
+		ghsa: 'GHSA-23v5-9h8v-7282',
+		published: '2026-10-20',
+		title: 'XXE in the XSLT transform interceptor',
+		repo: 'membrane/api-gateway'
+	},
+	{
+		ghsa: 'GHSA-5mgr-r3cc-wcgf',
+		published: '2026-10-19',
+		title: 'Missing authorization on /api/deploy lets share tokens run SQL',
+		repo: 'taleshape-com/shaper'
+	},
 	{
 		ghsa: 'GHSA-f4p3-5486-mh7g',
 		published: '2026-10-18',
@@ -438,14 +454,6 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
-		name: 'track-the-gap',
-		title: 'Track the Gap',
-		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
-		repo: 'NotAFlightRisk/track-the-gap',
-		site: 'https://track-the-gap.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg'
-	},
-	{
 		name: 'tubespotting',
 		featured: true,
 		title: 'Tube Spotting',
@@ -456,23 +464,14 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
 	},
 	{
-		name: 'parallax',
-		title: 'Parallax',
-		description: 'Merge logs from several machines and line up their clocks',
-		repo: 'NotAFlightRisk/parallax',
-		site: 'https://parallax.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax/w1024'
-	},
-	{
-		name: 'color-code-convertor',
-		title: 'Color Code Convertor',
-		description: 'Paste a color in any format, get all seventeen others',
-		repo: 'NotAFlightRisk/color-code-convertor',
-		site: 'https://color-code-convertor.peng.ly',
-		// its favicon's drawn in code over there, so we keep our own copy
-		logo: colorCodeConvertor,
-		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor/w1024'
+		name: 'fineprint',
+		featured: true,
+		title: 'fineprint',
+		description: 'Compare VPNs on logging, jurisdiction, audits and payment, with a source for every claim',
+		repo: 'NotAFlightRisk/fineprint',
+		site: 'https://fineprint.peng.ly',
+		logo: 'https://fineprint.peng.ly/favicon.svg',
+		screenshot: fineprintShot
 	},
 	{
 		name: 'statusquo',
@@ -485,6 +484,24 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
 	},
 	{
+		name: 'carbonara',
+		title: 'carbonara',
+		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
+		repo: 'NotAFlightRisk/carbonara',
+		site: 'https://carbonara.peng.ly',
+		logo: 'https://carbonara.peng.ly/favicon.svg',
+		screenshot: carbonaraShot
+	},
+	{
+		name: 'floodpulse',
+		title: 'floodpulse',
+		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
+		repo: 'NotAFlightRisk/floodpulse',
+		site: 'https://floodpulse.peng.ly',
+		logo: 'https://floodpulse.peng.ly/favicon.svg',
+		screenshot: floodpulseShot
+	},
+	{
 		name: 'portainer-templates-extras',
 		title: 'Portainer Templates Extras',
 		description: 'Tested Portainer templates for self-hosted apps, add one URL and deploy with a click',
@@ -493,12 +510,32 @@ export const projects: Project[] = [
 		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
 	},
 	{
-		name: 'carbonara',
-		title: 'carbonara',
-		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
-		repo: 'NotAFlightRisk/carbonara',
-		site: 'https://carbonara.peng.ly',
-		logo: 'https://carbonara.peng.ly/favicon.svg'
+		name: 'color-code-convertor',
+		title: 'Color Code Convertor',
+		description: 'Paste a color in any format, get all seventeen others',
+		repo: 'NotAFlightRisk/color-code-convertor',
+		site: 'https://color-code-convertor.peng.ly',
+		// its favicon's drawn in code over there, so we keep our own copy
+		logo: colorCodeConvertor,
+		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor/w1024'
+	},
+	{
+		name: 'track-the-gap',
+		title: 'Track the Gap',
+		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
+		repo: 'NotAFlightRisk/track-the-gap',
+		site: 'https://track-the-gap.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg',
+		screenshot: trackTheGapShot
+	},
+	{
+		name: 'parallax',
+		title: 'Parallax',
+		description: 'Merge logs from several machines and line up their clocks',
+		repo: 'NotAFlightRisk/parallax',
+		site: 'https://parallax.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax/w1024'
 	}
 ];
 
