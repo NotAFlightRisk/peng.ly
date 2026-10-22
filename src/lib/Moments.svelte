@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { unlisted } from '$lib/config';
+	import { pages } from '$lib/config';
 	import { projects, type Moment } from '$lib/content';
 	import Dot from '$lib/Dot.svelte';
 	import IconLink from '$lib/IconLink.svelte';
@@ -13,7 +13,7 @@
 
 	let { moments }: { moments: Moment[] } = $props();
 
-	const { kinds } = unlisted.timeline;
+	const { kinds } = pages.timeline;
 	const icons = { theirs: Pull, mine: Merge, project: Rocket, report: Shield, post: Pencil, answer: Answer };
 	const day = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }).format;
 

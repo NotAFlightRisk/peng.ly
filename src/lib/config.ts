@@ -57,6 +57,22 @@ export const moreApps = {
 };
 
 export const pages = {
+	timeline: {
+		title: 'Timeline',
+		href: '/timeline',
+		description: 'Everything I\'ve been up to, waddling through open source and beyond',
+		meta: 'Everything I\'ve done in the open, newest first. Pull requests, security reports, blog posts, new projects and answered questions.',
+		// what goes next to each dot's date
+		kinds: {
+			theirs: 'Contributed',
+			mine: 'Shipped',
+			project: 'Launched',
+			report: 'Reported',
+			post: 'Wrote',
+			answer: 'Answered'
+		},
+		end: 'That\'s as far back as it goes. Before this I was still an egg.'
+	},
 	about: {
 		title: 'About',
 		href: '/about',
@@ -115,7 +131,7 @@ export const contact = {
 };
 
 // the lot that gets a link in the header an' footer, so add one an' their breakpoints want shiftin'
-export const sections = [panels.projects, panels.security, panels.writing, panels.contributions, pages.about, pages.contact];
+export const sections = [panels.projects, panels.security, panels.writing, panels.contributions, pages.timeline, pages.about, pages.contact];
 
 // what the error page says, lost is a 404 an' broken is anyfin' else
 export const errors = {
@@ -135,23 +151,6 @@ export const unlisted = {
 		title: 'Answers',
 		description: 'Occasionally I answer questions on the codebases I\'m familiar with...',
 		meta: 'Questions I\'ve answered in GitHub Discussions, where my reply was marked as the accepted answer.'
-	},
-	timeline: {
-		title: 'Timeline',
-		description: 'Everything I\'ve been up to, waddling through open source and beyond',
-		meta: 'Everything I\'ve done in the open, newest first. Pull requests, security reports, blog posts, new projects and answered questions.',
-		// what goes next to each dot's date
-		kinds: {
-			theirs: 'Contributed',
-			mine: 'Shipped',
-			project: 'Launched',
-			report: 'Reported',
-			post: 'Wrote',
-			answer: 'Answered'
-		},
-		// PRs in these don't count as Shipped, the blog's are its posts so they're on as Wrote
-		skip: ['NotAFlightRisk/blog'],
-		end: 'That\'s as far back as it goes. Before this I was still an egg.'
 	}
 };
 

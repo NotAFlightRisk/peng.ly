@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { unlisted } from '$lib/config';
+	import { pages } from '$lib/config';
 	import type { Moment } from '$lib/content';
 	import Dot from '$lib/Dot.svelte';
 	import Moments from '$lib/Moments.svelte';
@@ -44,7 +44,7 @@
 		{#each months as { title, id, dots } (id)}
 			<Panel {id} {title}><Moments moments={dots} /></Panel>
 		{/each}
-		<p><Dot icon={Egg} />{unlisted.timeline.end}</p>
+		<p><Dot icon={Egg} />{pages.timeline.end}</p>
 	</div>
 </div>
 
