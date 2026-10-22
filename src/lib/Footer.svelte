@@ -57,7 +57,7 @@
 		font-size: inherit;
 	}
 
-	@media (width >= 55rem) {
+	@media (width >= 60rem) {
 		/* hairlines between the middle links, while they're all sat on one line */
 		nav li + li {
 			border-left: var(--separator);
@@ -76,7 +76,7 @@
 		}
 	}
 
-	@media (width < 55rem) {
+	@media (width < 60rem) {
 		footer,
 		ul {
 			justify-content: center;

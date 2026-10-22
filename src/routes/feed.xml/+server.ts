@@ -1,4 +1,4 @@
-import { feed, site, unlisted } from '$lib/config';
+import { feed, pages, site } from '$lib/config';
 import { moments } from '$lib/timeline.server';
 
 export const prerender = true;
@@ -12,7 +12,7 @@ export const GET = async ({ fetch }) => {
 	const latest = (await moments(fetch)).slice(0, feed.max);
 
 	const items = latest.map(({ kind, date, links: [{ title, href }], repo }) => {
-		const label = unlisted.timeline.kinds[kind];
+		const label = pages.timeline.kinds[kind];
 		return `<item>
 	<title>${escape(`${label}: ${title}${repo ? ` (${repo})` : ''}`)}</title>
 	<link>${escape(href)}</link>
@@ -28,7 +28,7 @@ export const GET = async ({ fetch }) => {
 <channel>
 <title>${site.name}</title>
 <link>${new URL('/timeline', site.url).href}</link>
-<description>${escape(unlisted.timeline.meta)}</description>
+<description>${escape(pages.timeline.meta)}</description>
 <language>en-gb</language>
 <lastBuildDate>${stamp(latest[0].date)}</lastBuildDate>
 <atom:link href="${new URL(feed.href, site.url).href}" rel="self" type="application/rss+xml" />

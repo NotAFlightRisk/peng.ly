@@ -1,5 +1,4 @@
 import { answered } from '$lib/answers.server';
-import { unlisted } from '$lib/config';
 import { projects, reports, type Moment } from '$lib/content';
 import { mine, theirs } from '$lib/contributions.server';
 import { repoInfo } from '$lib/github.server';
@@ -24,7 +23,8 @@ export const moments = async (fetch: typeof globalThis.fetch) => {
 		Promise.all(projects.map(async ({ repo }) => (await repoInfo(fetch, repo)).created))
 	]);
 
-	const shipped = internal.filter(({ repo }) => !unlisted.timeline.skip.includes(repo));
+	// only our PRs on repos that made it onto /projects
+	const shipped = internal.filter(({ repo }) => projects.some((project) => project.repo === repo));
 
 	return [
 		...external.map(({ repo, number, title, merged }) => moment('theirs', merged, title, github(`${repo}/pull/${number}`), repo)),

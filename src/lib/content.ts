@@ -2,8 +2,9 @@ import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
 import carbonaraShot from '$lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '$lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '$lib/assets/screenshots/floodpulse.webp';
+import securityReportingToolboxShot from '$lib/assets/screenshots/security-reporting-toolbox.webp';
 import trackTheGapShot from '$lib/assets/screenshots/track-the-gap.webp';
-import type { unlisted } from '$lib/config';
+import type { pages } from '$lib/config';
 
 // merged is when it went in, if it's a PR an' we know
 export type Contribution = { repo: string; threads: { number: number; title: string; merged?: string }[] };
@@ -27,6 +28,36 @@ export const contributions = [
 export type Report = { ghsa: string; cve?: string; published: string; title: string; repo: string };
 
 export const reports: Report[] = [
+	{
+		ghsa: 'GHSA-3x3m-2j93-w46j',
+		published: '2026-10-22',
+		title: 'Unbounded avatar size cache exhausts server memory',
+		repo: 'go-vikunja/vikunja'
+	},
+	{
+		ghsa: 'GHSA-57xm-4xm7-hqm3',
+		published: '2026-10-22',
+		title: 'Deeply nested schemas make validate.Spec and AgainstSchema recurse without bound, exhausting CPU and memory',
+		repo: 'go-openapi/validate'
+	},
+	{
+		ghsa: 'GHSA-83x4-696r-pg99',
+		published: '2026-10-21',
+		title: 'OIDC login can take over an existing local account',
+		repo: 'timothepoznanski/poznote'
+	},
+	{
+		ghsa: 'GHSA-mr87-qrw6-rf3g',
+		published: '2026-10-21',
+		title: "Leave-tab IDOR exposes any employee's leave and medical data",
+		repo: 'horilla/horilla-hr'
+	},
+	{
+		ghsa: 'GHSA-cm4c-4q74-mgmj',
+		published: '2026-10-21',
+		title: 'Common exec carriers classify safe, bypassing the approval gate',
+		repo: 'tufantunc/ssh-mcp'
+	},
 	{
 		ghsa: 'GHSA-23v5-9h8v-7282',
 		published: '2026-10-20',
@@ -435,6 +466,26 @@ export type Project = {
 // featured ones go big on /projects an' the front page
 export const projects: Project[] = [
 	{
+		name: 'fineprint',
+		featured: true,
+		title: 'fineprint',
+		description: 'Compare VPNs on logging, jurisdiction, audits and payment, with a source for every claim',
+		repo: 'NotAFlightRisk/fineprint',
+		site: 'https://fineprint.peng.ly',
+		logo: 'https://fineprint.peng.ly/favicon.svg',
+		screenshot: fineprintShot
+	},
+	{
+		name: 'tubespotting',
+		featured: true,
+		title: 'Tube Spotting',
+		description: 'Real-time London Underground map for live train locations',
+		repo: 'NotAFlightRisk/tubespotting',
+		site: 'https://tubespotting.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
+	},
+	{
 		name: 'android-rom-compat',
 		featured: true,
 		title: 'Android ROM Compat',
@@ -454,26 +505,6 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
-		name: 'tubespotting',
-		featured: true,
-		title: 'Tube Spotting',
-		description: 'Real-time London Underground map for live train locations',
-		repo: 'NotAFlightRisk/tubespotting',
-		site: 'https://tubespotting.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
-	},
-	{
-		name: 'fineprint',
-		featured: true,
-		title: 'fineprint',
-		description: 'Compare VPNs on logging, jurisdiction, audits and payment, with a source for every claim',
-		repo: 'NotAFlightRisk/fineprint',
-		site: 'https://fineprint.peng.ly',
-		logo: 'https://fineprint.peng.ly/favicon.svg',
-		screenshot: fineprintShot
-	},
-	{
 		name: 'statusquo',
 		featured: true,
 		title: 'statusquo',
@@ -482,6 +513,15 @@ export const projects: Project[] = [
 		site: 'https://statusquo.peng.ly',
 		logo: 'https://statusquo.peng.ly/favicon.svg',
 		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
+	},
+	{
+		name: 'floodpulse',
+		title: 'floodpulse',
+		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
+		repo: 'NotAFlightRisk/floodpulse',
+		site: 'https://floodpulse.peng.ly',
+		logo: 'https://floodpulse.peng.ly/favicon.svg',
+		screenshot: floodpulseShot
 	},
 	{
 		name: 'carbonara',
@@ -493,13 +533,13 @@ export const projects: Project[] = [
 		screenshot: carbonaraShot
 	},
 	{
-		name: 'floodpulse',
-		title: 'floodpulse',
-		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
-		repo: 'NotAFlightRisk/floodpulse',
-		site: 'https://floodpulse.peng.ly',
-		logo: 'https://floodpulse.peng.ly/favicon.svg',
-		screenshot: floodpulseShot
+		name: 'security-reporting-toolbox',
+		title: 'Security Reporting Toolbox',
+		description: 'Find a CWE, look up CVEs and GHSAs, score CVSS, check EPSS and KEV, and build version ranges',
+		repo: 'NotAFlightRisk/security-reporting-toolbox',
+		site: 'https://security-reporting-toolbox.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/security-reporting-toolbox/main/static/favicon.svg',
+		screenshot: securityReportingToolboxShot
 	},
 	{
 		name: 'portainer-templates-extras',
@@ -520,15 +560,6 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/color-code-convertor/w1024'
 	},
 	{
-		name: 'track-the-gap',
-		title: 'Track the Gap',
-		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
-		repo: 'NotAFlightRisk/track-the-gap',
-		site: 'https://track-the-gap.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg',
-		screenshot: trackTheGapShot
-	},
-	{
 		name: 'parallax',
 		title: 'Parallax',
 		description: 'Merge logs from several machines and line up their clocks',
@@ -536,6 +567,15 @@ export const projects: Project[] = [
 		site: 'https://parallax.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/parallax/main/static/favicon.svg',
 		screenshot: 'https://pixelflare.cc/iain/screenshots/parallax/w1024'
+	},
+	{
+		name: 'track-the-gap',
+		title: 'Track the Gap',
+		description: 'Live London Underground headways, service gaps and train bunching, worked out from TfL predictions',
+		repo: 'NotAFlightRisk/track-the-gap',
+		site: 'https://track-the-gap.peng.ly',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg',
+		screenshot: trackTheGapShot
 	}
 ];
 
@@ -550,7 +590,7 @@ export type Post = {
 
 // one dot on the timeline, wiv a link for each fing that 'appened
 export type Moment = {
-	kind: keyof typeof unlisted.timeline.kinds;
+	kind: keyof typeof pages.timeline.kinds;
 	date: string;
 	links: { title: string; href: string }[];
 	repo?: string;
