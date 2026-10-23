@@ -29,6 +29,12 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-g3cr-8x4q-74q3',
+		published: '2026-10-22',
+		title: 'Nested image brackets parse in quadratic time',
+		repo: 'commonmark/commonmark-java'
+	},
+	{
 		ghsa: 'GHSA-3x3m-2j93-w46j',
 		published: '2026-10-22',
 		title: 'Unbounded avatar size cache exhausts server memory',
