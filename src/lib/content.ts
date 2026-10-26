@@ -29,6 +29,42 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-r6r4-5mr3-rppm',
+		published: '2026-10-26',
+		title: 'Read-only user can delete attachments in readable folders',
+		repo: 'nilsteampassnet/TeamPass'
+	},
+	{
+		ghsa: 'GHSA-m5mp-6m6f-wpp6',
+		published: '2026-10-26',
+		title: 'EnumerateEntries takes exponential time on a crafted directory tree with shared subtrees',
+		repo: 'openmcdf/openmcdf'
+	},
+	{
+		ghsa: 'GHSA-7fcj-crmh-pvhp',
+		published: '2026-10-25',
+		title: 'Quadratic-time tokenization of long numeric literals stalls expression evaluation',
+		repo: 'mariuszgromada/MathParser.org-mXparser'
+	},
+	{
+		ghsa: 'GHSA-78rj-pghh-vh42',
+		published: '2026-10-25',
+		title: "set-agent-state lets a pane answer another agent's prompt",
+		repo: 'Gaurav-Gosain/tuios'
+	},
+	{
+		ghsa: 'GHSA-q668-h56g-mfp4',
+		published: '2026-10-24',
+		title: 'Cross-tenant access to import profiles and runs',
+		repo: 'eitchtee/WYGIWYH'
+	},
+	{
+		ghsa: 'GHSA-rfw5-m5mm-hjvx',
+		published: '2026-10-23',
+		title: 'Stored XSS via group metadata in HTML export',
+		repo: 'KnugiHK/WhatsApp-Chat-Exporter'
+	},
+	{
 		ghsa: 'GHSA-g3cr-8x4q-74q3',
 		published: '2026-10-22',
 		title: 'Nested image brackets parse in quadratic time',
