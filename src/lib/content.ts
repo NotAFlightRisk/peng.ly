@@ -29,6 +29,18 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-69fc-whp6-jr2q',
+		published: '2026-10-28',
+		title: 'TnefPart.ConvertToMessage allocates unbounded memory from an attacker-controlled length prefix',
+		repo: 'jstedfast/MimeKit'
+	},
+	{
+		ghsa: 'GHSA-8wfm-5r62-xfw2',
+		published: '2026-10-28',
+		title: 'Missing authorization lets any user alter resource relationships',
+		repo: 'archesproject/arches'
+	},
+	{
 		ghsa: 'GHSA-jhf2-qx62-92vh',
 		published: '2026-10-28',
 		title: "Opening a key bundle can silently replace a contact's key",
