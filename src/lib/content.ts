@@ -29,6 +29,30 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-7hv4-jgp9-mgx2',
+		published: '2026-10-27',
+		title: 'Stateful MCP sessions can cross routes and overwrite the mcpGuardrails',
+		repo: 'agentgateway/agentgateway'
+	},
+	{
+		ghsa: 'GHSA-f2r6-9fm5-8743',
+		published: '2026-10-27',
+		title: 'Admin config export readable by any authenticated user',
+		repo: 'giuseppe99barchetta/SuggestArr'
+	},
+	{
+		ghsa: 'GHSA-g4rp-w5gg-cwjw',
+		published: '2026-10-26',
+		title: 'Per-user two-factor authentication is not enforced on login',
+		repo: 'dromara/MaxKey'
+	},
+	{
+		ghsa: 'GHSA-3qg4-7mq2-gm93',
+		published: '2026-10-26',
+		title: 'EXIF parser copies unbounded per-entry component arrays, causing quadratic-time DoS on a crafted image',
+		repo: 'nodeca/probe-image-size'
+	},
+	{
 		ghsa: 'GHSA-r6r4-5mr3-rppm',
 		published: '2026-10-26',
 		title: 'Read-only user can delete attachments in readable folders',
@@ -141,6 +165,12 @@ export const reports: Report[] = [
 		published: '2026-10-16',
 		title: 'Open Data catalog endpoints perform no authorization',
 		repo: 'rucio/rucio'
+	},
+	{
+		ghsa: 'GHSA-889p-xjqp-6559',
+		published: '2026-10-16',
+		title: 'OAuth state check in 0.5.30 passes a callback that carries no state (bypass of GHSA-xc49-mgwh-9pjv)',
+		repo: 'atinux/nuxt-auth-utils'
 	},
 	{
 		ghsa: 'GHSA-qw3f-cg63-5h6f',
