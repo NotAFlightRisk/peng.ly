@@ -29,6 +29,12 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-jhf2-qx62-92vh',
+		published: '2026-10-28',
+		title: "Opening a key bundle can silently replace a contact's key",
+		repo: 'Am-I-Being-Pwned/PGP-Tools'
+	},
+	{
 		ghsa: 'GHSA-7hv4-jgp9-mgx2',
 		published: '2026-10-27',
 		title: 'Stateful MCP sessions can cross routes and overwrite the mcpGuardrails',
@@ -243,6 +249,13 @@ export const reports: Report[] = [
 		published: '2026-10-11',
 		title: 'SSRF via the #:schema document directive',
 		repo: 'tombi-toml/tombi'
+	},
+	{
+		ghsa: 'GHSA-83rm-6c8r-g728',
+		published: '2026-10-10',
+		cve: 'CVE-2026-118257',
+		title: 'sanitizeTranslatedHtml allows DOM XSS via iframe srcdoc',
+		repo: 'intlify/vue-i18n'
 	},
 	{
 		ghsa: 'GHSA-v4c2-4fvx-chr3',
