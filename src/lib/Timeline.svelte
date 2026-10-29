@@ -29,6 +29,16 @@
 		}, { rootMargin: '-30% 0px -70%' });
 		for (const link of links) watch.observe(document.querySelector(link.hash));
 	}<\/script>`;
+
+	// shuttin' a long 'un nips back up to it
+	const fold = `<script>
+		for (const details of document.querySelectorAll('.timeline details')) {
+			details.addEventListener('toggle', () => {
+				const entry = details.parentElement;
+				if (!details.open && entry.getBoundingClientRect().top < 0) entry.scrollIntoView();
+			});
+		}
+	<\/script>`;
 </script>
 
 <div class="timeline">
@@ -49,6 +59,7 @@
 </div>
 
 {@html spy}
+{@html fold}
 
 <style>
 	/* a click on a month glides there, unless you'd rather it didn't */

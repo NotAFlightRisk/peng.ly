@@ -151,6 +151,7 @@
 	--timeline-gap: 0.25rem;
 	--timeline-line: 2px solid #ffffff1f;
 	--timeline-months: 9rem;
+	--timeline-unfold: 0.4s var(--ease);
 	/* a shade up from what's underneath */
 	--raised: var(--card);
 	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
