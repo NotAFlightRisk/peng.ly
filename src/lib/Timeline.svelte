@@ -15,7 +15,8 @@
 		[...Map.groupBy(moments, ({ date }) => month(new Date(date)))].map(([title, dots]) => ({
 			title,
 			id: title.toLowerCase().replace(' ', '-'),
-			dots
+			dots,
+			count: dots.flatMap(({ links }) => links).length
 		}))
 	);
 
@@ -44,8 +45,8 @@
 <div class="timeline">
 	<nav aria-label="Months">
 		<ul>
-			{#each months as { title, id } (id)}
-				<li><a href="#{id}">{title}</a></li>
+			{#each months as { title, id, count } (id)}
+				<li><a href="#{id}">{title} ({count})</a></li>
 			{/each}
 		</ul>
 	</nav>

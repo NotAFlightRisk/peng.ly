@@ -150,7 +150,7 @@
 	--timeline-icon: 1rem;
 	--timeline-gap: 0.25rem;
 	--timeline-line: 2px solid #ffffff1f;
-	--timeline-months: 9rem;
+	--timeline-months: 11rem;
 	--timeline-unfold: 0.4s var(--ease);
 	/* a shade up from what's underneath */
 	--raised: var(--card);
