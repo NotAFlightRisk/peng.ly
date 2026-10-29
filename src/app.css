@@ -71,6 +71,8 @@
 	--peek-sink: 4%;
 	--bounce: cubic-bezier(0.3, 1.4, 0.5, 1);
 	--ease: cubic-bezier(0.2, 0, 0, 1);
+	/* off the mark straight away, then a long soft landin' */
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 	--gaze-reach: 6px;
 	--pupil-big: 19px;
 	--pupil-small: 15.5px;
@@ -122,6 +124,11 @@
 	--action-height: 2.75rem;
 	--hover-transition: 0.15s var(--ease);
 	--fold-transition: 0.4s var(--ease);
+	/* the old page ducks back quick, the new one drops in an' settles slower */
+	--page-out: 0.2s;
+	--page-in: 0.5s;
+	--page-recede: 0.97;
+	--page-drop: 0 -1rem;
 
 	--form-gap: 1.25rem;
 	--field-width: 16rem;
@@ -404,6 +411,70 @@ nav .button {
 		> summary svg {
 			transition: rotate var(--fold-transition);
 		}
+	}
+}
+
+/* pages swap over smooth, instead of blinkin' */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}
+
+/* anyfin' changin' shape starts gentle, no lurchin' */
+::view-transition-group(*) {
+	animation-duration: var(--page-in);
+	animation-timing-function: var(--ease);
+}
+
+/* the header stays put, or the front page's big one folds down into it */
+::view-transition-old(header),
+::view-transition-new(header) {
+	height: 100%;
+	object-fit: none;
+	object-position: bottom;
+}
+
+/* the old one's a solid yellow base for the new one's bits to fade in over */
+::view-transition-old(header) {
+	background: var(--primary);
+	animation: none;
+}
+
+::view-transition-new(header) {
+	mix-blend-mode: normal;
+	animation: appear var(--page-out) var(--ease-out) both;
+}
+
+/* just fades an' moves, the bits a busy page can't stutter */
+::view-transition-old(root),
+::view-transition-old(header):only-child {
+	animation: recede var(--page-out) var(--ease-out) both;
+}
+
+/* drops in from under the header */
+::view-transition-new(root) {
+	mix-blend-mode: normal;
+	animation: drop var(--page-in) var(--ease-out) both;
+}
+
+@keyframes recede {
+	to {
+		opacity: 0;
+		scale: var(--page-recede);
+	}
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes drop {
+	from {
+		opacity: 0;
+		translate: var(--page-drop);
 	}
 }
 

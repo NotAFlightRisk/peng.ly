@@ -5,7 +5,15 @@
 	import Penguin from '$lib/Penguin.svelte';
 
 	let { children } = $props();
+
+	// came from a page wiv this same bar? then 'e's already sat up in it
+	const settled = `<script>{
+		const from = document.referrer && new URL(document.referrer);
+		if (from.origin === location.origin && from.pathname !== '/') document.documentElement.classList.add('settled');
+	}<\/script>`;
 </script>
+
+<svelte:head>{@html settled}</svelte:head>
 
 <header>
 	<a href="/">{site.name}</a>
@@ -42,6 +50,8 @@
 		position: sticky;
 		top: 0;
 		z-index: 1;
+		/* stays put while the page under it swaps */
+		view-transition-name: header;
 		display: flex;
 		align-items: end;
 		gap: var(--list-gap);
@@ -53,13 +63,34 @@
 		box-shadow: var(--hero-shadow);
 	}
 
+	/* the front page's big title shrinks into this one */
 	header > a {
+		view-transition-name: brand;
 		margin: 0 auto var(--nav-title-gap) 0;
 		font-size: var(--nav-title-size);
 		font-weight: var(--title-weight);
 		line-height: var(--title-leading);
 		letter-spacing: var(--title-tracking);
 		text-decoration: none;
+	}
+
+	/* the big title shrinks down crisp, 'stead o' this one blown up blurry */
+	:global(::view-transition-old(brand)) {
+		animation: none;
+	}
+
+	:global(::view-transition-new(brand)) {
+		display: none;
+	}
+
+	/* no big title to shrink? then this one turns up as normal */
+	:global(::view-transition-new(brand):only-child) {
+		display: block;
+	}
+
+	/* 'e was already sat up on the last page */
+	:global(.settled) header > :global(svg) {
+		animation: none;
 	}
 
 	main {
