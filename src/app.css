@@ -121,6 +121,7 @@
 	--card-icon-size: 2.5rem;
 	--action-height: 2.75rem;
 	--hover-transition: 0.15s var(--ease);
+	--fold-transition: 0.4s var(--ease);
 
 	--form-gap: 1.25rem;
 	--field-width: 16rem;
@@ -151,7 +152,6 @@
 	--timeline-gap: 0.25rem;
 	--timeline-line: 2px solid #ffffff1f;
 	--timeline-months: 11rem;
-	--timeline-unfold: 0.4s var(--ease);
 	/* a shade up from what's underneath */
 	--raised: var(--card);
 	/* cqi's a bit of the column they're sat in, so they shrink wiv it */
@@ -297,6 +297,11 @@
 	box-sizing: border-box;
 }
 
+/* 'idden means 'idden, whatever display it's got */
+[hidden] {
+	display: none !important;
+}
+
 html {
 	scroll-padding-top: var(--nav-height);
 }
@@ -352,6 +357,54 @@ a:hover {
 /* the ones you navigate wiv get more to prod at than the ones in the panel headers */
 nav .button {
 	padding: var(--nav-button-padding);
+}
+
+/* slides open an' shut, instead of poppin' */
+.fold {
+	display: grid;
+	interpolate-size: allow-keywords;
+
+	> summary {
+		display: flex;
+		align-items: center;
+		gap: var(--gap);
+		width: fit-content;
+		min-height: var(--target-size);
+		color: var(--muted);
+		font-size: var(--small-size);
+		cursor: pointer;
+		transition: color var(--hover-transition);
+
+		&:hover {
+			color: var(--primary);
+		}
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+	}
+
+	&[open] > summary svg {
+		rotate: 0.5turn;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		&::details-content {
+			height: 0;
+			overflow: clip;
+			transition:
+				height var(--fold-transition),
+				content-visibility var(--fold-transition) allow-discrete;
+		}
+
+		&[open]::details-content {
+			height: auto;
+		}
+
+		> summary svg {
+			transition: rotate var(--fold-transition);
+		}
+	}
 }
 
 ::selection {

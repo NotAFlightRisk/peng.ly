@@ -1,21 +1,29 @@
-<script lang="ts">
-	import { pages } from '$lib/config';
-	import { projects, type Moment } from '$lib/content';
-	import Dot from '$lib/Dot.svelte';
-	import IconLink from '$lib/IconLink.svelte';
-	import Repo from '$lib/Repo.svelte';
+<script module lang="ts">
+	import type { Moment } from '$lib/content';
 	import Pull from '~icons/tabler/git-pull-request';
 	import Merge from '~icons/tabler/git-merge';
 	import Rocket from '~icons/tabler/rocket';
 	import Shield from '~icons/tabler/shield-lock';
 	import Pencil from '~icons/tabler/pencil';
 	import Answer from '~icons/tabler/message-check';
+
+	export const icons = { theirs: Pull, mine: Merge, project: Rocket, report: Shield, post: Pencil, answer: Answer };
+
+	// 'ow many links a load o' dots 'ave between 'em
+	export const tally = (moments: Moment[]) => moments.flatMap(({ links }) => links).length;
+</script>
+
+<script lang="ts">
+	import { pages } from '$lib/config';
+	import { projects } from '$lib/content';
+	import Dot from '$lib/Dot.svelte';
+	import IconLink from '$lib/IconLink.svelte';
+	import Repo from '$lib/Repo.svelte';
 	import Chevron from '~icons/tabler/chevron-down';
 
 	let { moments }: { moments: Moment[] } = $props();
 
 	const { kinds } = pages.timeline;
-	const icons = { theirs: Pull, mine: Merge, project: Rocket, report: Shield, post: Pencil, answer: Answer };
 	const day = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }).format;
 
 	// any more links than this an' the rest get tucked away
@@ -38,7 +46,7 @@
 	{#each moments as { kind, date, links, repo } (links[0].href)}
 		{@const own = repo && project(repo)}
 		{@const long = links.length > max}
-		<li>
+		<li data-kind={kind}>
 			<Dot icon={icons[kind]} />
 			<p>
 				<strong>{kinds[kind]}</strong>
@@ -51,7 +59,7 @@
 			</p>
 			{@render list(long ? links.slice(0, shown) : links)}
 			{#if long}
-				<details>
+				<details class="fold">
 					<summary>
 						<span class="more">Show all {links.length}</span>
 						<span class="less">Show less</span>
@@ -79,8 +87,8 @@
 			grid-template-columns: var(--timeline-dot) minmax(0, 1fr);
 			column-gap: var(--list-gap);
 
-			/* the line from each dot down to the next */
-			&:not(:last-child)::before {
+			/* the line from each dot down to the next one showin' */
+			&:has(~ li:not([hidden]))::before {
 				content: '';
 				position: absolute;
 				top: calc(var(--timeline-dot) + var(--timeline-gap));
@@ -124,62 +132,20 @@
 
 	details {
 		grid-column: 2;
-		display: grid;
 		padding-top: var(--gap);
-		interpolate-size: allow-keywords;
 
 		ul {
 			padding-bottom: var(--gap);
-		}
-
-		/* the rest slide in an' out, instead of poppin' */
-		@media (prefers-reduced-motion: no-preference) {
-			&::details-content {
-				height: 0;
-				overflow: clip;
-				transition:
-					height var(--timeline-unfold),
-					content-visibility var(--timeline-unfold) allow-discrete;
-			}
-
-			&[open]::details-content {
-				height: auto;
-			}
-
-			:global(svg) {
-				transition: rotate var(--timeline-unfold);
-			}
 		}
 
 		&:not([open]) .less,
 		&[open] .more {
 			display: none;
 		}
-
-		&[open] :global(svg) {
-			rotate: 0.5turn;
-		}
 	}
 
 	/* sits under the lot, so it rides up an' down wiv 'em */
 	summary {
 		order: 1;
-		display: flex;
-		align-items: center;
-		gap: var(--gap);
-		width: fit-content;
-		min-height: var(--target-size);
-		color: var(--muted);
-		font-size: var(--small-size);
-		cursor: pointer;
-		transition: color var(--hover-transition);
-
-		&:hover {
-			color: var(--primary);
-		}
-
-		&::-webkit-details-marker {
-			display: none;
-		}
 	}
 </style>

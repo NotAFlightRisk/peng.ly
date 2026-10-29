@@ -16,9 +16,15 @@
 <main class:wide={page.data.wide} class:bare={page.data.bare}>
 	{#if !page.data.bare}
 		<h1>{page.data.title}</h1>
-		<p>
-			{page.data.description}{#if page.data.rss}, also available <a href={page.data.rss}>via RSS</a>{/if}
-		</p>
+		<div class="intro">
+			<p>
+				{page.data.description}{#if page.data.rss}, also available <a href={page.data.rss}>via RSS</a>{/if}
+			</p>
+			<!-- some pages bring a gadget to sit on the end o' the description -->
+			{#if page.data.beside}
+				<page.data.beside />
+			{/if}
+		</div>
 	{/if}
 	{@render children()}
 </main>
@@ -59,6 +65,8 @@
 	main {
 		/* soaks up the slack, so a picture under it stays stuck to the footer */
 		flex-grow: 1;
+		/* anyfin' floatin' in 'ere still slides under the header */
+		isolation: isolate;
 		width: 100%;
 		max-width: var(--page-width);
 		margin-inline: auto;
@@ -83,8 +91,19 @@
 		letter-spacing: var(--title-tracking);
 	}
 
-	p {
+	/* the gadget 'ugs the right, even on a line of its own */
+	.intro {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: end;
+		column-gap: var(--list-gap);
 		margin: var(--gap) 0 var(--gutter);
+	}
+
+	p {
+		flex-grow: 1;
+		margin: 0;
 		color: var(--muted);
 
 		a {
