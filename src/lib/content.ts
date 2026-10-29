@@ -2,6 +2,7 @@ import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
 import carbonaraShot from '$lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '$lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '$lib/assets/screenshots/floodpulse.webp';
+import pengTopShot from '$lib/assets/screenshots/peng-top.webp';
 import securityReportingToolboxShot from '$lib/assets/screenshots/security-reporting-toolbox.webp';
 import trackTheGapShot from '$lib/assets/screenshots/track-the-gap.webp';
 import type { pages } from '$lib/config';
@@ -28,6 +29,12 @@ export const contributions = [
 export type Report = { ghsa: string; cve?: string; published: string; title: string; repo: string };
 
 export const reports: Report[] = [
+	{
+		ghsa: 'GHSA-9qxr-8ppj-8jh2',
+		published: '2026-10-29',
+		title: 'Any API key can read all keys and secrets',
+		repo: 'syncyomi/syncyomi'
+	},
 	{
 		ghsa: 'GHSA-69fc-whp6-jr2q',
 		published: '2026-10-28',
@@ -602,8 +609,16 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/token-usage-dashboard/w1024'
 	},
 	{
-		name: 'statusquo',
+		name: 'peng-top',
 		featured: true,
+		title: 'peng-top',
+		description: 'A system monitor for your browser: CPU, memory, disks, network, sensors and processes',
+		repo: 'NotAFlightRisk/peng-top',
+		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/peng-top/main/web/public/favicon.svg',
+		screenshot: pengTopShot
+	},
+	{
+		name: 'statusquo',
 		title: 'statusquo',
 		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
 		repo: 'NotAFlightRisk/statusquo',
