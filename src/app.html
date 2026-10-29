@@ -6,7 +6,8 @@
 		<meta name="text-scale" content="scale" />
 		%sveltekit.head%
 	</head>
-	<body>
+	<!-- every link's a full page load, the only kind that uses a page loaded early -->
+	<body data-sveltekit-reload>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

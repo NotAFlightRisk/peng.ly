@@ -2,9 +2,10 @@
 	import { pages } from '$lib/config';
 	import type { Moment } from '$lib/content';
 	import Dot from '$lib/Dot.svelte';
-	import Moments from '$lib/Moments.svelte';
+	import Moments, { tally } from '$lib/Moments.svelte';
 	import Panel from '$lib/Panel.svelte';
 	import Egg from '~icons/tabler/egg-cracked';
+	import Empty from '~icons/tabler/filter-off';
 
 	let { moments }: { moments: Moment[] } = $props();
 
@@ -15,7 +16,8 @@
 		[...Map.groupBy(moments, ({ date }) => month(new Date(date)))].map(([title, dots]) => ({
 			title,
 			id: title.toLowerCase().replace(' ', '-'),
-			dots
+			dots,
+			count: tally(dots)
 		}))
 	);
 
@@ -29,13 +31,45 @@
 		}, { rootMargin: '-30% 0px -70%' });
 		for (const link of links) watch.observe(document.querySelector(link.hash));
 	}<\/script>`;
+
+	// shuttin' a long 'un nips back up to it
+	const fold = `<script>
+		for (const details of document.querySelectorAll('.timeline details')) {
+			details.addEventListener('toggle', () => {
+				const entry = details.parentElement;
+				if (!details.open && entry.getBoundingClientRect().top < 0) entry.scrollIntoView();
+			});
+		}
+	<\/script>`;
+
+	// unticked kinds go into 'idin'
+	const sift = `<script>{
+		const form = document.querySelector('.filters form');
+		const dots = document.querySelectorAll('.timeline [data-kind]');
+		const links = document.querySelectorAll('.timeline nav a');
+		const [empty, end] = document.querySelectorAll('.months > p');
+		form.addEventListener('change', () => {
+			const kinds = new FormData(form).getAll('kind');
+			let total = 0;
+			for (const dot of dots) dot.hidden = !kinds.includes(dot.dataset.kind);
+			for (const link of links) {
+				const month = document.querySelector(link.hash);
+				const count = month.querySelectorAll('[data-kind]:not([hidden]) li').length;
+				link.querySelector('span').textContent = count;
+				link.parentElement.hidden = month.hidden = !count;
+				total += count;
+			}
+			empty.hidden = total > 0;
+			end.hidden = !total;
+		});
+	}<\/script>`;
 </script>
 
 <div class="timeline">
 	<nav aria-label="Months">
 		<ul>
-			{#each months as { title, id } (id)}
-				<li><a href="#{id}">{title}</a></li>
+			{#each months as { title, id, count } (id)}
+				<li><a href="#{id}">{title} (<span>{count}</span>)</a></li>
 			{/each}
 		</ul>
 	</nav>
@@ -44,11 +78,14 @@
 		{#each months as { title, id, dots } (id)}
 			<Panel {id} {title}><Moments moments={dots} /></Panel>
 		{/each}
+		<p hidden><Dot icon={Empty} />{pages.timeline.empty}</p>
 		<p><Dot icon={Egg} />{pages.timeline.end}</p>
 	</div>
 </div>
 
 {@html spy}
+{@html fold}
+{@html sift}
 
 <style>
 	/* a click on a month glides there, unless you'd rather it didn't */

@@ -4,7 +4,7 @@
 
 	let menu: HTMLUListElement;
 
-	// a link that don't reload the page would leave it open
+	// else the back button brings the page back wiv it still open
 	const close = () => menu.hidePopover?.();
 </script>
 

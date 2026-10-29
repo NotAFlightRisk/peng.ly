@@ -71,6 +71,16 @@ export const pages = {
 			post: 'Wrote',
 			answer: 'Answered'
 		},
+		// what each kind's called in the filter, in the order they're listed
+		filters: {
+			mine: 'Updates shipped',
+			theirs: 'Open source contributions',
+			report: 'Security reports',
+			project: 'New projects',
+			answer: 'Discussion answers',
+			post: 'Blog posts published'
+		},
+		empty: 'Noot a thing left. Tick something in the filter to bring it back.',
 		end: 'That\'s as far back as it goes. Before this I was still an egg.'
 	},
 	about: {

@@ -66,6 +66,8 @@
 		position: sticky;
 		top: 0;
 		z-index: 1;
+		/* folds down into the uvver pages' header */
+		view-transition-name: header;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: end;
@@ -97,12 +99,23 @@
 		gap: var(--gap);
 	}
 
+	/* trades places wiv the uvver pages' little title */
 	h1 {
+		view-transition-name: brand;
 		margin: 0 auto var(--title-gap) 0;
 		font-size: var(--title-size);
 		font-weight: var(--title-weight);
 		line-height: var(--title-leading);
 		letter-spacing: var(--title-tracking);
+	}
+
+	/* grows crisp from the little title, 'stead o' that one blown up blurry */
+	:global(::view-transition-old(brand)) {
+		display: none;
+	}
+
+	:global(::view-transition-new(brand)) {
+		animation: none;
 	}
 
 	main {

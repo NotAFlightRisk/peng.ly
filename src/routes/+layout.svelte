@@ -39,6 +39,22 @@
 		script.onload = () => plausible.init({ endpoint: new URL('/api/event', src).href });
 		document.head.append(script);
 	}<\/script>`;
+	// the page loads while you're still 'overin' over its link
+	const prerender = `<script type="speculationrules">${JSON.stringify({
+		prerender: [
+			{
+				// a dot means it's a file, not a page
+				where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/*.*' } }] },
+				eagerness: 'moderate'
+			}
+		]
+	})}<\/script>`;
+	// a page loaded early plays its entrances again once it's shown
+	const replay = `<script>
+		if (document.prerendering) addEventListener('pagereveal', () => {
+			for (const animation of document.getAnimations()) if (animation.playState === 'finished') animation.play();
+		}, { once: true });
+	<\/script>`;
 </script>
 
 <svelte:head>
@@ -66,6 +82,8 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	{@html person}
 	{@html tracker}
+	{@html prerender}
+	{@html replay}
 </svelte:head>
 
 {@render children()}
