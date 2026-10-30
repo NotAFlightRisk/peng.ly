@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { site, panels, pages } from '$lib/config';
-	import { projects, reports } from '$lib/content';
-	import Penguin from '$lib/Penguin.svelte';
-	import Panel from '$lib/Panel.svelte';
-	import Contributions from '$lib/Contributions.svelte';
-	import Reports from '$lib/Reports.svelte';
-	import Projects from '$lib/Projects.svelte';
-	import Posts from '$lib/Posts.svelte';
-	import { schema } from '$lib/schema';
+	import { site, panels, pages } from '#lib/config.js';
+	import { projects, reports } from '#lib/content.js';
+	import Penguin from '#lib/Penguin.svelte';
+	import Panel from '#lib/Panel.svelte';
+	import Contributions from '#lib/Contributions.svelte';
+	import Reports from '#lib/Reports.svelte';
+	import Projects from '#lib/Projects.svelte';
+	import Posts from '#lib/Posts.svelte';
+	import { schema } from '#lib/schema.js';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconLink from '$lib/IconLink.svelte';
+	import IconLink from '#lib/IconLink.svelte';
 
 	let { repo }: { repo: string } = $props();
 </script>

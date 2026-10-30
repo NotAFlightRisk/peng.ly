@@ -1,6 +1,6 @@
-import { site } from '$lib/config';
-import { projects } from '$lib/content';
-import { repoInfo } from '$lib/github.server';
+import { site } from '#lib/config.js';
+import { projects } from '#lib/content.js';
+import { repoInfo } from '#lib/github.server.js';
 
 export const prerender = true;
 

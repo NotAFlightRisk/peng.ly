@@ -1,8 +1,8 @@
 import { error } from '@sveltejs/kit';
-import { moreApps } from '$lib/config';
-import { projects } from '$lib/content';
-import { repoInfo } from '$lib/github.server';
-import { readme } from '$lib/readme.server';
+import { moreApps } from '#lib/config.js';
+import { projects } from '#lib/content.js';
+import { repoInfo } from '#lib/github.server.js';
+import { readme } from '#lib/readme.server.js';
 
 export const load = async ({ fetch, params }) => {
 	const project = projects.find(({ name }) => name === params.name);

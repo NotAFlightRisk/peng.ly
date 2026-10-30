@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Repo from '$lib/Repo.svelte';
-	import type { Report } from '$lib/content';
+	import Repo from '#lib/Repo.svelte';
+	import type { Report } from '#lib/content.js';
 
 	let { reports, idFirst = false }: { reports: Report[]; idFirst?: boolean } = $props();
 </script>

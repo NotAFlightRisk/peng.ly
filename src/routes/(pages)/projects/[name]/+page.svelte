@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { moreApps, panels, site } from '$lib/config';
-	import { schema } from '$lib/schema';
-	import Breadcrumbs from '$lib/Breadcrumbs.svelte';
-	import ProjectGrid from '$lib/ProjectGrid.svelte';
-	import ProjectLinks from '$lib/ProjectLinks.svelte';
-	import Readme from '$lib/Readme.svelte';
-	import Stats from '$lib/Stats.svelte';
+	import { moreApps, panels, site } from '#lib/config.js';
+	import { schema } from '#lib/schema.js';
+	import Breadcrumbs from '#lib/Breadcrumbs.svelte';
+	import ProjectGrid from '#lib/ProjectGrid.svelte';
+	import ProjectLinks from '#lib/ProjectLinks.svelte';
+	import Readme from '#lib/Readme.svelte';
+	import Stats from '#lib/Stats.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

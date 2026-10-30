@@ -1,6 +1,6 @@
-import { site } from '$lib/config';
-import { gh } from '$lib/github.server';
-import { once } from '$lib/once.server';
+import { site } from '#lib/config.js';
+import { gh } from '#lib/github.server.js';
+import { once } from '#lib/once.server.js';
 
 const query = `query ($login: String!, $after: String) {
 	user(login: $login) {

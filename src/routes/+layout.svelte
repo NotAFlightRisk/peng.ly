@@ -1,12 +1,12 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
-	import { feed, site, links } from '$lib/config';
-	import Footer from '$lib/Footer.svelte';
-	import { schema } from '$lib/schema';
-	import favicon from '$lib/assets/favicon.svg';
-	import avatar from '$lib/assets/avatar.jpg';
-	import og from '$lib/assets/og.png';
+	import { feed, site, links } from '#lib/config.js';
+	import Footer from '#lib/Footer.svelte';
+	import { schema } from '#lib/schema.js';
+	import favicon from '#lib/assets/favicon.svg';
+	import avatar from '#lib/assets/avatar.jpg';
+	import og from '#lib/assets/og.png';
 
 	let { children } = $props();
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Timeline from '$lib/Timeline.svelte';
+	import Timeline from '#lib/Timeline.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

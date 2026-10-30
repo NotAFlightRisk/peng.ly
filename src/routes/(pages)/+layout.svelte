@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { site } from '$lib/config';
-	import Menu from '$lib/Menu.svelte';
-	import Penguin from '$lib/Penguin.svelte';
+	import { site } from '#lib/config.js';
+	import Menu from '#lib/Menu.svelte';
+	import Penguin from '#lib/Penguin.svelte';
 
 	let { children } = $props();
 

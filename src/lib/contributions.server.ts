@@ -1,6 +1,6 @@
-import { site } from '$lib/config';
-import { byRepo, gh } from '$lib/github.server';
-import { once } from '$lib/once.server';
+import { site } from '#lib/config.js';
+import { byRepo, gh } from '#lib/github.server.js';
+import { once } from '#lib/once.server.js';
 
 type Found = {
 	number: number;

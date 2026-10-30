@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { contact } from '$lib/config';
+	import { contact } from '#lib/config.js';
 	import Github from '~icons/tabler/brand-github';
 	import Shield from '~icons/tabler/shield-lock';
 

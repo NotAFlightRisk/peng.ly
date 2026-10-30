@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Spring, prefersReducedMotion } from 'svelte/motion';
-	import { site } from '$lib/config';
-	import { beak, belly, body, eyes, gaze, lazy, lids, pupils, viewBox } from '$lib/visuals/penguin';
+	import { site } from '#lib/config.js';
+	import { beak, belly, body, eyes, gaze, lazy, lids, pupils, viewBox } from '#lib/visuals/penguin.js';
 
 	// every 5 to 10 seconds 'e blinks, an' about one time in three 'e does one o' these instead
 	const FACES = ['double', 'wink', 'beam', 'yawn', 'shake'];

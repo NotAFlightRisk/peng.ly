@@ -1,4 +1,4 @@
-import { errors } from '$lib/config';
+import { errors } from '#lib/config.js';
 
 // builds to 404.html, which is the file the host serves for any address it don't know
 export const load = () => errors.lost;

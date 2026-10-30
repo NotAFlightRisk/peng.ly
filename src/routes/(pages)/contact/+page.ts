@@ -1,5 +1,5 @@
-import { pages } from '$lib/config';
-import PaperPlanes from '$lib/visuals/PaperPlanes.svelte';
+import { pages } from '#lib/config.js';
+import PaperPlanes from '#lib/visuals/PaperPlanes.svelte';
 
 export const csr = true;
 

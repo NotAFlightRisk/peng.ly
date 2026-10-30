@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { contact } from '$lib/config';
-	import Panel from '$lib/Panel.svelte';
-	import ContactForm from '$lib/ContactForm.svelte';
-	import Elsewhere from '$lib/Elsewhere.svelte';
+	import { contact } from '#lib/config.js';
+	import Panel from '#lib/Panel.svelte';
+	import ContactForm from '#lib/ContactForm.svelte';
+	import Elsewhere from '#lib/Elsewhere.svelte';
 </script>
 
 <div>

@@ -1,10 +1,10 @@
-import { env } from '$env/dynamic/private';
-import type { Contribution } from '$lib/content';
-import { once } from '$lib/once.server';
+import { GITHUB_TOKEN } from '$app/env/private';
+import type { Contribution } from '#lib/content.js';
+import { once } from '#lib/once.server.js';
 
 const ask = async (fetch: typeof globalThis.fetch, path: string, init: RequestInit) => {
 	const headers = new Headers(init.headers);
-	if (env.GITHUB_TOKEN) headers.set('authorization', `Bearer ${env.GITHUB_TOKEN}`);
+	if (GITHUB_TOKEN) headers.set('authorization', `Bearer ${GITHUB_TOKEN}`);
 	const response = await fetch(`https://api.github.com/${path}`, { ...init, headers });
 	if (!response.ok) throw new Error(`GitHub gave us a ${response.status} for ${path}`);
 	return response;

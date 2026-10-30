@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { links, sections, site } from '$lib/config';
+	import { links, sections, site } from '#lib/config.js';
 
 	// prerendered, so this is whenever the site was last built
 	const year = new Date().getFullYear();

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Spring, prefersReducedMotion } from 'svelte/motion';
-	import { site } from '$lib/config';
+	import { site } from '#lib/config.js';
 	import { beak, belly, body, eyes, gaze, lazy, pupils } from './penguin';
 
 	const uid = $props.id();

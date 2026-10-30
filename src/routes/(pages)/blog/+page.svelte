@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { site } from '$lib/config';
-	import Posts from '$lib/Posts.svelte';
+	import { site } from '#lib/config.js';
+	import Posts from '#lib/Posts.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

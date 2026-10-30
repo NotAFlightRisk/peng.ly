@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { sections } from '$lib/config';
+	import { sections } from '#lib/config.js';
 
 	let menu: HTMLUListElement;
 

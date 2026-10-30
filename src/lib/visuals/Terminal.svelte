@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Spring, prefersReducedMotion } from 'svelte/motion';
-	import { site } from '$lib/config';
+	import { site } from '#lib/config.js';
 	import { beak, belly, body, box, eyes, lazy, pupils, toward } from './penguin';
 
 	type Tag = 'ok' | 'warn' | 'retry';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Contributions from '$lib/Contributions.svelte';
+	import Contributions from '#lib/Contributions.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

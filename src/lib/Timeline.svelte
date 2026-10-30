@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { pages } from '$lib/config';
-	import type { Moment } from '$lib/content';
-	import Dot from '$lib/Dot.svelte';
-	import Moments, { tally } from '$lib/Moments.svelte';
-	import Panel from '$lib/Panel.svelte';
+	import { pages } from '#lib/config.js';
+	import type { Moment } from '#lib/content.js';
+	import Dot from '#lib/Dot.svelte';
+	import Moments, { tally } from '#lib/Moments.svelte';
+	import Panel from '#lib/Panel.svelte';
 	import Egg from '~icons/tabler/egg-cracked';
 	import Empty from '~icons/tabler/filter-off';
 

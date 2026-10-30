@@ -1,6 +1,6 @@
-import { site } from '$lib/config';
-import type { Post } from '$lib/content';
-import { once } from '$lib/once.server';
+import { site } from '#lib/config.js';
+import type { Post } from '#lib/content.js';
+import { once } from '#lib/once.server.js';
 
 // the blog keeps its own list, newest first
 export const blogPosts = (fetch: typeof globalThis.fetch) =>

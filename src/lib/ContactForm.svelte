@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { contact } from '$lib/config';
+	import { contact } from '#lib/config.js';
 	import Send from '~icons/tabler/send';
 
 	const { action, limits, trap, outcomes } = contact;
