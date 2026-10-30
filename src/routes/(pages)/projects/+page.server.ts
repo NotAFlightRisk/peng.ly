@@ -1,6 +1,6 @@
-import { panels } from '$lib/config';
-import { projects } from '$lib/content';
-import { repoInfo } from '$lib/github.server';
+import { panels } from '#lib/config.js';
+import { projects } from '#lib/content.js';
+import { repoInfo } from '#lib/github.server.js';
 
 export const load = async ({ fetch }) => ({
 	...panels.projects,

@@ -1,11 +1,11 @@
-import colorCodeConvertor from '$lib/assets/color-code-convertor.svg';
-import carbonaraShot from '$lib/assets/screenshots/carbonara.webp';
-import fineprintShot from '$lib/assets/screenshots/fineprint.webp';
-import floodpulseShot from '$lib/assets/screenshots/floodpulse.webp';
-import pengTopShot from '$lib/assets/screenshots/peng-top.webp';
-import securityReportingToolboxShot from '$lib/assets/screenshots/security-reporting-toolbox.webp';
-import trackTheGapShot from '$lib/assets/screenshots/track-the-gap.webp';
-import type { pages } from '$lib/config';
+import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
+import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
+import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
+import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
+import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
+import securityReportingToolboxShot from '#lib/assets/screenshots/security-reporting-toolbox.webp';
+import trackTheGapShot from '#lib/assets/screenshots/track-the-gap.webp';
+import type { pages } from '#lib/config.js';
 
 // merged is when it went in, if it's a PR an' we know
 export type Contribution = { repo: string; threads: { number: number; title: string; merged?: string }[] };

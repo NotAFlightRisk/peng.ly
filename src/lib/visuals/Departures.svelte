@@ -3,7 +3,7 @@
 	import { Spring, prefersReducedMotion } from 'svelte/motion';
 	import { page } from '$app/state';
 	import Plane from '~icons/tabler/plane-departure-filled';
-	import type { Contribution } from '$lib/content';
+	import type { Contribution } from '#lib/content.js';
 	import Actor, { type Act, type Face } from './Actor.svelte';
 	import { box, lazy, pupils, toward } from './penguin';
 

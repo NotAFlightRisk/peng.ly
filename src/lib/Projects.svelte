@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { projects } from '$lib/content';
-	import IconLink from '$lib/IconLink.svelte';
+	import { projects } from '#lib/content.js';
+	import IconLink from '#lib/IconLink.svelte';
 	import Github from '~icons/tabler/brand-github';
 
 	// only the big 'uns make the front page

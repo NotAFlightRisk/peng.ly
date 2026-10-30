@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { contact } from '$lib/config';
+import { contact } from '#lib/config.js';
 
 const { outcomes } = contact;
 

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
-	import type { Project } from '$lib/content';
-	import ProjectLinks from '$lib/ProjectLinks.svelte';
-	import Stats from '$lib/Stats.svelte';
+	import type { Project } from '#lib/content.js';
+	import ProjectLinks from '#lib/ProjectLinks.svelte';
+	import Stats from '#lib/Stats.svelte';
 
 	type Featured = Project & { stats: ComponentProps<typeof Stats> };
 	let { projects }: { projects: Featured[] } = $props();

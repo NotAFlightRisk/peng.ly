@@ -1,8 +1,8 @@
-import { answered } from '$lib/answers.server';
-import { projects, reports, type Moment } from '$lib/content';
-import { mine, theirs } from '$lib/contributions.server';
-import { repoInfo } from '$lib/github.server';
-import { blogPosts } from '$lib/posts.server';
+import { answered } from '#lib/answers.server.js';
+import { projects, reports, type Moment } from '#lib/content.js';
+import { mine, theirs } from '#lib/contributions.server.js';
+import { repoInfo } from '#lib/github.server.js';
+import { blogPosts } from '#lib/posts.server.js';
 
 const github = (path: string) => `https://github.com/${path}`;
 

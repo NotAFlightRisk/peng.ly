@@ -1,5 +1,5 @@
-import { feed, pages, site } from '$lib/config';
-import { moments } from '$lib/timeline.server';
+import { feed, pages, site } from '#lib/config.js';
+import { moments } from '#lib/timeline.server.js';
 
 export const prerender = true;
 

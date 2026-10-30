@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Repo from '$lib/Repo.svelte';
-	import type { Contribution } from '$lib/content';
+	import Repo from '#lib/Repo.svelte';
+	import type { Contribution } from '#lib/content.js';
 
 	// path is the bit of the GitHub URL between the repo an' the number
 	let { contributions, path = 'pull' }: { contributions: Contribution[]; path?: string } = $props();

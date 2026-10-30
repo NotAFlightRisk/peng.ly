@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Todo from '$lib/Todo.svelte';
-	import Mugshot from '$lib/visuals/Mugshot.svelte';
+	import Todo from '#lib/Todo.svelte';
+	import Mugshot from '#lib/visuals/Mugshot.svelte';
 </script>
 
 <div class="about">

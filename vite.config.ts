@@ -29,11 +29,7 @@ const vercel: Adapter = {
 			// fresh every build, so a week's fine
 			{ src: '/avatars/.+', headers: { 'cache-control': 'public, max-age=604800' }, continue: true }
 		);
-		config.routes.push(
-			// a missing script wants a plain 404, not our page cached for a year in its place
-			{ src: `/${builder.getAppPath()}/immutable/.+`, status: 404, headers: { 'cache-control': 'no-store' } },
-			{ src: '/.*', status: 404, dest: '/404' }
-		);
+		config.routes.push({ src: '/.*', status: 404, dest: '/404' });
 		writeFileSync(routing, JSON.stringify(config));
 	}
 };

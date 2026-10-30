@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '$lib/content';
+	import type { Project } from '#lib/content.js';
 	import Github from '~icons/tabler/brand-github';
 	import World from '~icons/tabler/world';
 

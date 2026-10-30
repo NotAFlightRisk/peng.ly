@@ -1,8 +1,8 @@
-import { latestPosts } from '$lib/config';
-import { contributions } from '$lib/content';
-import { merged } from '$lib/contributions.server';
-import { byRepo, gh } from '$lib/github.server';
-import { blogPosts } from '$lib/posts.server';
+import { latestPosts } from '#lib/config.js';
+import { contributions } from '#lib/content.js';
+import { merged } from '#lib/contributions.server.js';
+import { byRepo, gh } from '#lib/github.server.js';
+import { blogPosts } from '#lib/posts.server.js';
 
 export const load = async ({ fetch }) => {
 	// only wanted for a count, so if GitHub's 'avin' a moment we carry on wivout it

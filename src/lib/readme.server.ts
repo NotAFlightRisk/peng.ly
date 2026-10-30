@@ -1,4 +1,4 @@
-import { ghHtml } from '$lib/github.server';
+import { ghHtml } from '#lib/github.server.js';
 
 // relative links only make sense on GitHub, so they get pointed back at the repo
 const pin = (html: string, attr: string, base: string) =>

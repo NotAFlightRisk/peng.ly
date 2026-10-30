@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { pages } from '$lib/config';
-	import type { Moment } from '$lib/content';
-	import { icons, tally } from '$lib/Moments.svelte';
+	import { pages } from '#lib/config.js';
+	import type { Moment } from '#lib/content.js';
+	import { icons, tally } from '#lib/Moments.svelte';
 	import Chevron from '~icons/tabler/chevron-down';
 
 	// the layout drops this in, so the dots come off the page

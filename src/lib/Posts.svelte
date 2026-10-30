@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { site } from '$lib/config';
-	import type { Post } from '$lib/content';
+	import { site } from '#lib/config.js';
+	import type { Post } from '#lib/content.js';
 
 	// full is the /blog page, wiv the blurb an' tags under each one
 	let { posts, full = false }: { posts: Post[]; full?: boolean } = $props();

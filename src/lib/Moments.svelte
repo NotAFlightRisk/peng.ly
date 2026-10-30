@@ -1,5 +1,5 @@
 <script module lang="ts">
-	import type { Moment } from '$lib/content';
+	import type { Moment } from '#lib/content.js';
 	import Pull from '~icons/tabler/git-pull-request';
 	import Merge from '~icons/tabler/git-merge';
 	import Rocket from '~icons/tabler/rocket';
@@ -14,11 +14,11 @@
 </script>
 
 <script lang="ts">
-	import { pages } from '$lib/config';
-	import { projects } from '$lib/content';
-	import Dot from '$lib/Dot.svelte';
-	import IconLink from '$lib/IconLink.svelte';
-	import Repo from '$lib/Repo.svelte';
+	import { pages } from '#lib/config.js';
+	import { projects } from '#lib/content.js';
+	import Dot from '#lib/Dot.svelte';
+	import IconLink from '#lib/IconLink.svelte';
+	import Repo from '#lib/Repo.svelte';
 	import Chevron from '~icons/tabler/chevron-down';
 
 	let { moments }: { moments: Moment[] } = $props();

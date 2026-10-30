@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { errors, sections, site } from '$lib/config';
-	import Penguin from '$lib/Penguin.svelte';
+	import { errors, sections, site } from '#lib/config.js';
+	import Penguin from '#lib/Penguin.svelte';
 
 	let { status }: { status: number } = $props();
 

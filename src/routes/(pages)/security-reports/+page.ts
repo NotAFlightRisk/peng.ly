@@ -1,3 +1,3 @@
-import { panels } from '$lib/config';
+import { panels } from '#lib/config.js';
 
 export const load = () => panels.security;

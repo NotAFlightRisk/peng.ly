@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Project } from '$lib/content';
-	import ProjectCards from '$lib/ProjectCards.svelte';
+	import type { Project } from '#lib/content.js';
+	import ProjectCards from '#lib/ProjectCards.svelte';
 
 	let { title, description, projects }: { title: string; description: string; projects: Project[] } = $props();
 </script>
