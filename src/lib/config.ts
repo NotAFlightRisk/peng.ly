@@ -22,7 +22,7 @@ export const panels = {
 	security: {
 		title: 'Security Research',
 		href: '/security-reports',
-		description: 'Sometimes I report security issues, to help keep open source safe',
+		description: 'Sometimes I find, diagnose and responsibly report security issues in open source projects. Below are some recently published reports, all for issues that have since been patched.',
 		meta: 'Security issues I\'ve found and reported in open source projects, with CVE numbers where they were assigned.'
 	},
 	projects: {

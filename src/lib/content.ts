@@ -30,6 +30,25 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-9fr5-g44g-9526',
+		published: '2026-10-30',
+		cve: 'CVE-2026-117656',
+		title: 'Unverified Sign in with Apple callback parameter can override verified ID token claims',
+		repo: 'pow-auth/assent'
+	},
+	{
+		ghsa: 'GHSA-xjwp-5m2p-g5vc',
+		published: '2026-10-30',
+		title: 'Social sign-in trusts the provider email, enabling account takeover',
+		repo: 'jeremykenedy/laravel-spa'
+	},
+	{
+		ghsa: 'GHSA-jx8j-cr99-5r2h',
+		published: '2026-10-30',
+		title: 'Social sign-in trusts the provider email, enabling account takeover',
+		repo: 'jeremykenedy/laravel-auth'
+	},
+	{
 		ghsa: 'GHSA-9qxr-8ppj-8jh2',
 		published: '2026-10-29',
 		title: 'Any API key can read all keys and secrets',
