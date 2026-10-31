@@ -1,22 +1,26 @@
 <script lang="ts">
 	import { contact } from '#lib/config.js';
 	import Github from '~icons/tabler/brand-github';
+	import Key from '~icons/tabler/key';
 	import Shield from '~icons/tabler/shield-lock';
 
 	const { links } = contact.elsewhere;
-	const icons = { security: Shield, github: Github };
+	const icons = { security: Shield, pgp: Key, github: Github };
 </script>
 
 <ul>
-	{#each Object.entries(links) as [key, { title, description, label, href }] (key)}
+	{#each Object.entries(links) as [key, link] (key)}
 		{@const Icon = icons[key as keyof typeof links]}
 		<li>
 			<Icon aria-hidden="true" />
 			<div>
-				<h3>{title}</h3>
-				<p>{description}</p>
+				<h3>{link.title}</h3>
+				<p>{link.description}</p>
+				{#if 'fingerprint' in link}
+					<code>{link.fingerprint}</code>
+				{/if}
 				<!-- a mailto in a new tab just leaves a blank one lyin' about -->
-				<a {href} target={href.startsWith('http') ? '_blank' : undefined}>{label}</a>
+				<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>{link.label}</a>
 			</div>
 		</li>
 	{/each}
@@ -53,6 +57,15 @@
 	p {
 		margin: var(--gap) 0;
 		color: var(--muted);
+		font-size: var(--small-size);
+	}
+
+	/* wraps into two rows o' five, like gpg prints it */
+	code {
+		display: block;
+		max-width: var(--fingerprint-width);
+		margin-bottom: var(--gap);
+		font-family: var(--mono);
 		font-size: var(--small-size);
 	}
 

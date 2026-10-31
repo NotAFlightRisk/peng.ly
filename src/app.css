@@ -136,6 +136,7 @@
 	--field-bg: var(--bg);
 	--field-line: 2px solid var(--muted);
 	--message-height: 12rem;
+	--fingerprint-width: 25ch;
 	--danger: #ef9a9a;
 	--send-nudge: 0.15rem -0.15rem;
 	--send-takeoff: 0.6s var(--ease);

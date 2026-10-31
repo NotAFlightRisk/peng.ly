@@ -13,7 +13,6 @@
 <style>
 	div {
 		display: grid;
-		align-items: start;
 		gap: var(--gutter);
 	}
 
