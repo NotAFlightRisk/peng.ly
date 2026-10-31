@@ -698,6 +698,7 @@ export type Post = {
 	date: string;
 	tags: string[];
 	readingMinutes: number;
+	image?: string;
 };
 
 // one dot on the timeline, wiv a link for each fing that 'appened

@@ -151,6 +151,8 @@
 	--page-title-leading: 1;
 	--section-title-size: clamp(1.75rem, 6vw, 3rem);
 	--post-title-size: 1.8rem;
+	--post-image-width: 24rem;
+	--post-image-ratio: 1200 / 630;
 	--section-gap: calc(2 * var(--gutter));
 
 	--stat-gap: 0.25rem;
