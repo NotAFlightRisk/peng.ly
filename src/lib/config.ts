@@ -22,7 +22,7 @@ export const panels = {
 	security: {
 		title: 'Security Research',
 		href: '/security-reports',
-		description: 'Sometimes I report security issues, to help keep open source safe',
+		description: 'Sometimes I find, diagnose and responsibly report security issues in open source projects. Below are some recently published reports, all for issues that have since been patched.',
 		meta: 'Security issues I\'ve found and reported in open source projects, with CVE numbers where they were assigned.'
 	},
 	projects: {
@@ -111,9 +111,16 @@ export const contact = {
 		links: {
 			security: {
 				title: 'Found a security issue?',
-				description: 'Email it to me, so you can attach a proof of concept.',
+				description: 'Email it, proof of concept and all.',
 				label: site.security,
 				href: `mailto:${site.security}`
+			},
+			pgp: {
+				title: 'Want it encrypted?',
+				description: 'Here\'s my key and its fingerprint.',
+				fingerprint: 'F867 4727 A698 EF45 AB61 D1C1 3563 E77B AA81 A0E2',
+				label: 'pgp.asc',
+				href: '/pgp.asc'
 			},
 			github: {
 				title: 'Bug or feature idea?',
