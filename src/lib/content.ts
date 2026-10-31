@@ -2,6 +2,7 @@ import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
+import hearsayShot from '#lib/assets/screenshots/hearsay.webp';
 import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
 import securityReportingToolboxShot from '#lib/assets/screenshots/security-reporting-toolbox.webp';
 import trackTheGapShot from '#lib/assets/screenshots/track-the-gap.webp';
@@ -635,6 +636,15 @@ export const projects: Project[] = [
 		repo: 'NotAFlightRisk/peng-top',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/peng-top/main/web/public/favicon.svg',
 		screenshot: pengTopShot
+	},
+	{
+		name: 'hearsay',
+		title: 'hearsay',
+		description: "A live globe of the internet's routing: BGP announcements, withdrawals, leaks and outages as they happen",
+		repo: 'NotAFlightRisk/hearsay',
+		site: 'https://hearsay.peng.ly',
+		logo: 'https://hearsay.peng.ly/favicon.svg',
+		screenshot: hearsayShot
 	},
 	{
 		name: 'statusquo',
