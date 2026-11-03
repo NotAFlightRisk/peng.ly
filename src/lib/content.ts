@@ -31,6 +31,48 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-83j4-qpw6-7xpr',
+		published: '2026-11-03',
+		title: 'Cross-user podcast data disclosure via unchecked user_id',
+		repo: 'madeofpendletonwool/PinePods'
+	},
+	{
+		ghsa: 'GHSA-3v46-5wmv-g87p',
+		published: '2026-11-03',
+		title: 'ReDoS in the filter regex operators (=~, match, search)',
+		repo: 'atamano/jsonpathly'
+	},
+	{
+		ghsa: 'GHSA-9h3h-67f3-w73h',
+		published: '2026-11-02',
+		title: 'WebSocket database events expose non-public fields and fail open on missing row metadata',
+		repo: 'daptin/daptin'
+	},
+	{
+		ghsa: 'GHSA-m3x9-938q-5767',
+		published: '2026-11-02',
+		title: 'CSS url() sanitization bypass via escaped parentheses in Loofah',
+		repo: 'flavorjones/loofah'
+	},
+	{
+		ghsa: 'GHSA-3f68-rmx2-j4c9',
+		published: '2026-11-01',
+		title: 'ReDoS in the references formatter of @conventional-changelog/template',
+		repo: 'conventional-changelog/conventional-changelog'
+	},
+	{
+		ghsa: 'GHSA-mw9h-prf3-cr4h',
+		published: '2026-11-01',
+		title: 'OwaspHtmlTemplateOutput javascript: URL guard for <a href> bypassed by an embedded tab or newline',
+		repo: 'casid/jte'
+	},
+	{
+		ghsa: 'GHSA-wv8h-9mm4-9h33',
+		published: '2026-10-31',
+		title: 'Local clipboard leaked to the server via OSC 52',
+		repo: 'electerm/electerm'
+	},
+	{
 		ghsa: 'GHSA-9fr5-g44g-9526',
 		published: '2026-10-30',
 		cve: 'CVE-2026-117656',
