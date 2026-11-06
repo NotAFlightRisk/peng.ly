@@ -31,6 +31,60 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-gm32-8hqc-cfm4',
+		published: '2026-11-05',
+		title: 'DOM XSS in LSP hover and completion Markdown rendering',
+		repo: 'TeXlyre/texlyre'
+	},
+	{
+		ghsa: 'GHSA-g7rh-fvvq-cx94',
+		published: '2026-11-05',
+		title: 'Zip Slip arbitrary file write in project import',
+		repo: 'eclipse-inception/inception'
+	},
+	{
+		ghsa: 'GHSA-3hx5-3v2j-6wwx',
+		published: '2026-11-04',
+		title: 'Privilege escalation to administrator via unauthorized preference changes',
+		repo: 'bhj/KaraokeEternal'
+	},
+	{
+		ghsa: 'GHSA-3345-9xcr-8cjw',
+		published: '2026-11-04',
+		title: 'Cubic regex backtracking in the highlight helper',
+		repo: 'padrino/padrino-framework'
+	},
+	{
+		ghsa: 'GHSA-fvgw-rxcw-57jq',
+		published: '2026-11-04',
+		title: 'Password-reset token returned in forgot-password API response',
+		repo: 'cmintey/wishlist'
+	},
+	{
+		ghsa: 'GHSA-ww2q-jqvf-pjmp',
+		published: '2026-11-04',
+		title: 'Improper authorization in LibreSign visible signing-field updates',
+		repo: 'LibreSign/libresign'
+	},
+	{
+		ghsa: 'GHSA-r7gm-rgf8-5q8m',
+		published: '2026-11-04',
+		title: 'Vendor service-zone GET route missing seller ownership check',
+		repo: 'mercurjs/mercur'
+	},
+	{
+		ghsa: 'GHSA-4j63-6c4x-wfg4',
+		published: '2026-11-04',
+		title: 'General sibling combinator inside :has() matches untrusted HTML in quadratic time',
+		repo: 'facelessuser/soupsieve'
+	},
+	{
+		ghsa: 'GHSA-6r88-fhq9-p525',
+		published: '2026-11-04',
+		title: 'XSS: inline code token syntax emits unescaped HTML',
+		repo: 'rehype-pretty/rehype-pretty-code'
+	},
+	{
 		ghsa: 'GHSA-83j4-qpw6-7xpr',
 		published: '2026-11-03',
 		title: 'Cross-user podcast data disclosure via unchecked user_id',
