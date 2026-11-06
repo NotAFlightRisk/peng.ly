@@ -2,7 +2,9 @@ import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
+import gitStarRankingShot from '#lib/assets/screenshots/git-star-ranking.webp';
 import hearsayShot from '#lib/assets/screenshots/hearsay.webp';
+import patchcallShot from '#lib/assets/screenshots/patchcall.webp';
 import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
 import securityReportingToolboxShot from '#lib/assets/screenshots/security-reporting-toolbox.webp';
 import trackTheGapShot from '#lib/assets/screenshots/track-the-gap.webp';
@@ -743,31 +745,13 @@ export const projects: Project[] = [
 		screenshot: hearsayShot
 	},
 	{
-		name: 'statusquo',
-		title: 'statusquo',
-		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
-		repo: 'NotAFlightRisk/statusquo',
-		site: 'https://statusquo.peng.ly',
-		logo: 'https://statusquo.peng.ly/favicon.svg',
-		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
-	},
-	{
-		name: 'floodpulse',
-		title: 'floodpulse',
-		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
-		repo: 'NotAFlightRisk/floodpulse',
-		site: 'https://floodpulse.peng.ly',
-		logo: 'https://floodpulse.peng.ly/favicon.svg',
-		screenshot: floodpulseShot
-	},
-	{
-		name: 'carbonara',
-		title: 'carbonara',
-		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
-		repo: 'NotAFlightRisk/carbonara',
-		site: 'https://carbonara.peng.ly',
-		logo: 'https://carbonara.peng.ly/favicon.svg',
-		screenshot: carbonaraShot
+		name: 'git-star-ranking',
+		title: 'git-star-ranking',
+		description: 'Where any GitHub user, organization or repo ranks by stars, updated every six hours',
+		repo: 'NotAFlightRisk/git-star-ranking',
+		site: 'https://git-star-ranking.peng.ly',
+		logo: 'https://git-star-ranking.peng.ly/favicon.svg',
+		screenshot: gitStarRankingShot
 	},
 	{
 		name: 'security-reporting-toolbox',
@@ -779,12 +763,49 @@ export const projects: Project[] = [
 		screenshot: securityReportingToolboxShot
 	},
 	{
+		name: 'patchcall',
+		title: 'Patchcall',
+		description: "Security advisories for the apps you self-host, flagged only when there's a fix for the version you run",
+		repo: 'NotAFlightRisk/patchcall',
+		site: 'https://patchcall.peng.ly',
+		// its favicon changes colour, so we 'ave the green 'un
+		logo: 'https://patchcall.peng.ly/favicon-ok.svg',
+		screenshot: patchcallShot
+	},
+	{
 		name: 'portainer-templates-extras',
 		title: 'Portainer Templates Extras',
 		description: 'Tested Portainer templates for self-hosted apps, add one URL and deploy with a click',
 		repo: 'NotAFlightRisk/portainer-templates-extras',
 		site: 'https://portainer-templates-extras.peng.ly',
 		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
+	},
+	{
+		name: 'floodpulse',
+		title: 'floodpulse',
+		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
+		repo: 'NotAFlightRisk/floodpulse',
+		site: 'https://floodpulse.peng.ly',
+		logo: 'https://floodpulse.peng.ly/favicon.svg',
+		screenshot: floodpulseShot
+	},
+	{
+		name: 'statusquo',
+		title: 'statusquo',
+		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
+		repo: 'NotAFlightRisk/statusquo',
+		site: 'https://statusquo.peng.ly',
+		logo: 'https://statusquo.peng.ly/favicon.svg',
+		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
+	},
+	{
+		name: 'carbonara',
+		title: 'carbonara',
+		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
+		repo: 'NotAFlightRisk/carbonara',
+		site: 'https://carbonara.peng.ly',
+		logo: 'https://carbonara.peng.ly/favicon.svg',
+		screenshot: carbonaraShot
 	},
 	{
 		name: 'color-code-convertor',
