@@ -38,6 +38,42 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-c8wj-8p5h-r9g8',
+		published: '2026-11-08',
+		title: "Public share endpoint leaks owner's entire library metadata",
+		repo: 'nc-music/oc-music'
+	},
+	{
+		ghsa: 'GHSA-w8w6-94hg-2qpm',
+		published: '2026-11-08',
+		title: 'Unfiltered List-Unsubscribe helper function can lead to CRLF header injection',
+		repo: 'wneessen/go-mail'
+	},
+	{
+		ghsa: 'GHSA-48p4-xj33-4fw4',
+		published: '2026-11-08',
+		title: 'MultipartForm enforces no limit on the number of parts, allowing memory and file-descriptor exhaustion',
+		repo: 'actix/actix-web'
+	},
+	{
+		ghsa: 'GHSA-wfcf-8p9m-rqjw',
+		published: '2026-11-07',
+		title: 'Path traversal via unvalidated Apple login id',
+		repo: 'thepeacockproject/Peacock'
+	},
+	{
+		ghsa: 'GHSA-9px7-66rq-fv45',
+		published: '2026-11-07',
+		title: 'Path traversal in whiteboard file convert reads arbitrary files',
+		repo: 'mynaparrot/plugNmeet-server'
+	},
+	{
+		ghsa: 'GHSA-cwhh-732q-p35c',
+		published: '2026-11-06',
+		title: 'Policy-protected properties leak across users via the attribute cache',
+		repo: 'api-platform/core'
+	},
+	{
 		ghsa: 'GHSA-gm32-8hqc-cfm4',
 		published: '2026-11-05',
 		title: 'DOM XSS in LSP hover and completion Markdown rendering',
