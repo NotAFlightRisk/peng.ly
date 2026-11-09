@@ -1,4 +1,5 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
+import floodpulse from '#lib/assets/floodpulse.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
@@ -7,7 +8,11 @@ import hearsayShot from '#lib/assets/screenshots/hearsay.webp';
 import patchcallShot from '#lib/assets/screenshots/patchcall.webp';
 import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
 import securityReportingToolboxShot from '#lib/assets/screenshots/security-reporting-toolbox.webp';
+import steelyMouseShot from '#lib/assets/screenshots/steely-mouse.webp';
 import trackTheGapShot from '#lib/assets/screenshots/track-the-gap.webp';
+import securityReportingToolbox from '#lib/assets/security-reporting-toolbox.svg';
+import steelyMouse from '#lib/assets/steely-mouse.svg';
+import tubespotting from '#lib/assets/tubespotting.svg';
 import type { pages } from '#lib/config.js';
 
 // merged is when it went in, if it's a PR an' we know
@@ -704,7 +709,7 @@ export const projects: Project[] = [
 		description: 'Real-time London Underground map for live train locations',
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
+		logo: tubespotting,
 		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
 	},
 	{
@@ -759,7 +764,7 @@ export const projects: Project[] = [
 		description: 'Find a CWE, look up CVEs and GHSAs, score CVSS, check EPSS and KEV, and build version ranges',
 		repo: 'NotAFlightRisk/security-reporting-toolbox',
 		site: 'https://security-reporting-toolbox.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/security-reporting-toolbox/main/static/favicon.svg',
+		logo: securityReportingToolbox,
 		screenshot: securityReportingToolboxShot
 	},
 	{
@@ -786,7 +791,7 @@ export const projects: Project[] = [
 		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
 		repo: 'NotAFlightRisk/floodpulse',
 		site: 'https://floodpulse.peng.ly',
-		logo: 'https://floodpulse.peng.ly/favicon.svg',
+		logo: floodpulse,
 		screenshot: floodpulseShot
 	},
 	{
@@ -834,6 +839,14 @@ export const projects: Project[] = [
 		site: 'https://track-the-gap.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg',
 		screenshot: trackTheGapShot
+	},
+	{
+		name: 'steely-mouse',
+		title: 'Steely Mouse',
+		description: 'Set up your SteelSeries mouse from a browser tab: DPI, polling rate, RGB lighting and buttons',
+		repo: 'NotAFlightRisk/steely-mouse',
+		logo: steelyMouse,
+		screenshot: steelyMouseShot
 	}
 ];
 
