@@ -1,11 +1,18 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
+import floodpulse from '#lib/assets/floodpulse.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
+import gitStarRankingShot from '#lib/assets/screenshots/git-star-ranking.webp';
 import hearsayShot from '#lib/assets/screenshots/hearsay.webp';
+import patchcallShot from '#lib/assets/screenshots/patchcall.webp';
 import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
 import securityReportingToolboxShot from '#lib/assets/screenshots/security-reporting-toolbox.webp';
+import steelyMouseShot from '#lib/assets/screenshots/steely-mouse.webp';
 import trackTheGapShot from '#lib/assets/screenshots/track-the-gap.webp';
+import securityReportingToolbox from '#lib/assets/security-reporting-toolbox.svg';
+import steelyMouse from '#lib/assets/steely-mouse.svg';
+import tubespotting from '#lib/assets/tubespotting.svg';
 import type { pages } from '#lib/config.js';
 
 // merged is when it went in, if it's a PR an' we know
@@ -30,6 +37,42 @@ export const contributions = [
 export type Report = { ghsa: string; cve?: string; published: string; title: string; repo: string };
 
 export const reports: Report[] = [
+	{
+		ghsa: 'GHSA-c8wj-8p5h-r9g8',
+		published: '2026-11-08',
+		title: "Public share endpoint leaks owner's entire library metadata",
+		repo: 'nc-music/oc-music'
+	},
+	{
+		ghsa: 'GHSA-w8w6-94hg-2qpm',
+		published: '2026-11-08',
+		title: 'Unfiltered List-Unsubscribe helper function can lead to CRLF header injection',
+		repo: 'wneessen/go-mail'
+	},
+	{
+		ghsa: 'GHSA-48p4-xj33-4fw4',
+		published: '2026-11-08',
+		title: 'MultipartForm enforces no limit on the number of parts, allowing memory and file-descriptor exhaustion',
+		repo: 'actix/actix-web'
+	},
+	{
+		ghsa: 'GHSA-wfcf-8p9m-rqjw',
+		published: '2026-11-07',
+		title: 'Path traversal via unvalidated Apple login id',
+		repo: 'thepeacockproject/Peacock'
+	},
+	{
+		ghsa: 'GHSA-9px7-66rq-fv45',
+		published: '2026-11-07',
+		title: 'Path traversal in whiteboard file convert reads arbitrary files',
+		repo: 'mynaparrot/plugNmeet-server'
+	},
+	{
+		ghsa: 'GHSA-cwhh-732q-p35c',
+		published: '2026-11-06',
+		title: 'Policy-protected properties leak across users via the attribute cache',
+		repo: 'api-platform/core'
+	},
 	{
 		ghsa: 'GHSA-gm32-8hqc-cfm4',
 		published: '2026-11-05',
@@ -702,7 +745,7 @@ export const projects: Project[] = [
 		description: 'Real-time London Underground map for live train locations',
 		repo: 'NotAFlightRisk/tubespotting',
 		site: 'https://tubespotting.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/tubespotting/main/static/favicon.svg',
+		logo: tubespotting,
 		screenshot: 'https://pixelflare.cc/iain/screenshots/tube-spotting/w1024'
 	},
 	{
@@ -743,6 +786,51 @@ export const projects: Project[] = [
 		screenshot: hearsayShot
 	},
 	{
+		name: 'git-star-ranking',
+		title: 'git-star-ranking',
+		description: 'Where any GitHub user, organization or repo ranks by stars, updated every six hours',
+		repo: 'NotAFlightRisk/git-star-ranking',
+		site: 'https://git-star-ranking.peng.ly',
+		logo: 'https://git-star-ranking.peng.ly/favicon.svg',
+		screenshot: gitStarRankingShot
+	},
+	{
+		name: 'security-reporting-toolbox',
+		title: 'Security Reporting Toolbox',
+		description: 'Find a CWE, look up CVEs and GHSAs, score CVSS, check EPSS and KEV, and build version ranges',
+		repo: 'NotAFlightRisk/security-reporting-toolbox',
+		site: 'https://security-reporting-toolbox.peng.ly',
+		logo: securityReportingToolbox,
+		screenshot: securityReportingToolboxShot
+	},
+	{
+		name: 'patchcall',
+		title: 'Patchcall',
+		description: "Security advisories for the apps you self-host, flagged only when there's a fix for the version you run",
+		repo: 'NotAFlightRisk/patchcall',
+		site: 'https://patchcall.peng.ly',
+		// its favicon changes colour, so we 'ave the green 'un
+		logo: 'https://patchcall.peng.ly/favicon-ok.svg',
+		screenshot: patchcallShot
+	},
+	{
+		name: 'portainer-templates-extras',
+		title: 'Portainer Templates Extras',
+		description: 'Tested Portainer templates for self-hosted apps, add one URL and deploy with a click',
+		repo: 'NotAFlightRisk/portainer-templates-extras',
+		site: 'https://portainer-templates-extras.peng.ly',
+		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
+	},
+	{
+		name: 'floodpulse',
+		title: 'floodpulse',
+		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
+		repo: 'NotAFlightRisk/floodpulse',
+		site: 'https://floodpulse.peng.ly',
+		logo: floodpulse,
+		screenshot: floodpulseShot
+	},
+	{
 		name: 'statusquo',
 		title: 'statusquo',
 		description: 'Combine GitHub, Cloudflare, npm and 50-odd other status pages into one dashboard and one RSS feed',
@@ -752,15 +840,6 @@ export const projects: Project[] = [
 		screenshot: 'https://pixelflare.cc/iain/screenshots/status-quo/w1024'
 	},
 	{
-		name: 'floodpulse',
-		title: 'floodpulse',
-		description: 'Live river levels and flood warnings across England, every gauge against its own normal',
-		repo: 'NotAFlightRisk/floodpulse',
-		site: 'https://floodpulse.peng.ly',
-		logo: 'https://floodpulse.peng.ly/favicon.svg',
-		screenshot: floodpulseShot
-	},
-	{
 		name: 'carbonara',
 		title: 'carbonara',
 		description: "How clean Britain's electricity is right now, where, and when it'll be cleaner",
@@ -768,23 +847,6 @@ export const projects: Project[] = [
 		site: 'https://carbonara.peng.ly',
 		logo: 'https://carbonara.peng.ly/favicon.svg',
 		screenshot: carbonaraShot
-	},
-	{
-		name: 'security-reporting-toolbox',
-		title: 'Security Reporting Toolbox',
-		description: 'Find a CWE, look up CVEs and GHSAs, score CVSS, check EPSS and KEV, and build version ranges',
-		repo: 'NotAFlightRisk/security-reporting-toolbox',
-		site: 'https://security-reporting-toolbox.peng.ly',
-		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/security-reporting-toolbox/main/static/favicon.svg',
-		screenshot: securityReportingToolboxShot
-	},
-	{
-		name: 'portainer-templates-extras',
-		title: 'Portainer Templates Extras',
-		description: 'Tested Portainer templates for self-hosted apps, add one URL and deploy with a click',
-		repo: 'NotAFlightRisk/portainer-templates-extras',
-		site: 'https://portainer-templates-extras.peng.ly',
-		logo: 'https://portainer-templates-extras.peng.ly/favicon.svg'
 	},
 	{
 		name: 'color-code-convertor',
@@ -813,6 +875,14 @@ export const projects: Project[] = [
 		site: 'https://track-the-gap.peng.ly',
 		logo: 'https://raw.githubusercontent.com/NotAFlightRisk/track-the-gap/main/static/roundel.svg',
 		screenshot: trackTheGapShot
+	},
+	{
+		name: 'steely-mouse',
+		title: 'Steely Mouse',
+		description: 'Set up your SteelSeries mouse from a browser tab: DPI, polling rate, RGB lighting and buttons',
+		repo: 'NotAFlightRisk/steely-mouse',
+		logo: steelyMouse,
+		screenshot: steelyMouseShot
 	}
 ];
 
