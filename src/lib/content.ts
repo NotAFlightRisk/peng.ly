@@ -777,6 +777,16 @@ export const projects: Project[] = [
 		screenshot: pengTopShot
 	},
 	{
+		name: 'git-star-ranking',
+		featured: true,
+		title: 'git-star-ranking',
+		description: 'Where any GitHub user, organization or repo ranks by stars, updated every six hours',
+		repo: 'NotAFlightRisk/git-star-ranking',
+		site: 'https://git-star-ranking.com',
+		logo: 'https://git-star-ranking.com/favicon.svg',
+		screenshot: gitStarRankingShot
+	},
+	{
 		name: 'hearsay',
 		title: 'hearsay',
 		description: "A live globe of the internet's routing: BGP announcements, withdrawals, leaks and outages as they happen",
@@ -784,15 +794,6 @@ export const projects: Project[] = [
 		site: 'https://hearsay.peng.ly',
 		logo: 'https://hearsay.peng.ly/favicon.svg',
 		screenshot: hearsayShot
-	},
-	{
-		name: 'git-star-ranking',
-		title: 'git-star-ranking',
-		description: 'Where any GitHub user, organization or repo ranks by stars, updated every six hours',
-		repo: 'NotAFlightRisk/git-star-ranking',
-		site: 'https://git-star-ranking.peng.ly',
-		logo: 'https://git-star-ranking.peng.ly/favicon.svg',
-		screenshot: gitStarRankingShot
 	},
 	{
 		name: 'security-reporting-toolbox',
