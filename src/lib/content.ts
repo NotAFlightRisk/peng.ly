@@ -38,6 +38,36 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-7mmq-gh5f-97p3',
+		published: '2026-11-10',
+		title: "Cross-user IDOR: users can change another user's blog settings",
+		repo: 'writefreely/writefreely'
+	},
+	{
+		ghsa: 'GHSA-pr7r-5wv5-qwjm',
+		published: '2026-11-10',
+		title: 'Stored XSS via sys.doc documentation link targets',
+		repo: 'erwindon/SaltGUI'
+	},
+	{
+		ghsa: 'GHSA-ppj6-v966-7mx3',
+		published: '2026-11-09',
+		title: 'SSRF: private-IP blocklist bypassed by DNS hostname resolution',
+		repo: 'franklioxygen/MyTube'
+	},
+	{
+		ghsa: 'GHSA-jwh8-j584-79hp',
+		published: '2026-11-09',
+		title: 'SSRF in BlockDiag engines via node image URLs',
+		repo: 'yuzutech/kroki'
+	},
+	{
+		ghsa: 'GHSA-w49g-c353-q3rg',
+		published: '2026-11-09',
+		title: 'Unauthenticated SQL injection via TraceQL regex filters',
+		repo: 'metrico/gigapipe'
+	},
+	{
 		ghsa: 'GHSA-c8wj-8p5h-r9g8',
 		published: '2026-11-08',
 		title: "Public share endpoint leaks owner's entire library metadata",
