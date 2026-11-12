@@ -31,7 +31,12 @@ export const contributions = [
 	'wazero/wazero#2540',
 	'wazero/wazero#2537',
 	'wazero/wazero#2553',
-	'anacrolix/torrent#1099'
+	'anacrolix/torrent#1099',
+	'nvm-sh/nvm#3986',
+	'predis/predis#1731',
+	'ebitengine/purego#500',
+	'Automattic/mongoose#16600',
+	'JanDeDobbeleer/oh-my-posh#7812'
 ];
 
 export type Report = { ghsa: string; cve?: string; published: string; title: string; repo: string };
