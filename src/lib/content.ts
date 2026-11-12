@@ -38,6 +38,60 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-8g74-7x2p-wc6m',
+		published: '2026-11-12',
+		title: 'Public statistics page leaks private-item counts and activity timing',
+		repo: 'benjaminjonard/koillection'
+	},
+	{
+		ghsa: 'GHSA-gg56-g99c-3qm3',
+		published: '2026-11-12',
+		title: 'Fetching a snapshot through a projection returns hidden fields when the database projects snapshots',
+		repo: 'share/sharedb'
+	},
+	{
+		ghsa: 'GHSA-4v9r-jf97-w799',
+		published: '2026-11-12',
+		title: 'Server can forge end-to-end mail from any Aster user',
+		repo: 'Aster-Privacy/Aster-Mail'
+	},
+	{
+		ghsa: 'GHSA-j644-6h72-8x4q',
+		published: '2026-11-12',
+		title: 'Release workflow runs third-party code with a repo-scoped PAT',
+		repo: 'ulsklyc/yuvomi'
+	},
+	{
+		ghsa: 'GHSA-c596-x46w-6gcp',
+		published: '2026-11-12',
+		title: 'Signed-in device credential changes account email, enabling takeover',
+		repo: 'ulsklyc/yuvomi'
+	},
+	{
+		ghsa: 'GHSA-h834-358q-rx97',
+		published: '2026-11-11',
+		title: 'Message::verify accepts non-document signature types',
+		repo: 'rpgp/rpgp'
+	},
+	{
+		ghsa: 'GHSA-qx33-j37v-vch7',
+		published: '2026-11-11',
+		title: 'External mail is readable by the Aster server',
+		repo: 'Aster-Privacy/Aster-Mail'
+	},
+	{
+		ghsa: 'GHSA-jg8w-h6xp-xvxr',
+		published: '2026-11-11',
+		title: 'DNS-rebinding SSRF in webhook post-process URL guard',
+		repo: 'm3ue/m3u-editor'
+	},
+	{
+		ghsa: 'GHSA-mw97-rqg3-p236',
+		published: '2026-11-11',
+		title: 'Nested private/protected fields disclosed via distinct on a parent',
+		repo: 'florianholzapfel/express-restify-mongoose'
+	},
+	{
 		ghsa: 'GHSA-7mmq-gh5f-97p3',
 		published: '2026-11-10',
 		title: "Cross-user IDOR: users can change another user's blog settings",
@@ -148,6 +202,7 @@ export const reports: Report[] = [
 	{
 		ghsa: 'GHSA-4j63-6c4x-wfg4',
 		published: '2026-11-04',
+		cve: 'CVE-2026-126192',
 		title: 'General sibling combinator inside :has() matches untrusted HTML in quadratic time',
 		repo: 'facelessuser/soupsieve'
 	},
@@ -178,6 +233,7 @@ export const reports: Report[] = [
 	{
 		ghsa: 'GHSA-m3x9-938q-5767',
 		published: '2026-11-02',
+		cve: 'CVE-2026-126207',
 		title: 'CSS url() sanitization bypass via escaped parentheses in Loofah',
 		repo: 'flavorjones/loofah'
 	},
