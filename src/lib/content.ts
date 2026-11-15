@@ -40,6 +40,36 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-x7c8-2w57-prc2',
+		published: '2026-11-15',
+		title: 'Authenticated arbitrary file read via the download-file endpoint',
+		repo: 'aelassas/wexflow'
+	},
+	{
+		ghsa: 'GHSA-c3fq-8h7m-r632',
+		published: '2026-11-14',
+		title: 'Any user can self-assign the administrator role',
+		repo: 'reconmap/reconmap'
+	},
+	{
+		ghsa: 'GHSA-4gj5-m54m-9gq6',
+		published: '2026-11-13',
+		title: 'Wrong-typed aud, iss or sub claims skip validation (incomplete GHSA-h395 fix)',
+		repo: 'Keats/jsonwebtoken'
+	},
+	{
+		ghsa: 'GHSA-wpp8-2qcw-x4pc',
+		published: '2026-11-13',
+		title: 'Store-scoped OAuth tokens read other stores via MCP prompts',
+		repo: 'doobidoo/mcp-memory-service'
+	},
+	{
+		ghsa: 'GHSA-4g7r-95vv-3r46',
+		published: '2026-11-13',
+		title: 'Missing ownership check in updateCustomExercise overwrites arbitrary exercises',
+		repo: 'IgnisDa/ryot'
+	},
+	{
 		ghsa: 'GHSA-8g74-7x2p-wc6m',
 		published: '2026-11-12',
 		title: 'Public statistics page leaks private-item counts and activity timing',
