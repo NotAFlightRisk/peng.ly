@@ -40,6 +40,36 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-m4c5-8377-wwp7',
+		published: '2026-11-17',
+		title: 'Cross-tenant team join via /o/accept_invite',
+		repo: 'bionic-gpt/bionic-gpt'
+	},
+	{
+		ghsa: 'GHSA-8pq8-47w2-7767',
+		published: '2026-11-17',
+		title: 'Playlist save writes arbitrary .json via unvalidated date',
+		repo: 'ffplayout/ffplayout'
+	},
+	{
+		ghsa: 'GHSA-5m55-fhx5-4qph',
+		published: '2026-11-17',
+		title: 'Unauthenticated admin account creation via /init/ setup endpoint',
+		repo: 'Qexo/Qexo'
+	},
+	{
+		ghsa: 'GHSA-j65g-cqgc-43fr',
+		published: '2026-11-16',
+		title: 'Local root via command injection in cipi-app-notify',
+		repo: 'cipi-sh/cipi'
+	},
+	{
+		ghsa: 'GHSA-3fm3-83p4-jg22',
+		published: '2026-11-15',
+		title: 'Pre-2FA login token accepted as a full authentication token',
+		repo: 'Cleanuparr/Cleanuparr'
+	},
+	{
 		ghsa: 'GHSA-x7c8-2w57-prc2',
 		published: '2026-11-15',
 		title: 'Authenticated arbitrary file read via the download-file endpoint',
