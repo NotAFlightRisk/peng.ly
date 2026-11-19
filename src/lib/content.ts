@@ -40,6 +40,36 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-q93h-3h7f-7cg6',
+		published: '2026-11-19',
+		title: 'Unauthenticated panic in the DNSTap fast decoder',
+		repo: 'dmachard/DNS-collector'
+	},
+	{
+		ghsa: 'GHSA-9hqg-h8fp-p6rx',
+		published: '2026-11-18',
+		title: 'HTML-to-Markdown image rule interpolates alt/src/title unescaped, allowing XSS in rendered output',
+		repo: 'kepano/defuddle'
+	},
+	{
+		ghsa: 'GHSA-2g8r-hg58-xp6c',
+		published: '2026-11-18',
+		title: 'Account takeover via brute-forceable password-reset code',
+		repo: 'innocommerce/innoshop'
+	},
+	{
+		ghsa: 'GHSA-373g-4pf2-fj6m',
+		published: '2026-11-18',
+		title: 'Tar symlink escapes work directory in untar promotion step',
+		repo: 'akuity/kargo'
+	},
+	{
+		ghsa: 'GHSA-78c6-r2j5-6856',
+		published: '2026-11-17',
+		title: 'SSRF via outbound requests not covered by restrictedHTTPClient',
+		repo: 'artifacthub/hub'
+	},
+	{
 		ghsa: 'GHSA-m4c5-8377-wwp7',
 		published: '2026-11-17',
 		title: 'Cross-tenant team join via /o/accept_invite',
