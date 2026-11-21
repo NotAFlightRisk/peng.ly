@@ -105,6 +105,7 @@ export const reports: Report[] = [
 	{
 		ghsa: 'GHSA-x7c8-2w57-prc2',
 		published: '2026-11-15',
+		cve: 'CVE-2026-132268',
 		title: 'Authenticated arbitrary file read via the download-file endpoint',
 		repo: 'aelassas/wexflow'
 	},
