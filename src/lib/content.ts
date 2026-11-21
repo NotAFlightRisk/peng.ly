@@ -1,6 +1,7 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import floodpulse from '#lib/assets/floodpulse.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
+import exitformatShot from '#lib/assets/screenshots/exitformat.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
 import gitStarRankingShot from '#lib/assets/screenshots/git-star-ranking.webp';
@@ -981,6 +982,15 @@ export const projects: Project[] = [
 		site: 'https://security-reporting-toolbox.peng.ly',
 		logo: securityReportingToolbox,
 		screenshot: securityReportingToolboxShot
+	},
+	{
+		name: 'exitformat',
+		title: 'Exit Format',
+		description: 'How to get your data out of online services, what formats you get, and where you can take it',
+		repo: 'NotAFlightRisk/exitformat',
+		site: 'https://exitformat.peng.ly',
+		logo: 'https://exitformat.peng.ly/favicon.svg',
+		screenshot: exitformatShot
 	},
 	{
 		name: 'patchcall',
