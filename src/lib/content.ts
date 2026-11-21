@@ -1,5 +1,6 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import floodpulse from '#lib/assets/floodpulse.svg';
+import awesomePrivacyGuideShot from '#lib/assets/screenshots/awesome-privacy-guide.webp';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import enshittificationShot from '#lib/assets/screenshots/enshittification.webp';
 import exitformatShot from '#lib/assets/screenshots/exitformat.webp';
@@ -1046,6 +1047,15 @@ export const projects: Project[] = [
 		site: 'https://carbonara.peng.ly',
 		logo: 'https://carbonara.peng.ly/favicon.svg',
 		screenshot: carbonaraShot
+	},
+	{
+		name: 'awesome-privacy-guide',
+		title: 'Awesome Privacy Guide',
+		description: 'Private alternatives to the apps you use every day, from the Awesome Privacy list, in 8 languages',
+		repo: 'NotAFlightRisk/awesome-privacy-guide',
+		site: 'https://awesomeprivacy.peng.ly',
+		logo: 'https://awesomeprivacy.peng.ly/favicon.svg',
+		screenshot: awesomePrivacyGuideShot
 	},
 	{
 		name: 'color-code-convertor',
