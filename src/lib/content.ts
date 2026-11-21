@@ -1,6 +1,9 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import floodpulse from '#lib/assets/floodpulse.svg';
+import awesomePrivacyGuideShot from '#lib/assets/screenshots/awesome-privacy-guide.webp';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
+import enshittificationShot from '#lib/assets/screenshots/enshittification.webp';
+import exitformatShot from '#lib/assets/screenshots/exitformat.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
 import gitStarRankingShot from '#lib/assets/screenshots/git-star-ranking.webp';
@@ -102,6 +105,7 @@ export const reports: Report[] = [
 	{
 		ghsa: 'GHSA-x7c8-2w57-prc2',
 		published: '2026-11-15',
+		cve: 'CVE-2026-132268',
 		title: 'Authenticated arbitrary file read via the download-file endpoint',
 		repo: 'aelassas/wexflow'
 	},
@@ -983,6 +987,24 @@ export const projects: Project[] = [
 		screenshot: securityReportingToolboxShot
 	},
 	{
+		name: 'exitformat',
+		title: 'Exit Format',
+		description: 'How to get your data out of online services, what formats you get, and where you can take it',
+		repo: 'NotAFlightRisk/exitformat',
+		site: 'https://exitformat.peng.ly',
+		logo: 'https://exitformat.peng.ly/favicon.svg',
+		screenshot: exitformatShot
+	},
+	{
+		name: 'enshittification',
+		title: 'Enshittification Index',
+		description: 'Every price rise, new ad, paywall and API lockdown at the big services, dated, sourced and archived',
+		repo: 'NotAFlightRisk/enshittification',
+		site: 'https://enshittification.peng.ly',
+		logo: 'https://enshittification.peng.ly/icon.svg',
+		screenshot: enshittificationShot
+	},
+	{
 		name: 'patchcall',
 		title: 'Patchcall',
 		description: "Security advisories for the apps you self-host, flagged only when there's a fix for the version you run",
@@ -1026,6 +1048,15 @@ export const projects: Project[] = [
 		site: 'https://carbonara.peng.ly',
 		logo: 'https://carbonara.peng.ly/favicon.svg',
 		screenshot: carbonaraShot
+	},
+	{
+		name: 'awesome-privacy-guide',
+		title: 'Awesome Privacy Guide',
+		description: 'Private alternatives to the apps you use every day, from the Awesome Privacy list, in 8 languages',
+		repo: 'NotAFlightRisk/awesome-privacy-guide',
+		site: 'https://awesomeprivacy.peng.ly',
+		logo: 'https://awesomeprivacy.peng.ly/favicon.svg',
+		screenshot: awesomePrivacyGuideShot
 	},
 	{
 		name: 'color-code-convertor',
