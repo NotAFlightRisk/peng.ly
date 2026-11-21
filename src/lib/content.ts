@@ -1,6 +1,7 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import floodpulse from '#lib/assets/floodpulse.svg';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
+import enshittificationShot from '#lib/assets/screenshots/enshittification.webp';
 import exitformatShot from '#lib/assets/screenshots/exitformat.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
@@ -991,6 +992,15 @@ export const projects: Project[] = [
 		site: 'https://exitformat.peng.ly',
 		logo: 'https://exitformat.peng.ly/favicon.svg',
 		screenshot: exitformatShot
+	},
+	{
+		name: 'enshittification',
+		title: 'Enshittification Index',
+		description: 'Every price rise, new ad, paywall and API lockdown at the big services, dated, sourced and archived',
+		repo: 'NotAFlightRisk/enshittification',
+		site: 'https://enshittification.peng.ly',
+		logo: 'https://enshittification.peng.ly/icon.svg',
+		screenshot: enshittificationShot
 	},
 	{
 		name: 'patchcall',
