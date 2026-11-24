@@ -43,6 +43,66 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-8h9r-j624-v4jx',
+		published: '2026-11-24',
+		title: 'SQL injection via unbound callback_query message IDs',
+		repo: 'php-telegram-bot/core'
+	},
+	{
+		ghsa: 'GHSA-j5pm-6g43-8ccc',
+		published: '2026-11-24',
+		title: "Any actor can edit another user's pinned posts",
+		repo: 'snarfed/bridgy-fed'
+	},
+	{
+		ghsa: 'GHSA-2rff-7656-p73v',
+		published: '2026-11-24',
+		title: 'Key revocation ignored when a second copy is present',
+		repo: 'polyym/pgp-converter'
+	},
+	{
+		ghsa: 'GHSA-v7xr-mv9w-6q2h',
+		published: '2026-11-24',
+		title: 'Missing authorization on subtitle LiveView events',
+		repo: 'getmydia/mydia'
+	},
+	{
+		ghsa: 'GHSA-7xxq-wv8c-44r9',
+		published: '2026-11-23',
+		title: 'Path traversal in attachment upload overwrites arbitrary files',
+		repo: 'PhiTux/DailyTxT'
+	},
+	{
+		ghsa: 'GHSA-m5f8-qc9j-mc55',
+		published: '2026-11-22',
+		title: 'Unauthenticated RCE via upload filename in JPSeek analyzer',
+		repo: 'Zeecka/AperiSolve'
+	},
+	{
+		ghsa: 'GHSA-74pr-v2qv-pc7g',
+		published: '2026-11-21',
+		title: 'Arbitrary File Read (Path Traversal) via /file/*filepath endpoint',
+		repo: 'kerberos-io/agent'
+	},
+	{
+		ghsa: 'GHSA-q87w-x826-g4jr',
+		published: '2026-11-21',
+		title: 'Unauthenticated WebSocket exposes live camera stream',
+		repo: 'kerberos-io/agent'
+	},
+	{
+		ghsa: 'GHSA-4724-w94g-2rfp',
+		published: '2026-11-20',
+		title: 'Arbitrary code execution in load_from_mmar when loading an untrusted MMAR checkpoint',
+		repo: 'Project-MONAI/MONAI'
+	},
+	{
+		ghsa: 'GHSA-54wf-mg6h-56xh',
+		published: '2026-11-19',
+		title: 'IDOR in AdjustRecordsOdometer allows cross-user record tampering',
+		repo: 'hargata/lubelog'
+	},
+	{
 		ghsa: 'GHSA-q93h-3h7f-7cg6',
 		published: '2026-11-19',
 		title: 'Unauthenticated panic in the DNSTap fast decoder',
