@@ -1,5 +1,6 @@
 import colorCodeConvertor from '#lib/assets/color-code-convertor.svg';
 import floodpulse from '#lib/assets/floodpulse.svg';
+import afterlifeShot from '#lib/assets/screenshots/afterlife.webp';
 import awesomePrivacyGuideShot from '#lib/assets/screenshots/awesome-privacy-guide.webp';
 import carbonaraShot from '#lib/assets/screenshots/carbonara.webp';
 import enshittificationShot from '#lib/assets/screenshots/enshittification.webp';
@@ -7,6 +8,7 @@ import exitformatShot from '#lib/assets/screenshots/exitformat.webp';
 import fineprintShot from '#lib/assets/screenshots/fineprint.webp';
 import floodpulseShot from '#lib/assets/screenshots/floodpulse.webp';
 import gitStarRankingShot from '#lib/assets/screenshots/git-star-ranking.webp';
+import haveibeentrainedonShot from '#lib/assets/screenshots/haveibeentrainedon.webp';
 import hearsayShot from '#lib/assets/screenshots/hearsay.webp';
 import patchcallShot from '#lib/assets/screenshots/patchcall.webp';
 import pengTopShot from '#lib/assets/screenshots/peng-top.webp';
@@ -1065,6 +1067,15 @@ export const projects: Project[] = [
 		screenshot: enshittificationShot
 	},
 	{
+		name: 'haveibeentrainedon',
+		title: 'Have I Been Trained On?',
+		description: 'Find out if your writing is in AI training data, by searching the open training sets for your own sentences',
+		repo: 'NotAFlightRisk/haveibeentrainedon',
+		site: 'https://haveibeentrainedon.peng.ly',
+		logo: 'https://haveibeentrainedon.peng.ly/favicon.svg',
+		screenshot: haveibeentrainedonShot
+	},
+	{
 		name: 'patchcall',
 		title: 'Patchcall',
 		description: "Security advisories for the apps you self-host, flagged only when there's a fix for the version you run",
@@ -1108,6 +1119,15 @@ export const projects: Project[] = [
 		site: 'https://carbonara.peng.ly',
 		logo: 'https://carbonara.peng.ly/favicon.svg',
 		screenshot: carbonaraShot
+	},
+	{
+		name: 'afterlife',
+		title: 'Hacker Afterlife',
+		description: 'Every link that made Hacker News since 2007, checked to see which still work, which moved and which died',
+		repo: 'NotAFlightRisk/afterlife',
+		site: 'https://afterlife.peng.ly',
+		logo: 'https://afterlife.peng.ly/favicon.svg',
+		screenshot: afterlifeShot
 	},
 	{
 		name: 'awesome-privacy-guide',
