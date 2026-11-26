@@ -45,6 +45,67 @@ export type Report = { ghsa: string; cve?: string; published: string; title: str
 
 export const reports: Report[] = [
 	{
+		ghsa: 'GHSA-h58q-2qph-4pw8',
+		published: '2026-11-26',
+		title: 'orderBy HQL injection survives the CVE-2024-49203 whitespace fix',
+		repo: 'OpenFeign/querydsl'
+	},
+	{
+		ghsa: 'GHSA-3rx4-26mp-6828',
+		published: '2026-11-26',
+		title: 'PathBuilderValidator.DEFAULT refuses only property names containing whitespace, so the CVE-2024-49203 payload still injects with /**/ in place of its spaces',
+		repo: 'OpenFeign/querydsl'
+	},
+	{
+		ghsa: 'GHSA-73m6-r9g2-8gxc',
+		published: '2026-11-25',
+		title: "Crafted transaction ID crashes a Freenet node's network loop",
+		repo: 'freenet/freenet-core'
+	},
+	{
+		ghsa: 'GHSA-85hm-6qj2-4m78',
+		published: '2026-11-25',
+		cve: 'CVE-2026-109921',
+		title: 'system.setPillar writes Salt pillar data across the organization boundary',
+		repo: 'uyuni-project/uyuni'
+	},
+	{
+		ghsa: 'GHSA-qpm5-84hx-fcr6',
+		published: '2026-11-25',
+		title: 'OAuth tag grants did not restrict backend access on Streamable HTTP and SSE',
+		repo: '1mcp-app/agent'
+	},
+	{
+		ghsa: 'GHSA-wqjm-ghfp-p68x',
+		published: '2026-11-25',
+		title: 'Phone verification confirm step skips the ownership check',
+		repo: 'metadist/synaplan'
+	},
+	{
+		ghsa: 'GHSA-884j-3wwv-x5c4',
+		published: '2026-11-24',
+		title: 'Stored XSS in note markdown rendering ({@html} marked() without DOMPurify)',
+		repo: 'seanmorley15/AdventureLog'
+	},
+	{
+		ghsa: 'GHSA-g5cw-h4xv-c546',
+		published: '2026-11-24',
+		title: 'Unauthorized email lookup via API and comments fields',
+		repo: 'kiwitcms/kiwitcms'
+	},
+	{
+		ghsa: 'GHSA-jwf5-j4q9-4jj8',
+		published: '2026-11-24',
+		title: 'Pre-allocation of Vec uses QDCOUNT from header as-is',
+		repo: 'hickory-dns/hickory-dns'
+	},
+	{
+		ghsa: 'GHSA-73mj-fx3v-9h99',
+		published: '2026-11-24',
+		title: "User endpoints expose every account's email and admin status",
+		repo: 'endurain-project/endurain'
+	},
+	{
 		ghsa: 'GHSA-8h9r-j624-v4jx',
 		published: '2026-11-24',
 		title: 'SQL injection via unbound callback_query message IDs',
