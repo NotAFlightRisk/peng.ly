@@ -80,6 +80,7 @@
 	{/if}
 	<meta property="og:image:alt" content={image.alt} />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="fediverse:creator" content={site.fediverse} />
 	{@html person}
 	{@html tracker}
 	{@html prerender}

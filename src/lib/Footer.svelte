@@ -18,7 +18,7 @@
 
 	<ul>
 		{#each links as { name, url } (url)}
-			<li><a href={url} target="_blank">{name}</a></li>
+			<li><a href={url} target="_blank" rel="me">{name}</a></li>
 		{/each}
 	</ul>
 </footer>

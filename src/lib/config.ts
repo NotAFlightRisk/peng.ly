@@ -5,6 +5,7 @@ export const site = {
 	author: 'Iain',
 	github: 'NotAFlightRisk',
 	security: 'security@peng.ly',
+	fediverse: '@NotAFlightRisk@mastodon.social',
 	// tints the browser's toolbar, so keep it the same as --primary
 	color: '#febc20',
 	tagline: 'Noot noot',
@@ -178,4 +179,8 @@ export const feed = {
 	max: 100
 };
 
-export const links =[{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' }];
+export const links = [
+	{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' },
+	{ name: 'Mastodon', url: 'https://mastodon.social/@NotAFlightRisk' },
+	{ name: 'Bluesky', url: 'https://bsky.app/profile/peng-ly.bsky.social' }
+];
