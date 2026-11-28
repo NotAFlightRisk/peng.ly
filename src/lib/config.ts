@@ -182,5 +182,5 @@ export const feed = {
 export const links = [
 	{ name: 'GitHub', url: 'https://github.com/NotAFlightRisk' },
 	{ name: 'Mastodon', url: 'https://mastodon.social/@NotAFlightRisk' },
-	{ name: 'Bluesky', url: 'https://bsky.app/profile/peng-ly.bsky.social' }
+	{ name: 'Bluesky', url: 'https://bsky.app/profile/peng.ly' }
 ];
